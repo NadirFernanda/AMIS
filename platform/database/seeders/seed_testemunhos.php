@@ -14,7 +14,7 @@ $testemunhos = [
         'nome'    => 'Dra. Ana Ferreira',
         'cargo'   => 'Responsável de Formação',
         'empresa' => 'ENDIAMA E.P.',
-        'texto'   => 'Os cursos da AMIS são os mais completos e práticos que encontrámos no mercado angolano. Os nossos técnicos voltaram completamente transformados, com ferramentas reais para aplicar no dia a dia. Recomendamos sem hesitação a qualquer empresa do setor.',
+        'texto'   => 'Os cursos da AMIS são os mais completos e práticos que encontrámos no mercado angolano. Os nossos técnicos voltaram completamente transformados, com ferramentas reais para aplicar no dia a dia. Recomendamos sem hesitação a qualquer empresa do sector.',
         'rating'  => 5,
         'ativo'   => true,
     ],

@@ -9,7 +9,7 @@ return [
     'client_area'  => 'Área Cliente',
     'language'     => 'Idioma',
     'all_rights'   => 'Todos os direitos reservados.',
-    'footer_desc'  => 'Fornecemos soluções tecnológicas e consultoria de excelência para o setor mineiro angolano, promovendo inovação, eficiência e sustentabilidade.',
+    'footer_desc'  => 'Fornecemos soluções tecnológicas e consultoria de excelência para o sector mineiro angolano, promovendo inovação, eficiência e sustentabilidade.',
     'footer_services' => 'Serviços',
     'footer_contact'  => 'Contacto',
     'tech_consulting' => 'Consultoria Técnica',

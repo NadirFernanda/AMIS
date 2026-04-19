@@ -2,7 +2,7 @@
 return [
     'hero_badge'       => 'Consultoria · Formação · Tecnologia',
     'hero_title_1'     => 'Transformamos o',
-    'hero_title_2'     => 'Setor Mineiro',
+    'hero_title_2'     => 'Sector Mineiro',
     'hero_title_3'     => 'Angolano',
     'hero_desc'        => 'Consultoria técnica especializada, formação certificada e soluções tecnológicas para empresas e profissionais de mineração em Angola e na África Austral.',
     'cta_courses'      => 'Ver Cursos',
@@ -13,7 +13,7 @@ return [
     // Services section
     'services_label'   => 'O que fazemos',
     'services_title'   => 'Soluções Completas para a Mineração',
-    'services_desc'    => 'Da análise técnica à formação especializada, cobrimos todas as necessidades do setor mineiro angolano.',
+    'services_desc'    => 'Da análise técnica à formação especializada, cobrimos todas as necessidades do sector mineiro angolano.',
     'popular_badge'    => 'Popular',
     'from_price'       => 'A partir de',
     'learn_more'       => 'Saber mais',
@@ -45,13 +45,13 @@ return [
     // About section
     'about_label'      => 'Sobre a AMIS',
     'about_title'      => 'Especialistas Angolanos com Visão Global',
-    'about_desc1'      => 'Fundada por especialistas com formação internacional — incluindo engenharia pela Universidade de Pesquisas e Tecnologia de Moscovo (MISIS) e experiência na PHOSAGRO — a AMIS nasceu para ser a ponte entre a inovação tecnológica global e as necessidades reais do setor mineiro angolano.',
-    'about_desc2'      => 'A nossa missão é clara: tornar Angola e a África Austral mais competitivas no setor mineiro, através de profissionais qualificados, operações eficientes e tecnologia de ponta.',
+    'about_desc1'      => 'Fundada por especialistas com formação internacional — incluindo engenharia pela Universidade de Pesquisas e Tecnologia de Moscovo (MISIS) e experiência na PHOSAGRO — a AMIS nasceu para ser a ponte entre a inovação tecnológica global e as necessidades reais do sector mineiro angolano.',
+    'about_desc2'      => 'A nossa missão é clara: tornar Angola e a África Austral mais competitivas no sector mineiro, através de profissionais qualificados, operações eficientes e tecnologia de ponta.',
     'know_team'        => 'Conhecer a Equipa',
 
     // Values
     'values_1_title'   => 'Inovação Tecnológica',
-    'values_1_desc'    => 'Aplicamos as mais recentes tecnologias para resolver problemas reais do setor mineiro.',
+    'values_1_desc'    => 'Aplicamos as mais recentes tecnologias para resolver problemas reais do sector mineiro.',
     'values_2_title'   => 'Ética e Transparência',
     'values_2_desc'    => 'Operamos com total transparência em todos os projetos e relações com clientes.',
     'values_3_title'   => 'Sustentabilidade',

@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
-                        Fornecemos soluções tecnológicas e consultoria de excelência para o setor mineiro angolano, promovendo inovação, eficiência e sustentabilidade.
+                        Fornecemos soluções tecnológicas e consultoria de excelência para o sector mineiro angolano, promovendo inovação, eficiência e sustentabilidade.
                     </p>
                     <div class="flex gap-3 mt-6">
                         <a href="#" class="w-9 h-9 bg-white/10 hover:bg-[#c9922a] rounded-lg flex items-center justify-center transition-colors">

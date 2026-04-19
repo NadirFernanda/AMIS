@@ -1,13 +1,13 @@
 <?php
 return [
     'page_title'        => 'Serviços',
-    'page_desc'         => 'Consultoria técnica, formação e equipamentos para o setor mineiro angolano.',
+    'page_desc'         => 'Consultoria técnica, formação e equipamentos para o sector mineiro angolano.',
     'header_label'      => 'O que oferecemos',
     'header_title'      => 'Serviços',
     'header_desc'       => 'Soluções integradas para todas as etapas do ciclo mineiro.',
     'cons_label'        => 'Consultoria',
     'cons_title'        => 'Consultoria Técnica Especializada',
-    'cons_desc'         => 'A nossa equipa de engenheiros e geólogos com experiência internacional oferece serviços completos de consultoria para o setor mineiro.',
+    'cons_desc'         => 'A nossa equipa de engenheiros e geólogos com experiência internacional oferece serviços completos de consultoria para o sector mineiro.',
     'equip_label'       => 'Equipamentos',
     'equip_title'       => 'Acesso ao Melhor Equipamento do Mercado',
     'equip_desc'        => 'Conectamos empresas angolanas com os principais fabricantes internacionais de equipamentos mineiros e geotécnicos.',
