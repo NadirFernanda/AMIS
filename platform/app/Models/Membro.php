@@ -8,7 +8,7 @@ class Membro extends Model
 {
     protected $table = 'equipa';
 
-    protected $fillable = ['nome', 'slug', 'cargo', 'especializacao', 'bio', 'tags', 'cor', 'ordem', 'ativo'];
+    protected $fillable = ['nome', 'slug', 'foto', 'cargo', 'especializacao', 'bio', 'tags', 'cor', 'ordem', 'ativo'];
 
     protected $casts = ['tags' => 'array', 'ativo' => 'boolean'];
 

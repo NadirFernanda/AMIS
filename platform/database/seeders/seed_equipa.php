@@ -4,6 +4,7 @@ use App\Models\Membro;
 Membro::create([
     'nome'           => 'Engº MSc Puto Luís',
     'slug'           => 'puto-luis',
+    'foto'           => 'fundador-puto-luis.jpeg',
     'cargo'          => 'Co-Fundador',
     'especializacao' => 'Engenharia de Minas',
     'bio'            => 'Mestre em Engenharia de Minas pela Universidade de Pesquisas e Tecnologia de Moscovo (MISIS). Experiência em operações de mineração em grandes grupos internacionais incluindo PHOSAGRO. Especialista em planeamento mineiro e otimização de processos de lavra.',
@@ -16,6 +17,7 @@ Membro::create([
 Membro::create([
     'nome'           => 'Engª Fernanda Gonçalves',
     'slug'           => 'fernanda-goncalves',
+    'foto'           => 'fundadora-fernanda-goncalves.png',
     'cargo'          => 'Co-Fundadora',
     'especializacao' => 'Informática & Geologia',
     'bio'            => 'Especialista em integração de tecnologias digitais com geociências. Responsável pela plataforma digital da AMIS, sistemas de gestão de projetos e desenvolvimento de soluções de software para análise e modelagem geológica.',

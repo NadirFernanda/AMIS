@@ -26,11 +26,17 @@
             </a>
 
             <div class="flex flex-col sm:flex-row items-start sm:items-center gap-8">
-                {{-- Avatar --}}
+                {{-- Avatar / Photo --}}
+                @if($membro->foto)
+                <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-4 border-white/30 shrink-0 shadow-xl">
+                    <img src="/img/{{ $membro->foto }}" alt="{{ $membro->nome }}" class="w-full h-full object-cover object-top">
+                </div>
+                @else
                 <div class="w-28 h-28 rounded-2xl border-4 border-white/20 flex items-center justify-center text-3xl font-extrabold text-white shrink-0"
                      style="background-color: rgba(255,255,255,0.12); backdrop-filter: blur(8px);">
                     {{ $initials }}
                 </div>
+                @endif
                 <div>
                     <div class="inline-flex items-center gap-2 mb-3">
                         <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-white/15 text-white/80">
@@ -80,8 +86,12 @@
                 {{-- Sidebar info card --}}
                 <div>
                     <div class="rounded-2xl border border-slate-100 overflow-hidden shadow-sm sticky top-24">
-                        {{-- Card header --}}
-                        <div class="h-24 relative" style="background-color: {{ $cor }};">
+                        {{-- Card header with photo --}}
+                        <div class="h-48 relative overflow-hidden" style="background-color: {{ $cor }};">
+                            @if($membro->foto)
+                            <img src="/img/{{ $membro->foto }}" alt="{{ $membro->nome }}" class="w-full h-full object-cover object-top">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                            @else
                             <div class="absolute inset-0 opacity-20">
                                 <img src="/img/{{ $bgPhoto }}.jpeg" alt="" class="w-full h-full object-cover">
                             </div>
@@ -91,6 +101,7 @@
                                     {{ $initials }}
                                 </div>
                             </div>
+                            @endif
                         </div>
 
                         <div class="p-6 space-y-5 bg-white">

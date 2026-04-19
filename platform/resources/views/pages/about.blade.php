@@ -91,10 +91,17 @@
                     $tags = is_array($m->tags) ? $m->tags : [];
                 @endphp
                 <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-shadow">
-                    <div class="bg-gradient-to-br {{ $gradient }} h-40 flex items-center justify-center">
-                        <div class="w-20 h-20 rounded-full flex items-center justify-center border-4 border-white/20 text-white text-2xl font-extrabold" style="background-color: {{ $cor }}40;">
-                            {{ $initials }}
+                    <div class="bg-gradient-to-br {{ $gradient }} h-56 relative overflow-hidden">
+                        @if($m->foto)
+                        <img src="/img/{{ $m->foto }}" alt="{{ $m->nome }}" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        @else
+                        <div class="w-full h-full flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full flex items-center justify-center border-4 border-white/20 text-white text-2xl font-extrabold" style="background-color: {{ $cor }}40;">
+                                {{ $initials }}
+                            </div>
                         </div>
+                        @endif
                     </div>
                     <div class="p-8">
                         <div class="text-xs font-bold uppercase tracking-widest mb-1" style="color: {{ $cor }};">{{ $m->cargo }}</div>
