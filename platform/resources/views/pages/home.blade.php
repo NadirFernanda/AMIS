@@ -71,7 +71,7 @@
                 @endforelse
             </div>
             {{-- Mobile: single photo --}}
-            <div class="lg:hidden rounded-2xl overflow-hidden h-56">
+            <div class="lg:hidden rounded-2xl overflow-hidden h-56 relative">
                 <img src="/img/2.jpeg" alt="Mineração Angola" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0f2640]/60 to-transparent"></div>
             </div>
@@ -316,16 +316,20 @@
                 <p class="text-slate-300 leading-relaxed mb-10">
                     {{ __('home.about_desc2') }}
                 </p>
-                <div class="grid grid-cols-2 gap-6 mb-10">
+                <div class="grid grid-cols-2 gap-4 mb-10">
                     @foreach([
-                        ['CEO', 'Engº MSc Puto Luís', 'Eng. de Minas, MISIS Moscovo'],
-                        ['COO', 'Engª Fernanda Amorim', 'Informática e Geologia'],
-                    ] as [$role, $name, $spec])
-                    <div class="bg-white/10 rounded-xl p-4">
+                        ['Co-Fundador', 'Engº MSc Puto Luís', 'Eng. de Minas, MISIS Moscovo', 'puto-luis'],
+                        ['Co-Fundadora', 'Engª Fernanda Gonçalves', 'Informática & Geologia', 'fernanda-goncalves'],
+                    ] as [$role, $name, $spec, $slug])
+                    <a href="{{ route('fundador', $slug) }}" class="bg-white/10 hover:bg-white/20 rounded-xl p-4 transition-colors group block">
                         <span class="text-[#c9922a] text-xs font-bold uppercase">{{ $role }}</span>
-                        <div class="text-white font-semibold mt-1">{{ $name }}</div>
+                        <div class="text-white font-semibold mt-1 text-sm group-hover:text-[#c9922a] transition-colors">{{ $name }}</div>
                         <div class="text-slate-400 text-xs mt-0.5">{{ $spec }}</div>
-                    </div>
+                        <div class="text-slate-500 text-xs mt-2 flex items-center gap-1 group-hover:text-slate-300 transition-colors">
+                            Ver perfil
+                            <svg class="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </div>
+                    </a>
                     @endforeach
                 </div>
                 <a href="{{ route('about') }}" class="inline-flex items-center gap-2 bg-[#c9922a] hover:bg-[#a67a22] text-white font-semibold px-6 py-3 rounded-lg transition-colors text-sm">
@@ -355,7 +359,7 @@
             </div>
 
             {{-- Values --}}
-            <div class="grid grid-cols-1 gap-4">
+            <div class="grid grid-cols-1 gap-4 lg:col-span-2 lg:grid-cols-3">
                 @foreach([
                     [__('home.values_1_title'), __('home.values_1_desc'), 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'],
                     [__('home.values_2_title'), __('home.values_2_desc'), 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'],

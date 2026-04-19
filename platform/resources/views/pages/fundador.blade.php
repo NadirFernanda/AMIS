@@ -34,7 +34,7 @@
                 <div>
                     <div class="inline-flex items-center gap-2 mb-3">
                         <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-white/15 text-white/80">
-                            Co-Fundador{{ str_contains($membro->cargo, 'a') ? 'a' : '' }} · AMIS Angola
+                            {{ $membro->cargo }} · AMIS Angola
                         </span>
                     </div>
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-3">
