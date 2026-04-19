@@ -102,6 +102,14 @@
                     <label for="ativo" class="text-sm text-slate-600 cursor-pointer">Visível no site público</label>
                 </div>
 
+                <div class="flex items-center gap-3">
+                    <input type="hidden" name="destaque" value="0">
+                    <input type="checkbox" id="destaque" name="destaque" value="1"
+                        {{ old('destaque', $curso->destaque) ? 'checked' : '' }}
+                        class="w-4 h-4 rounded border-slate-300 text-[#c9922a] focus:ring-[#c9922a]/30 cursor-pointer">
+                    <label for="destaque" class="text-sm text-slate-600 cursor-pointer">Destacar na página inicial</label>
+                </div>
+
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">Ordem de exibição</label>
                     <input type="number" name="ordem" value="{{ old('ordem', $curso->ordem) }}" min="0"

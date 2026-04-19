@@ -52,22 +52,19 @@
 
             {{-- Stats card --}}
             <div class="grid grid-cols-2 gap-4">
-                @foreach([
-                    ['50+', 'Projetos Concluídos', 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z'],
-                    ['6', 'Cursos Certificados', 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'],
-                    ['200+', 'Profissionais Formados', 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'],
-                    ['4', 'Países de Atuação', 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064'],
-                ] as [$num, $label, $icon])
+                @forelse($stats as $stat)
                 <div class="bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/15 transition-colors">
                     <div class="w-10 h-10 bg-[#c9922a]/20 rounded-xl flex items-center justify-center mx-auto mb-3">
                         <svg class="w-5 h-5 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $icon }}"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $stat->icon_path ?? 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' }}"/>
                         </svg>
                     </div>
-                    <div class="text-3xl font-extrabold text-white mb-1">{{ $num }}</div>
-                    <div class="text-slate-400 text-xs">{{ $label }}</div>
+                    <div class="text-3xl font-extrabold text-white mb-1">{{ $stat->valor }}</div>
+                    <div class="text-slate-400 text-xs">{{ $stat->descricao }}</div>
                 </div>
-                @endforeach
+                @empty
+                <div class="col-span-2 text-center text-slate-400 text-sm py-4">Sem estatísticas.</div>
+                @endforelse
             </div>
         </div>
 
@@ -215,34 +212,34 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                @foreach([
-                    ['Engenharia de Beneficiamento Mineral', '3 meses', '$2,500', 'AKZ 2,000,000', 'Avançado', '#1a3a5c'],
-                    ['Geoprocessamento e Modelagem 3D', '2 meses', '$1,800', 'AKZ 1,440,000', 'Intermédio', '#0d8a7d'],
-                    ['Automação e Controle de Processos Minerais', '2 meses', '$2,000', 'AKZ 1,600,000', 'Intermédio', '#c9922a'],
-                ] as [$title, $duration, $priceUsd, $priceAoa, $level, $color])
+                @php $colors = ['#1a3a5c', '#0d8a7d', '#c9922a']; @endphp
+                @forelse($cursosDestaque as $i => $curso)
+                @php $cor = $colors[$i % 3]; @endphp
                 <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow group">
-                    <div class="h-40 flex items-center justify-center" style="background-color: {{ $color }}15;">
-                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background-color: {{ $color }}25;">
-                            <svg class="w-8 h-8" style="color: {{ $color }};" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="h-40 flex items-center justify-center" style="background-color: {{ $cor }}15;">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background-color: {{ $cor }}25;">
+                            <svg class="w-8 h-8" style="color: {{ $cor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
                             </svg>
                         </div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full" style="background-color: {{ $color }}15; color: {{ $color }};">{{ $level }}</span>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full" style="background-color: {{ $cor }}15; color: {{ $cor }};">{{ $curso->nivel ?? 'Profissional' }}</span>
+                            @if($curso->duracao)
                             <span class="text-slate-400 text-xs flex items-center gap-1">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                 </svg>
-                                {{ $duration }}
+                                {{ $curso->duracao }}
                             </span>
+                            @endif
                         </div>
-                        <h3 class="font-bold text-[#1a3a5c] mb-4 leading-snug group-hover:text-[#c9922a] transition-colors">{{ $title }}</h3>
+                        <h3 class="font-bold text-[#1a3a5c] mb-4 leading-snug group-hover:text-[#c9922a] transition-colors">{{ $curso->titulo }}</h3>
                         <div class="flex items-center justify-between">
                             <div>
-                                <div class="font-bold text-[#1a3a5c] text-lg">{{ $priceUsd }}</div>
-                                <div class="text-slate-400 text-xs">{{ $priceAoa }}</div>
+                                @if($curso->preco_usd)<div class="font-bold text-[#1a3a5c] text-lg">${{ number_format($curso->preco_usd, 0) }}</div>@endif
+                                @if($curso->preco_aoa)<div class="text-slate-400 text-xs">AKZ {{ number_format($curso->preco_aoa, 0) }}</div>@endif
                             </div>
                             <a href="{{ route('courses') }}" class="bg-[#1a3a5c] hover:bg-[#c9922a] text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">
                                 Ver curso
@@ -250,7 +247,12 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                <div class="col-span-3 text-center text-slate-400 py-16">
+                    <p>Nenhum curso em destaque configurado.</p>
+                    <a href="{{ route('courses') }}" class="text-[#c9922a] hover:underline mt-2 inline-block text-sm">Ver todos os cursos</a>
+                </div>
+                @endforelse
             </div>
         </div>
     </section>

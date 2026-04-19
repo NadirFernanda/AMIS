@@ -48,17 +48,14 @@
                     </p>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    @foreach([
-                        ['2024', 'Fundação da AMIS em Luanda'],
-                        ['50+', 'Projetos concluídos'],
-                        ['200+', 'Profissionais formados'],
-                        ['4', 'Países de atuação'],
-                    ] as [$num, $label])
+                    @forelse($stats as $stat)
                     <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-                        <div class="text-3xl font-extrabold text-[#1a3a5c] mb-2">{{ $num }}</div>
-                        <div class="text-slate-500 text-sm">{{ $label }}</div>
+                        <div class="text-3xl font-extrabold text-[#1a3a5c] mb-2">{{ $stat->valor }}</div>
+                        <div class="text-slate-500 text-sm">{{ $stat->descricao }}</div>
                     </div>
-                    @endforeach
+                    @empty
+                    <div class="col-span-2 text-center text-slate-400 text-sm py-4">Sem estatísticas configuradas.</div>
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -73,54 +70,40 @@
                 <p class="text-slate-500 mt-4 max-w-xl mx-auto">Profissionais angolanos com formação e experiência internacional, comprometidos com o desenvolvimento do país.</p>
             </div>
 
+            @php $teamColors = ['from-[#1a3a5c] to-[#0f2640]', 'from-[#0d8a7d] to-[#0a6e63]', 'from-[#c9922a] to-[#a67a22]']; @endphp
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {{-- CEO --}}
+                @forelse($equipa as $i => $m)
+                @php
+                    $gradient = $teamColors[$i % count($teamColors)];
+                    $initials = collect(explode(' ', $m->nome))->map(fn($w) => strtoupper(mb_substr($w,0,1)))->take(2)->implode('');
+                    $cor = $m->cor ?? '#1a3a5c';
+                    $tags = is_array($m->tags) ? $m->tags : [];
+                @endphp
                 <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-shadow">
-                    <div class="bg-gradient-to-br from-[#1a3a5c] to-[#0f2640] h-40 flex items-center justify-center">
-                        <div class="w-20 h-20 bg-[#c9922a]/20 rounded-full flex items-center justify-center border-4 border-[#c9922a]/40">
-                            <svg class="w-10 h-10 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                            </svg>
+                    <div class="bg-gradient-to-br {{ $gradient }} h-40 flex items-center justify-center">
+                        <div class="w-20 h-20 rounded-full flex items-center justify-center border-4 border-white/20 text-white text-2xl font-extrabold" style="background-color: {{ $cor }}40;">
+                            {{ $initials }}
                         </div>
                     </div>
                     <div class="p-8">
-                        <div class="text-[#c9922a] text-xs font-bold uppercase tracking-widest mb-1">CEO & Co-Fundador</div>
-                        <h3 class="text-2xl font-extrabold text-[#1a3a5c] mb-1">Engº MSc Puto Luís</h3>
-                        <p class="text-[#0d8a7d] text-sm font-medium mb-4">Engenheiro de Minas</p>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6">
-                            Mestre em Engenharia de Minas pela Universidade de Pesquisas e Tecnologia de Moscovo (MISIS). Experiência em operações de mineração em grandes grupos internacionais incluindo PHOSAGRO. Especialista em planeamento mineiro e otimização de processos de lavra.
-                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest mb-1" style="color: {{ $cor }};">{{ $m->cargo }}</div>
+                        <h3 class="text-2xl font-extrabold text-[#1a3a5c] mb-1">{{ $m->nome }}</h3>
+                        @if($m->especializacao)<p class="text-sm font-medium mb-4" style="color: {{ $cor }};">{{ $m->especializacao }}</p>@endif
+                        @if($m->bio)<p class="text-slate-500 text-sm leading-relaxed mb-6">{{ $m->bio }}</p>@endif
+                        @if(count($tags))
                         <div class="flex flex-wrap gap-2">
-                            @foreach(['Engenharia de Minas', 'Planeamento Mineiro', 'PHOSAGRO', 'MISIS Moscovo'] as $tag)
-                            <span class="bg-[#1a3a5c]/10 text-[#1a3a5c] text-xs px-2.5 py-1 rounded-full font-medium">{{ $tag }}</span>
+                            @foreach($tags as $tag)
+                            <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background-color: {{ $cor }}18; color: {{ $cor }};">{{ $tag }}</span>
                             @endforeach
                         </div>
+                        @endif
                     </div>
                 </div>
-
-                {{-- COO --}}
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-shadow">
-                    <div class="bg-gradient-to-br from-[#0d8a7d] to-[#0a6e63] h-40 flex items-center justify-center">
-                        <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center border-4 border-white/20">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <div class="text-[#0d8a7d] text-xs font-bold uppercase tracking-widest mb-1">COO & Co-Fundadora</div>
-                        <h3 class="text-2xl font-extrabold text-[#1a3a5c] mb-1">Engª Fernanda Amorim</h3>
-                        <p class="text-[#c9922a] text-sm font-medium mb-4">Informática & Geologia</p>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-6">
-                            Especialista em integração de tecnologias digitais com geociências. Responsável pela plataforma digital da AMIS, sistemas de gestão de projetos e desenvolvimento de soluções de software para análise e modelagem geológica.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            @foreach(['Tecnologia', 'Geologia', 'Transformação Digital', 'Gestão de Operações'] as $tag)
-                            <span class="bg-[#0d8a7d]/10 text-[#0d8a7d] text-xs px-2.5 py-1 rounded-full font-medium">{{ $tag }}</span>
-                            @endforeach
-                        </div>
-                    </div>
+                @empty
+                <div class="col-span-2 text-center text-slate-400 py-16">
+                    <p>Equipa ainda não configurada.</p>
                 </div>
+                @endforelse
             </div>
         </div>
     </section>

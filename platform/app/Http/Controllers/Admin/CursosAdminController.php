@@ -73,6 +73,7 @@ class CursosAdminController extends Controller
             'preco_aoa'  => 'required|string|max:50',
             'cor'        => 'required|string|max:30',
             'ativo'      => 'nullable|boolean',
+            'destaque'   => 'nullable|boolean',
             'ordem'      => 'nullable|integer|min:0',
         ]);
     }

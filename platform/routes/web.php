@@ -8,6 +8,10 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ClientesAdminController;
 use App\Http\Controllers\Admin\CursosAdminController;
 use App\Http\Controllers\Admin\ConsultoriasAdminController;
+use App\Http\Controllers\Admin\MensagensAdminController;
+use App\Http\Controllers\Admin\EquipaAdminController;
+use App\Http\Controllers\Admin\EquipamentosAdminController;
+use App\Http\Controllers\Admin\EstatisticasAdminController;
 
 Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/servicos', [PublicController::class, 'services'])->name('services');
@@ -46,4 +50,27 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
          ->parameters(['consultorias' => 'consultoria']);
     Route::patch('/consultorias/{consultoria}/toggle', [ConsultoriasAdminController::class, 'toggleAtivo'])
          ->name('consultorias.toggle');
+
+    // Mensagens de contacto
+    Route::get('/mensagens', [MensagensAdminController::class, 'index'])->name('mensagens.index');
+    Route::get('/mensagens/{mensagem}', [MensagensAdminController::class, 'show'])->name('mensagens.show');
+    Route::delete('/mensagens/{mensagem}', [MensagensAdminController::class, 'destroy'])->name('mensagens.destroy');
+
+    // Equipa
+    Route::resource('equipa', EquipaAdminController::class)
+         ->except(['show'])
+         ->parameters(['equipa' => 'membro']);
+    Route::patch('/equipa/{membro}/toggle', [EquipaAdminController::class, 'toggleAtivo'])
+         ->name('equipa.toggle');
+
+    // Equipamentos
+    Route::resource('equipamentos', EquipamentosAdminController::class)
+         ->except(['show'])
+         ->parameters(['equipamentos' => 'equipamento']);
+    Route::patch('/equipamentos/{equipamento}/toggle', [EquipamentosAdminController::class, 'toggleAtivo'])
+         ->name('equipamentos.toggle');
+
+    // Estatísticas
+    Route::get('/estatisticas', [EstatisticasAdminController::class, 'index'])->name('estatisticas.index');
+    Route::put('/estatisticas', [EstatisticasAdminController::class, 'update'])->name('estatisticas.update');
 });

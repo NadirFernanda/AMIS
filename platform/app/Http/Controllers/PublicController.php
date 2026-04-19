@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Curso;
 use App\Models\Consultoria;
+use App\Models\Membro;
+use App\Models\Equipamento;
+use App\Models\Estatistica;
+use App\Models\Mensagem;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -12,13 +16,19 @@ class PublicController extends Controller
 {
     public function home(): View
     {
-        return view('pages.home');
+        $cursosDestaque = Curso::destaque()->limit(3)->get();
+        if ($cursosDestaque->count() < 3) {
+            $cursosDestaque = Curso::ativos()->limit(3)->get();
+        }
+        $stats = Estatistica::todos();
+        return view('pages.home', compact('cursosDestaque', 'stats'));
     }
 
     public function services(): View
     {
         $consultorias = Consultoria::ativos()->get();
-        return view('pages.services', compact('consultorias'));
+        $equipamentos = Equipamento::ativos()->get();
+        return view('pages.services', compact('consultorias', 'equipamentos'));
     }
 
     public function courses(): View
@@ -29,7 +39,9 @@ class PublicController extends Controller
 
     public function about(): View
     {
-        return view('pages.about');
+        $equipa = Membro::ativos()->get();
+        $stats  = Estatistica::todos();
+        return view('pages.about', compact('equipa', 'stats'));
     }
 
     public function contact(): View
@@ -48,7 +60,13 @@ class PublicController extends Controller
         ]);
 
         // TODO: enviar email via Mail::to(...) na fase de produção
-        // Por agora apenas confirma recepção com flash message.
+        Mensagem::create([
+            'name'    => $validated['name'],
+            'email'   => $validated['email'],
+            'empresa' => $validated['company'] ?? null,
+            'subject' => $validated['subject'],
+            'message' => $validated['message'],
+        ]);
 
         return redirect()->route('contact')->with('success', 'Mensagem recebida! Entraremos em contacto em até 24 horas.');
     }
