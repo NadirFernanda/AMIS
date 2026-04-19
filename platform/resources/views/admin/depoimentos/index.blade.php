@@ -6,13 +6,21 @@
             <h1 class="text-2xl font-extrabold text-[#0f2640]">Depoimentos</h1>
             <p class="text-slate-500 text-sm mt-1">Testemunhos de clientes exibidos no site.</p>
         </div>
-        <a href="{{ route('admin.depoimentos.create') }}"
-           class="inline-flex items-center gap-2 bg-[#0f2640] hover:bg-[#1a3a5c] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
-            </svg>
-            Novo Depoimento
-        </a>
+        <div class="flex items-center gap-3">
+            @if($pendentes > 0)
+            <span class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold px-3 py-1.5 rounded-full">
+                <span class="w-1.5 h-1.5 bg-amber-400 rounded-full"></span>
+                {{ $pendentes }} pendente{{ $pendentes > 1 ? 's' : '' }}
+            </span>
+            @endif
+            <a href="{{ route('admin.depoimentos.create') }}"
+               class="inline-flex items-center gap-2 bg-[#0f2640] hover:bg-[#1a3a5c] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
+                </svg>
+                Novo Depoimento
+            </a>
+        </div>
     </div>
 
     @if(session('success'))

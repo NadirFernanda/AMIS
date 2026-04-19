@@ -41,6 +41,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 // Área Cliente (protegida)
 Route::middleware('auth')->prefix('cliente')->name('cliente.')->group(function () {
     Route::get('/dashboard', [ClienteController::class, 'dashboard'])->name('dashboard');
+    Route::post('/depoimento', [ClienteController::class, 'storeDepoimento'])->name('depoimento.store');
 });
 
 // Painel Admin (protegido: auth + admin)

@@ -10,8 +10,9 @@ class DepoimentosAdminController extends Controller
 {
     public function index()
     {
-        $depoimentos = Depoimento::orderBy('id')->paginate(20);
-        return view('admin.depoimentos.index', compact('depoimentos'));
+        $depoimentos = Depoimento::orderBy('ativo')->orderBy('id')->paginate(20);
+        $pendentes   = Depoimento::where('ativo', false)->count();
+        return view('admin.depoimentos.index', compact('depoimentos', 'pendentes'));
     }
 
     public function create()

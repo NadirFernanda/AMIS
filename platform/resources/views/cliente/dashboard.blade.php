@@ -98,4 +98,93 @@
             Contactar Equipa
         </a>
     </div>
+
+    {{-- DEPOIMENTO --}}
+    <div class="mt-8 bg-white rounded-2xl border border-slate-200 p-6" x-data="{ rating: {{ session('depoimento_enviado') ? 5 : 5 }} }">
+        <div class="flex items-center gap-3 mb-5">
+            <div class="w-9 h-9 bg-[#c9922a]/15 rounded-xl flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+            </div>
+            <div>
+                <h2 class="text-base font-bold text-[#1a3a5c]">Deixar um Depoimento</h2>
+                <p class="text-slate-400 text-xs">A sua opinião aparece no nosso site após revisão.</p>
+            </div>
+        </div>
+
+        @if(session('depoimento_enviado'))
+        <div class="bg-green-50 border border-green-200 text-green-700 rounded-xl px-4 py-3 text-sm flex items-center gap-2">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+            Obrigado! O seu depoimento foi enviado e será publicado após revisão da nossa equipa.
+        </div>
+        @elseif($jaDepoimentou)
+        <div class="bg-slate-50 border border-slate-200 text-slate-500 rounded-xl px-4 py-3 text-sm">
+            Já submeteu um depoimento. Obrigado pelo seu feedback!
+        </div>
+        @else
+        @if($errors->has('cargo') || $errors->has('texto') || $errors->has('rating'))
+        <div class="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 text-sm">
+            <ul class="list-disc list-inside space-y-0.5">
+                @foreach($errors->only(['cargo','texto','rating']) as $e)<li>{{ $e }}</li>@endforeach
+            </ul>
+        </div>
+        @endif
+
+        <form method="POST" action="{{ route('cliente.depoimento.store') }}" class="space-y-4">
+            @csrf
+
+            {{-- Nome e empresa (read-only, from account) --}}
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 mb-1">Nome</label>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-500">{{ $user->name }}</div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 mb-1">Empresa</label>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-500">{{ $user->empresa ?: '—' }}</div>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Cargo / Função *</label>
+                <input type="text" name="cargo" value="{{ old('cargo') }}" required maxlength="100"
+                       placeholder="ex: Director de Operações"
+                       class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#1a3a5c]/20 focus:border-[#1a3a5c] outline-none transition">
+            </div>
+
+            {{-- Star rating --}}
+            <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-2">Classificação *</label>
+                <div class="flex items-center gap-1">
+                    @for($i = 1; $i <= 5; $i++)
+                    <button type="button" @click="rating = {{ $i }}"
+                            class="w-8 h-8 transition-transform hover:scale-110">
+                        <svg :class="rating >= {{ $i }} ? 'text-[#c9922a]' : 'text-slate-300'" class="w-7 h-7 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </button>
+                    @endfor
+                </div>
+                <input type="hidden" name="rating" :value="rating">
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">A sua experiência com a AMIS *</label>
+                <textarea name="texto" rows="4" required minlength="20" maxlength="1000"
+                          placeholder="Descreva a sua experiência de trabalho connosco..."
+                          class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#1a3a5c]/20 focus:border-[#1a3a5c] outline-none transition resize-none">{{ old('texto') }}</textarea>
+                <p class="text-xs text-slate-400 mt-1">Mínimo 20 caracteres.</p>
+            </div>
+
+            <button type="submit"
+                    class="bg-[#1a3a5c] hover:bg-[#0f2640] text-white font-semibold text-sm px-6 py-2.5 rounded-xl transition-colors">
+                Enviar Depoimento
+            </button>
+        </form>
+        @endif
+    </div>
+
 </x-layouts.cliente>
