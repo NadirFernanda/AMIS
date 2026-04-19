@@ -26,60 +26,39 @@
             <p class="text-slate-500 max-w-2xl mb-16">Todos os pacotes incluem diagnóstico inicial e relatório técnico. Adaptamos cada solução às especificidades do projeto.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                @foreach([
-                    ['Básico', '$15,000', 'AKZ 12,000,000', 'Ideal para empresas em fase inicial', [
-                        'Diagnóstico técnico inicial',
-                        'Relatório de conformidade',
-                        'Análise de risco simplificada',
-                        '1 visita técnica ao terreno',
-                        'Suporte por email 30 dias',
-                    ], false, '#1a3a5c'],
-                    ['Intermédio', '$35,000', 'AKZ 28,000,000', 'Para operações em expansão', [
-                        'Tudo do Básico',
-                        'Planeamento mineiro detalhado',
-                        'Modelagem geológica 3D',
-                        '3 visitas técnicas ao terreno',
-                        'Suporte dedicado 90 dias',
-                        'Workshop de transferência de conhecimento',
-                    ], true, '#c9922a'],
-                    ['Avançado', '$75,000', 'AKZ 60,000,000', 'Solução completa end-to-end', [
-                        'Tudo do Intermédio',
-                        'Otimização de processos completa',
-                        'Instalação e comissionamento',
-                        'Visitas mensais por 12 meses',
-                        'Suporte técnico dedicado anual',
-                        'Formação da equipa interna',
-                        'Relatório de impacto anual',
-                    ], false, '#0d8a7d'],
-                ] as [$tier, $price, $priceAoa, $tagline, $features, $popular, $color])
-                <div class="rounded-2xl border-2 {{ $popular ? 'border-[#c9922a] shadow-2xl relative' : 'border-slate-200' }} overflow-hidden">
-                    @if($popular)
+                @forelse($consultorias as $c)
+                <div class="rounded-2xl border-2 {{ $c->destaque ? 'border-[#c9922a] shadow-2xl relative' : 'border-slate-200' }} overflow-hidden">
+                    @if($c->destaque)
                     <div class="bg-[#c9922a] text-white text-xs font-bold text-center py-2 uppercase tracking-wider">Mais Escolhido</div>
                     @endif
                     <div class="p-8">
-                        <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color: {{ $color }}">{{ $tier }}</div>
-                        <div class="text-4xl font-extrabold text-[#1a3a5c] mb-1">{{ $price }}</div>
-                        <div class="text-slate-400 text-sm mb-2">{{ $priceAoa }}</div>
-                        <div class="text-slate-500 text-sm mb-8">{{ $tagline }}</div>
+                        <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color: {{ $c->cor }}">{{ $c->titulo }}</div>
+                        <div class="text-4xl font-extrabold text-[#1a3a5c] mb-1">{{ $c->preco_usd }}</div>
+                        <div class="text-slate-400 text-sm mb-2">{{ $c->preco_aoa }}</div>
+                        <div class="text-slate-500 text-sm mb-8">{{ $c->tagline }}</div>
                         <ul class="space-y-3 mb-8">
-                            @foreach($features as $f)
+                            @foreach($c->features ?? [] as $f)
                             <li class="flex items-start gap-2 text-sm text-slate-600">
-                                <svg class="w-4 h-4 mt-0.5 shrink-0" style="color: {{ $color }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 mt-0.5 shrink-0" style="color: {{ $c->cor }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
                                 </svg>
                                 {{ $f }}
                             </li>
                             @endforeach
                         </ul>
-                        <a href="{{ route('contact') }}?servico={{ strtolower($tier) }}"
+                        <a href="{{ route('contact') }}?servico={{ strtolower($c->titulo) }}"
                            class="block w-full text-center font-semibold py-3 rounded-xl text-sm transition-colors"
-                           style="{{ $popular ? 'background-color: #c9922a; color: white;' : 'background-color: ' . $color . '15; color: ' . $color . ';' }}"
+                           style="{{ $c->destaque ? 'background-color: #c9922a; color: white;' : 'background-color: ' . $c->cor . '15; color: ' . $c->cor . ';' }}"
                            onmouseover="this.style.filter='brightness(0.9)'" onmouseout="this.style.filter='none'">
-                            Solicitar {{ $tier }}
+                            Solicitar {{ $c->titulo }}
                         </a>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                <div class="col-span-3 text-center py-16 text-slate-400">
+                    <p>Nenhum pacote de consultoria disponível de momento. Contacte-nos para uma proposta personalizada.</p>
+                </div>
+                @endforelse
             </div>
         </div>
     </section>

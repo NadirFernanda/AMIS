@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Curso;
+use App\Models\Consultoria;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -16,7 +17,8 @@ class PublicController extends Controller
 
     public function services(): View
     {
-        return view('pages.services');
+        $consultorias = Consultoria::ativos()->get();
+        return view('pages.services', compact('consultorias'));
     }
 
     public function courses(): View
