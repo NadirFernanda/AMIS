@@ -15,9 +15,11 @@ class Curso extends Model
     ];
 
     protected $casts = [
-        'topicos'  => 'array',
-        'ativo'    => 'boolean',
-        'destaque' => 'boolean',
+        'topicos'   => 'array',
+        'ativo'     => 'boolean',
+        'destaque'  => 'boolean',
+        'preco_usd' => 'float',
+        'preco_aoa' => 'float',
     ];
 
     public function scopeAtivos($query)

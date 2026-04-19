@@ -238,8 +238,8 @@
                         <h3 class="font-bold text-[#1a3a5c] mb-4 leading-snug group-hover:text-[#c9922a] transition-colors">{{ $curso->titulo }}</h3>
                         <div class="flex items-center justify-between">
                             <div>
-                                @if($curso->preco_usd)<div class="font-bold text-[#1a3a5c] text-lg">${{ number_format($curso->preco_usd, 0) }}</div>@endif
-                                @if($curso->preco_aoa)<div class="text-slate-400 text-xs">AKZ {{ number_format($curso->preco_aoa, 0) }}</div>@endif
+                                @if($curso->preco_usd)<div class="font-bold text-[#1a3a5c] text-lg">${{ number_format((float) $curso->preco_usd, 0) }}</div>@endif
+                                @if($curso->preco_aoa)<div class="text-slate-400 text-xs">AKZ {{ number_format((float) $curso->preco_aoa, 0) }}</div>@endif
                             </div>
                             <a href="{{ route('courses') }}" class="bg-[#1a3a5c] hover:bg-[#c9922a] text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">
                                 Ver curso
