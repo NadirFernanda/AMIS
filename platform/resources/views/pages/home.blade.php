@@ -2,7 +2,7 @@
     <x-slot name="title">{{ __('nav.home') }}</x-slot>
 
     {{-- HERO --}}
-    <section class="relative min-h-screen flex items-center overflow-hidden bg-[#0f2640]">
+    <section class="relative min-h-[82svh] sm:min-h-screen flex items-center overflow-hidden bg-[#0f2640]">
         {{-- Real photo background --}}
         <div class="absolute inset-0">
             <img src="/img/1.jpeg" alt="" class="w-full h-full object-cover opacity-50">
@@ -11,18 +11,18 @@
         {{-- Gradient accent --}}
         <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#c9922a] opacity-10 rounded-full blur-3xl"></div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
                 <span class="inline-flex items-center gap-2 bg-white/10 text-[#c9922a] text-xs font-semibold px-3 py-1.5 rounded-full mb-6 border border-[#c9922a]/30">
                     <span class="w-1.5 h-1.5 bg-[#c9922a] rounded-full animate-pulse"></span>
                     {{ __('home.hero_badge') }}
                 </span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-5 sm:mb-6">
                     {{ __('home.hero_title_1') }}
                     <span class="text-[#c9922a]">{{ __('home.hero_title_2') }}</span>
                     {{ __('home.hero_title_3') }}
                 </h1>
-                <p class="text-slate-300 text-lg leading-relaxed mb-10 max-w-xl">
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-7 sm:mb-10 max-w-xl">
                     {{ __('home.hero_desc') }}
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
@@ -71,14 +71,14 @@
                 @endforelse
             </div>
             {{-- Mobile: single photo --}}
-            <div class="lg:hidden rounded-2xl overflow-hidden h-56 relative">
+            <div class="lg:hidden rounded-2xl overflow-hidden h-40 relative">
                 <img src="/img/2.jpeg" alt="Mineração Angola" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0f2640]/60 to-transparent"></div>
             </div>
         </div>
 
         {{-- Scroll indicator --}}
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400">
+        <div class="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-slate-400">
             <span class="text-xs">{{ __('home.scroll_explore') }}</span>
             <div class="w-5 h-8 border border-slate-500 rounded-full flex items-start justify-center p-1">
                 <div class="w-1 h-2 bg-[#c9922a] rounded-full animate-bounce"></div>
