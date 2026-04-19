@@ -44,6 +44,17 @@ class PublicController extends Controller
         return view('pages.about', compact('equipa', 'stats'));
     }
 
+    public function fundador(string $slug): View
+    {
+        $membro   = Membro::where('slug', $slug)->where('ativo', true)->firstOrFail();
+        $initials = collect(explode(' ', $membro->nome))
+                        ->map(fn($w) => strtoupper(mb_substr($w, 0, 1)))
+                        ->filter(fn($c) => ctype_upper($c))
+                        ->take(2)
+                        ->implode('');
+        return view('pages.fundador', compact('membro', 'initials'));
+    }
+
     public function contact(): View
     {
         return view('pages.contact');

@@ -72,8 +72,8 @@
         </div>
     </section>
 
-    {{-- EQUIPA --}}
-    <section class="py-24 bg-slate-50">
+    {{-- FUNDADORES --}}
+    <section id="fundadores" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">{{ __('about.team_label') }}</span>
@@ -86,7 +86,7 @@
                 @forelse($equipa as $i => $m)
                 @php
                     $gradient = $teamColors[$i % count($teamColors)];
-                    $initials = collect(explode(' ', $m->nome))->map(fn($w) => strtoupper(mb_substr($w,0,1)))->take(2)->implode('');
+                    $initials = collect(explode(' ', $m->nome))->map(fn($w) => strtoupper(mb_substr($w,0,1)))->filter(fn($c) => ctype_upper($c))->take(2)->implode('');
                     $cor = $m->cor ?? '#1a3a5c';
                     $tags = is_array($m->tags) ? $m->tags : [];
                 @endphp
@@ -100,13 +100,23 @@
                         <div class="text-xs font-bold uppercase tracking-widest mb-1" style="color: {{ $cor }};">{{ $m->cargo }}</div>
                         <h3 class="text-2xl font-extrabold text-[#1a3a5c] mb-1">{{ $m->nome }}</h3>
                         @if($m->especializacao)<p class="text-sm font-medium mb-4" style="color: {{ $cor }};">{{ $m->especializacao }}</p>@endif
-                        @if($m->bio)<p class="text-slate-500 text-sm leading-relaxed mb-6">{{ $m->bio }}</p>@endif
+                        @if($m->bio)<p class="text-slate-500 text-sm leading-relaxed mb-6">{{ Str::limit($m->bio, 160) }}</p>@endif
                         @if(count($tags))
-                        <div class="flex flex-wrap gap-2">
+                        <div class="flex flex-wrap gap-2 mb-6">
                             @foreach($tags as $tag)
                             <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background-color: {{ $cor }}18; color: {{ $cor }};">{{ $tag }}</span>
                             @endforeach
                         </div>
+                        @endif
+                        @if($m->slug)
+                        <a href="{{ route('fundador', $m->slug) }}"
+                           class="inline-flex items-center gap-2 text-sm font-semibold transition-colors group"
+                           style="color: {{ $cor }};">
+                            {{ __('about.view_profile') }}
+                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </a>
                         @endif
                     </div>
                 </div>

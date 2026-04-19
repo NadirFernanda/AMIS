@@ -19,6 +19,7 @@ Route::get('/formacao', [PublicController::class, 'courses'])->name('courses');
 Route::get('/sobre', [PublicController::class, 'about'])->name('about');
 Route::get('/contacto', [PublicController::class, 'contact'])->name('contact');
 Route::post('/contacto', [PublicController::class, 'sendContact'])->name('contact.send');
+Route::get('/fundadores/{slug}', [PublicController::class, 'fundador'])->name('fundador');
 
 // Troca de idioma
 Route::get('/locale/{lang}', function (string $lang) {
