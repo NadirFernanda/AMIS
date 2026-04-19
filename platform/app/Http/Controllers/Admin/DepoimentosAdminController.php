@@ -24,7 +24,7 @@ class DepoimentosAdminController extends Controller
     {
         Depoimento::create($this->validated($request));
         return redirect()->route('admin.depoimentos.index')
-            ->with('success', 'Depoimento criado com sucesso.');
+            ->with('success', 'Testemunho criado com sucesso.');
     }
 
     public function edit(Depoimento $depoimento)
@@ -36,20 +36,20 @@ class DepoimentosAdminController extends Controller
     {
         $depoimento->update($this->validated($request));
         return redirect()->route('admin.depoimentos.index')
-            ->with('success', 'Depoimento atualizado com sucesso.');
+            ->with('success', 'Testemunho atualizado com sucesso.');
     }
 
     public function destroy(Depoimento $depoimento)
     {
         $depoimento->delete();
         return redirect()->route('admin.depoimentos.index')
-            ->with('success', 'Depoimento removido com sucesso.');
+            ->with('success', 'Testemunho removido com sucesso.');
     }
 
     public function toggleAtivo(Depoimento $depoimento)
     {
         $depoimento->update(['ativo' => ! $depoimento->ativo]);
-        return back()->with('success', 'Estado do depoimento atualizado.');
+        return back()->with('success', 'Estado do testemunho atualizado.');
     }
 
     private function validated(Request $request): array

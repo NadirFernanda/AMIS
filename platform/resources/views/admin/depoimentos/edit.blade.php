@@ -1,5 +1,5 @@
 <x-layouts.admin>
-    <x-slot name="title">Editar Depoimento</x-slot>
+    <x-slot name="title">Editar Testemunho</x-slot>
 
     <div class="flex items-center gap-3 mb-8">
         <a href="{{ route('admin.depoimentos.index') }}" class="text-slate-400 hover:text-[#0f2640] transition-colors">
@@ -8,7 +8,7 @@
             </svg>
         </a>
         <div>
-            <h1 class="text-2xl font-extrabold text-[#0f2640]">Editar Depoimento</h1>
+            <h1 class="text-2xl font-extrabold text-[#0f2640]">Editar Testemunho</h1>
             <p class="text-slate-400 text-sm">{{ $depoimento->nome }}</p>
         </div>
     </div>
@@ -51,7 +51,7 @@
             </div>
 
             <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Depoimento *</label>
+                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Testemunho *</label>
                 <textarea name="texto" rows="5" required
                           class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#1a3a5c]/20 focus:border-[#1a3a5c] outline-none transition resize-none">{{ old('texto', $depoimento->texto) }}</textarea>
             </div>

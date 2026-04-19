@@ -31,7 +31,7 @@ return [
 
     // Equipment card
     'equip_title'      => 'Equipamentos e Tecnologia',
-    'equip_desc'       => 'Conexão com fabricantes internacionais, consultoria de aquisição, instalação e suporte técnico especializado.',
+    'equip_desc'       => 'Ligação a fabricantes internacionais, consultoria de aquisição, instalação e suporte técnico especializado.',
     'equip_items'      => ['Catálogo internacional', 'Consultoria de aquisição', 'Instalação supervisionada', 'Suporte técnico anual'],
 
     // Featured courses

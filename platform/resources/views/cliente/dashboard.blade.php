@@ -99,7 +99,7 @@
         </a>
     </div>
 
-    {{-- DEPOIMENTO --}}
+    {{-- TESTEMUNHO --}}
     <div class="mt-8 bg-white rounded-2xl border border-slate-200 p-6" x-data="{ rating: {{ session('depoimento_enviado') ? 5 : 5 }} }">
         <div class="flex items-center gap-3 mb-5">
             <div class="w-9 h-9 bg-[#c9922a]/15 rounded-xl flex items-center justify-center shrink-0">
@@ -108,7 +108,7 @@
                 </svg>
             </div>
             <div>
-                <h2 class="text-base font-bold text-[#1a3a5c]">Deixar um Depoimento</h2>
+                <h2 class="text-base font-bold text-[#1a3a5c]">Deixar um Testemunho</h2>
                 <p class="text-slate-400 text-xs">A sua opinião aparece no nosso site após revisão.</p>
             </div>
         </div>
@@ -118,11 +118,11 @@
             <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
             </svg>
-            Obrigado! O seu depoimento foi enviado e será publicado após revisão da nossa equipa.
+            Obrigado! O seu testemunho foi enviado e será publicado após revisão da nossa equipa.
         </div>
         @elseif($jaDepoimentou)
         <div class="bg-slate-50 border border-slate-200 text-slate-500 rounded-xl px-4 py-3 text-sm">
-            Já submeteu um depoimento. Obrigado pelo seu feedback!
+            Já submeteu um testemunho. Obrigado pelo seu feedback.
         </div>
         @else
         @if($errors->has('cargo') || $errors->has('texto') || $errors->has('rating'))
@@ -181,7 +181,7 @@
 
             <button type="submit"
                     class="bg-[#1a3a5c] hover:bg-[#0f2640] text-white font-semibold text-sm px-6 py-2.5 rounded-xl transition-colors">
-                Enviar Depoimento
+                Enviar Testemunho
             </button>
         </form>
         @endif

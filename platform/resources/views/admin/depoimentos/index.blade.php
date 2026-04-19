@@ -1,9 +1,9 @@
 <x-layouts.admin>
-    <x-slot name="title">Depoimentos</x-slot>
+    <x-slot name="title">Testemunhos</x-slot>
 
     <div class="flex items-center justify-between mb-8">
         <div>
-            <h1 class="text-2xl font-extrabold text-[#0f2640]">Depoimentos</h1>
+            <h1 class="text-2xl font-extrabold text-[#0f2640]">Testemunhos</h1>
             <p class="text-slate-500 text-sm mt-1">Testemunhos de clientes exibidos no site.</p>
         </div>
         <div class="flex items-center gap-3">
@@ -18,7 +18,7 @@
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
                 </svg>
-                Novo Depoimento
+                Novo Testemunho
             </a>
         </div>
     </div>
@@ -74,7 +74,7 @@
                     Editar
                 </a>
                 <form method="POST" action="{{ route('admin.depoimentos.destroy', $d) }}"
-                      onsubmit="return confirm('Remover depoimento?')">
+                      onsubmit="return confirm('Remover testemunho?')">
                     @csrf @method('DELETE')
                     <button type="submit"
                         class="text-xs font-medium text-red-400 hover:text-red-600 px-3 py-1.5 rounded-lg hover:bg-red-50 transition-colors">
@@ -85,7 +85,7 @@
         </div>
         @empty
         <div class="col-span-3 bg-white rounded-2xl border border-slate-200 py-16 text-center text-slate-400">
-            <p class="text-sm">Sem depoimentos. <a href="{{ route('admin.depoimentos.create') }}" class="text-[#c9922a] hover:underline">Adicionar o primeiro</a>.</p>
+            <p class="text-sm">Sem testemunhos. <a href="{{ route('admin.depoimentos.create') }}" class="text-[#c9922a] hover:underline">Adicionar o primeiro</a>.</p>
         </div>
         @endforelse
     </div>
