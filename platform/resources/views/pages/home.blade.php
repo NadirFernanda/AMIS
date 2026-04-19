@@ -5,13 +5,13 @@
     <section class="relative min-h-screen flex items-center overflow-hidden bg-[#0f2640]">
         {{-- Real photo background --}}
         <div class="absolute inset-0">
-            <img src="/img/1.jpeg" alt="" class="w-full h-full object-cover opacity-25">
-            <div class="absolute inset-0 bg-gradient-to-r from-[#0f2640] via-[#0f2640]/80 to-[#0f2640]/40"></div>
+            <img src="/img/1.jpeg" alt="" class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0f2640]/95 via-[#0f2640]/60 to-[#0f2640]/20"></div>
         </div>
         {{-- Gradient accent --}}
         <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#c9922a] opacity-10 rounded-full blur-3xl"></div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
                 <span class="inline-flex items-center gap-2 bg-white/10 text-[#c9922a] text-xs font-semibold px-3 py-1.5 rounded-full mb-6 border border-[#c9922a]/30">
                     <span class="w-1.5 h-1.5 bg-[#c9922a] rounded-full animate-pulse"></span>
@@ -44,26 +44,26 @@
             </div>
 
             {{-- Hero right: photo collage + stats --}}
-            <div class="hidden lg:grid grid-cols-2 gap-4">
+            <div class="hidden lg:grid grid-cols-2 gap-3">
                 {{-- Photo mosaic --}}
-                <div class="col-span-2 grid grid-cols-2 gap-3 mb-1">
-                    <div class="rounded-2xl overflow-hidden h-44 relative">
+                <div class="col-span-2 grid grid-cols-2 gap-3">
+                    <div class="rounded-2xl overflow-hidden h-36 relative">
                         <img src="/img/2.jpeg" alt="Mineração Angola" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0f2640]/60 to-transparent"></div>
                     </div>
-                    <div class="rounded-2xl overflow-hidden h-44 relative">
+                    <div class="rounded-2xl overflow-hidden h-36 relative">
                         <img src="/img/3.jpeg" alt="Consultoria Mineira" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0f2640]/60 to-transparent"></div>
                     </div>
                 </div>
                 @forelse($stats as $stat)
-                <div class="bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/15 transition-colors">
-                    <div class="w-10 h-10 bg-[#c9922a]/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                <div class="bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-4 text-center hover:bg-white/15 transition-colors">
+                    <div class="w-9 h-9 bg-[#c9922a]/20 rounded-xl flex items-center justify-center mx-auto mb-2">
                         <svg class="w-5 h-5 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $stat->icon_path ?? 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' }}"/>
                         </svg>
                     </div>
-                    <div class="text-3xl font-extrabold text-white mb-1">{{ $stat->valor }}</div>
+                    <div class="text-2xl font-extrabold text-white mb-1">{{ $stat->valor }}</div>
                     <div class="text-slate-400 text-xs">{{ $stat->descricao }}</div>
                 </div>
                 @empty
