@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Depoimento;
+use App\Models\Testemunho;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
@@ -13,12 +13,12 @@ class ClienteController extends Controller
     {
         return view('cliente.dashboard', [
             'user'             => Auth::user(),
-            'jaDepoimentou'    => Depoimento::where('nome', Auth::user()->name)
+            'jaTestemunhou'    => Testemunho::where('nome', Auth::user()->name)
                                             ->exists(),
         ]);
     }
 
-    public function storeDepoimento(Request $request)
+    public function storeTestemunho(Request $request)
     {
         $user = Auth::user();
 
@@ -28,7 +28,7 @@ class ClienteController extends Controller
             'rating' => 'required|integer|min:1|max:5',
         ]);
 
-        Depoimento::create([
+        Testemunho::create([
             'nome'    => $user->name,
             'cargo'   => $validated['cargo'],
             'empresa' => $user->empresa ?? '',
@@ -37,6 +37,6 @@ class ClienteController extends Controller
             'ativo'   => false, // aguarda aprovação do admin
         ]);
 
-        return back()->with('depoimento_enviado', true);
+        return back()->with('testemunho_enviado', true);
     }
 }

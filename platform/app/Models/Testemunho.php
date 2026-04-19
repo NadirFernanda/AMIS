@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Depoimento extends Model
+class Testemunho extends Model
 {
-    protected $table = 'depoimentos';
+    protected $table = 'testemunhos';
 
     protected $fillable = ['nome', 'cargo', 'empresa', 'texto', 'rating', 'ativo'];
 

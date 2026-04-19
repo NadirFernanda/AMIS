@@ -100,7 +100,7 @@
     </div>
 
     {{-- TESTEMUNHO --}}
-    <div class="mt-8 bg-white rounded-2xl border border-slate-200 p-6" x-data="{ rating: {{ session('depoimento_enviado') ? 5 : 5 }} }">
+    <div class="mt-8 bg-white rounded-2xl border border-slate-200 p-6" x-data="{ rating: {{ session('testemunho_enviado') ? 5 : 5 }} }">
         <div class="flex items-center gap-3 mb-5">
             <div class="w-9 h-9 bg-[#c9922a]/15 rounded-xl flex items-center justify-center shrink-0">
                 <svg class="w-5 h-5 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,14 +113,14 @@
             </div>
         </div>
 
-        @if(session('depoimento_enviado'))
+        @if(session('testemunho_enviado'))
         <div class="bg-green-50 border border-green-200 text-green-700 rounded-xl px-4 py-3 text-sm flex items-center gap-2">
             <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
             </svg>
             Obrigado! O seu testemunho foi enviado e será publicado após revisão da nossa equipa.
         </div>
-        @elseif($jaDepoimentou)
+        @elseif($jaTestemunhou)
         <div class="bg-slate-50 border border-slate-200 text-slate-500 rounded-xl px-4 py-3 text-sm">
             Já submeteu um testemunho. Obrigado pelo seu feedback.
         </div>
@@ -133,7 +133,7 @@
         </div>
         @endif
 
-        <form method="POST" action="{{ route('cliente.depoimento.store') }}" class="space-y-4">
+        <form method="POST" action="{{ route('cliente.testemunho.store') }}" class="space-y-4">
             @csrf
 
             {{-- Nome e empresa (read-only, from account) --}}

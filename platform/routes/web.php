@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\EquipaAdminController;
 use App\Http\Controllers\Admin\EquipamentosAdminController;
 use App\Http\Controllers\Admin\EstatisticasAdminController;
 use App\Http\Controllers\Admin\ProjetosAdminController;
-use App\Http\Controllers\Admin\DepoimentosAdminController;
+use App\Http\Controllers\Admin\TestemunhosAdminController;
 
 Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/servicos', [PublicController::class, 'services'])->name('services');
@@ -41,7 +41,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 // Área Cliente (protegida)
 Route::middleware('auth')->prefix('cliente')->name('cliente.')->group(function () {
     Route::get('/dashboard', [ClienteController::class, 'dashboard'])->name('dashboard');
-    Route::post('/depoimento', [ClienteController::class, 'storeDepoimento'])->name('depoimento.store');
+    Route::post('/testemunho', [ClienteController::class, 'storeTestemunho'])->name('testemunho.store');
 });
 
 // Painel Admin (protegido: auth + admin)
@@ -95,10 +95,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::patch('/projetos/{projeto}/toggle', [ProjetosAdminController::class, 'toggleAtivo'])
          ->name('projetos.toggle');
 
-    // Depoimentos
-    Route::resource('depoimentos', DepoimentosAdminController::class)
+    // Testemunhos
+    Route::resource('testemunhos', TestemunhosAdminController::class)
          ->except(['show'])
-         ->parameters(['depoimentos' => 'depoimento']);
-    Route::patch('/depoimentos/{depoimento}/toggle', [DepoimentosAdminController::class, 'toggleAtivo'])
-         ->name('depoimentos.toggle');
+         ->parameters(['testemunhos' => 'testemunho']);
+    Route::patch('/testemunhos/{testemunho}/toggle', [TestemunhosAdminController::class, 'toggleAtivo'])
+         ->name('testemunhos.toggle');
 });

@@ -117,8 +117,8 @@
         </div>
     </section>
 
-    {{-- DEPOIMENTOS --}}
-    @if($depoimentos->count())
+    {{-- TESTEMUNHOS --}}
+    @if($testemunhos->count())
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -128,7 +128,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                @foreach($depoimentos as $d)
+                @foreach($testemunhos as $d)
                 <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-lg transition-shadow relative">
                     {{-- Quote mark --}}
                     <div class="absolute top-6 right-6 text-6xl font-serif text-[#1a3a5c]/10 leading-none select-none">"</div>

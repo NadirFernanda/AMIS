@@ -1,7 +1,7 @@
 <?php
-use App\Models\Depoimento;
+use App\Models\Testemunho;
 
-$depoimentos = [
+$testemunhos = [
     [
         'nome'    => 'Eng. Carlos Mendes',
         'cargo'   => 'Director de Operações',
@@ -28,8 +28,8 @@ $depoimentos = [
     ],
 ];
 
-foreach ($depoimentos as $d) {
-    Depoimento::create($d);
+foreach ($testemunhos as $d) {
+    Testemunho::create($d);
 }
 
-echo "Depoimentos criados com sucesso!\n";
+echo "Testemunhos criados com sucesso!\n";
