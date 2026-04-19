@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ClientesAdminController;
+use App\Http\Controllers\Admin\CursosAdminController;
 
 Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/servicos', [PublicController::class, 'services'])->name('services');
@@ -32,4 +33,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
          ->parameters(['clientes' => 'cliente']);
     Route::patch('/clientes/{cliente}/toggle', [ClientesAdminController::class, 'toggleStatus'])
          ->name('clientes.toggle');
+
+    Route::resource('cursos', CursosAdminController::class)
+         ->except(['show'])
+         ->parameters(['cursos' => 'curso']);
+    Route::patch('/cursos/{curso}/toggle', [CursosAdminController::class, 'toggleAtivo'])
+         ->name('cursos.toggle');
 });

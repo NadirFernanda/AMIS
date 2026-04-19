@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Curso;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -20,7 +21,8 @@ class PublicController extends Controller
 
     public function courses(): View
     {
-        return view('pages.courses');
+        $cursos = Curso::ativos()->get();
+        return view('pages.courses', compact('cursos'));
     }
 
     public function about(): View
