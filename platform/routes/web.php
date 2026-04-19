@@ -20,6 +20,15 @@ Route::get('/sobre', [PublicController::class, 'about'])->name('about');
 Route::get('/contacto', [PublicController::class, 'contact'])->name('contact');
 Route::post('/contacto', [PublicController::class, 'sendContact'])->name('contact.send');
 
+// Troca de idioma
+Route::get('/locale/{lang}', function (string $lang) {
+    $supported = ['pt', 'en', 'fr'];
+    if (in_array($lang, $supported)) {
+        session(['locale' => $lang]);
+    }
+    return redirect()->back()->withInput();
+})->name('locale.switch');
+
 // Auth
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'login'])->name('login.attempt')->middleware('guest');

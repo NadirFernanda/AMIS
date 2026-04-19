@@ -1,5 +1,5 @@
 <x-layouts.public>
-    <x-slot name="title">Início</x-slot>
+    <x-slot name="title">{{ __('nav.home') }}</x-slot>
 
     {{-- HERO --}}
     <section class="relative min-h-screen flex items-center overflow-hidden bg-[#0f2640]">
@@ -22,15 +22,15 @@
             <div>
                 <span class="inline-flex items-center gap-2 bg-white/10 text-[#c9922a] text-xs font-semibold px-3 py-1.5 rounded-full mb-6 border border-[#c9922a]/30">
                     <span class="w-1.5 h-1.5 bg-[#c9922a] rounded-full animate-pulse"></span>
-                    Consultoria · Formação · Tecnologia
+                    {{ __('home.hero_badge') }}
                 </span>
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-                    Transformamos o
-                    <span class="text-[#c9922a]">Setor Mineiro</span>
-                    Angolano
+                    {{ __('home.hero_title_1') }}
+                    <span class="text-[#c9922a]">{{ __('home.hero_title_2') }}</span>
+                    {{ __('home.hero_title_3') }}
                 </h1>
                 <p class="text-slate-300 text-lg leading-relaxed mb-10 max-w-xl">
-                    Consultoria técnica especializada, formação certificada e soluções tecnológicas para empresas e profissionais de mineração em Angola e na África Austral.
+                    {{ __('home.hero_desc') }}
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="{{ route('courses') }}"
@@ -38,11 +38,11 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                         </svg>
-                        Ver Cursos
+                        {{ __('home.cta_courses') }}
                     </a>
                     <a href="{{ route('services') }}#consultoria"
                        class="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-7 py-3.5 rounded-lg transition-colors text-sm">
-                        Solicitar Consultoria
+                        {{ __('home.cta_consulting') }}
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
@@ -63,14 +63,14 @@
                     <div class="text-slate-400 text-xs">{{ $stat->descricao }}</div>
                 </div>
                 @empty
-                <div class="col-span-2 text-center text-slate-400 text-sm py-4">Sem estatísticas.</div>
+                <div class="col-span-2 text-center text-slate-400 text-sm py-4">{{ __('home.no_stats') }}</div>
                 @endforelse
             </div>
         </div>
 
         {{-- Scroll indicator --}}
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400">
-            <span class="text-xs">Explorar</span>
+            <span class="text-xs">{{ __('home.scroll_explore') }}</span>
             <div class="w-5 h-8 border border-slate-500 rounded-full flex items-start justify-center p-1">
                 <div class="w-1 h-2 bg-[#c9922a] rounded-full animate-bounce"></div>
             </div>
@@ -81,9 +81,9 @@
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">O que fazemos</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a3a5c] mt-2">Soluções Completas para a Mineração</h2>
-                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Da análise técnica à formação especializada, cobrimos todas as necessidades do setor mineiro angolano.</p>
+                <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">{{ __('home.services_label') }}</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a3a5c] mt-2">{{ __('home.services_title') }}</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">{{ __('home.services_desc') }}</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -94,10 +94,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-[#1a3a5c] mb-3">Consultoria Técnica</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Diagnóstico, estudos de viabilidade e otimização de operações mineiras. Equipa com experiência internacional.</p>
+                    <h3 class="text-xl font-bold text-[#1a3a5c] mb-3">{{ __('home.cons_title') }}</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">{{ __('home.cons_desc') }}</p>
                     <div class="space-y-2 mb-6">
-                        @foreach(['Diagnóstico de operações', 'Estudos de viabilidade', 'Planeamento mineiro', 'Auditorias técnicas'] as $item)
+                        @foreach(__('home.cons_items') as $item)
                         <div class="flex items-center gap-2 text-sm text-slate-600">
                             <svg class="w-4 h-4 text-[#0d8a7d] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
@@ -108,12 +108,12 @@
                     </div>
                     <div class="border-t border-slate-100 pt-5 flex items-end justify-between">
                         <div>
-                            <span class="text-xs text-slate-400">A partir de</span>
+                            <span class="text-xs text-slate-400">{{ __('home.from_price') }}</span>
                             <div class="text-[#1a3a5c] font-bold text-lg">$15,000 USD</div>
                         </div>
                         <a href="{{ route('services') }}#consultoria"
                            class="text-[#1a3a5c] hover:text-[#c9922a] text-sm font-semibold flex items-center gap-1 transition-colors">
-                            Saber mais
+                            {{ __('home.learn_more') }}
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
@@ -123,17 +123,17 @@
 
                 {{-- Formação --}}
                 <div class="group bg-[#1a3a5c] border border-[#1a3a5c] rounded-2xl p-8 hover:shadow-xl transition-all relative overflow-hidden">
-                    <div class="absolute top-4 right-4 bg-[#c9922a] text-white text-xs font-bold px-2.5 py-1 rounded-full">Popular</div>
+                    <div class="absolute top-4 right-4 bg-[#c9922a] text-white text-xs font-bold px-2.5 py-1 rounded-full">{{ __('home.popular_badge') }}</div>
                     <div class="absolute bottom-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mb-10"></div>
                     <div class="w-14 h-14 bg-[#c9922a]/20 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="w-7 h-7 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Formação Profissional</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">Cursos online e presenciais em engenharia de minas, geociências e tecnologias digitais aplicadas à mineração.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">{{ __('home.train_title') }}</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">{{ __('home.train_desc') }}</p>
                     <div class="space-y-2 mb-6">
-                        @foreach(['6 cursos certificados', 'Certificado verificável', 'Online e presencial', 'Instrutores especializados'] as $item)
+                        @foreach(__('home.train_items') as $item)
                         <div class="flex items-center gap-2 text-sm text-slate-300">
                             <svg class="w-4 h-4 text-[#c9922a] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
@@ -144,12 +144,12 @@
                     </div>
                     <div class="border-t border-white/10 pt-5 flex items-end justify-between">
                         <div>
-                            <span class="text-xs text-slate-400">A partir de</span>
+                            <span class="text-xs text-slate-400">{{ __('home.from_price') }}</span>
                             <div class="text-white font-bold text-lg">$1,000 USD</div>
                         </div>
                         <a href="{{ route('courses') }}"
                            class="text-[#c9922a] hover:text-white text-sm font-semibold flex items-center gap-1 transition-colors">
-                            Ver cursos
+                            {{ __('home.see_courses') }}
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
@@ -165,10 +165,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-[#1a3a5c] mb-3">Equipamentos e Tecnologia</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Conexão com fabricantes internacionais, consultoria de aquisição, instalação e suporte técnico especializado.</p>
+                    <h3 class="text-xl font-bold text-[#1a3a5c] mb-3">{{ __('home.equip_title') }}</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">{{ __('home.equip_desc') }}</p>
                     <div class="space-y-2 mb-6">
-                        @foreach(['Catálogo internacional', 'Consultoria de aquisição', 'Instalação supervisionada', 'Suporte técnico anual'] as $item)
+                        @foreach(__('home.equip_items') as $item)
                         <div class="flex items-center gap-2 text-sm text-slate-600">
                             <svg class="w-4 h-4 text-[#0d8a7d] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
@@ -179,12 +179,12 @@
                     </div>
                     <div class="border-t border-slate-100 pt-5 flex items-end justify-between">
                         <div>
-                            <span class="text-xs text-slate-400">A partir de</span>
+                            <span class="text-xs text-slate-400">{{ __('home.from_price') }}</span>
                             <div class="text-[#0d8a7d] font-bold text-lg">$5,000 USD</div>
                         </div>
                         <a href="{{ route('services') }}#equipamentos"
                            class="text-[#0d8a7d] hover:text-[#c9922a] text-sm font-semibold flex items-center gap-1 transition-colors">
-                            Saber mais
+                            {{ __('home.learn_more') }}
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
@@ -200,11 +200,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
                 <div>
-                    <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">Formação</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a3a5c] mt-2">Cursos em Destaque</h2>
+                    <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">{{ __('home.courses_label') }}</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a3a5c] mt-2">{{ __('home.courses_title') }}</h2>
                 </div>
                 <a href="{{ route('courses') }}" class="text-[#1a3a5c] hover:text-[#c9922a] font-semibold text-sm flex items-center gap-1 transition-colors shrink-0">
-                    Ver todos os cursos
+                    {{ __('home.see_all_courses') }}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
@@ -242,14 +242,14 @@
                                 @if($curso->preco_aoa)<div class="text-slate-400 text-xs">AKZ {{ number_format((float) $curso->preco_aoa, 0) }}</div>@endif
                             </div>
                             <a href="{{ route('courses') }}" class="bg-[#1a3a5c] hover:bg-[#c9922a] text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">
-                                Ver curso
+                                {{ __('home.see_course') }}
                             </a>
                         </div>
                     </div>
                 </div>
                 @empty
                 <div class="col-span-3 text-center text-slate-400 py-16">
-                    <p>Nenhum curso em destaque configurado.</p>
+                    <p>{{ __('home.no_courses') }}</p>
                     <a href="{{ route('courses') }}" class="text-[#c9922a] hover:underline mt-2 inline-block text-sm">Ver todos os cursos</a>
                 </div>
                 @endforelse
@@ -261,13 +261,13 @@
     <section class="py-24 bg-[#1a3a5c]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-                <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">Sobre a AMIS</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-6">Especialistas Angolanos com Visão Global</h2>
+                <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">{{ __('home.about_label') }}</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-6">{{ __('home.about_title') }}</h2>
                 <p class="text-slate-300 leading-relaxed mb-6">
-                    Fundada por especialistas com formação internacional — incluindo engenharia pela Universidade de Pesquisas e Tecnologia de Moscovo (MISIS) e experiência na PHOSAGRO — a AMIS nasceu para ser a ponte entre a inovação tecnológica global e as necessidades reais do setor mineiro angolano.
+                    {{ __('home.about_desc1') }}
                 </p>
                 <p class="text-slate-300 leading-relaxed mb-10">
-                    A nossa missão é clara: tornar Angola e a África Austral mais competitivas no setor mineiro, através de profissionais qualificados, operações eficientes e tecnologia de ponta.
+                    {{ __('home.about_desc2') }}
                 </p>
                 <div class="grid grid-cols-2 gap-6 mb-10">
                     @foreach([
@@ -282,7 +282,7 @@
                     @endforeach
                 </div>
                 <a href="{{ route('about') }}" class="inline-flex items-center gap-2 bg-[#c9922a] hover:bg-[#a67a22] text-white font-semibold px-6 py-3 rounded-lg transition-colors text-sm">
-                    Conhecer a Equipa
+                    {{ __('home.know_team') }}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
@@ -292,9 +292,9 @@
             {{-- Values --}}
             <div class="grid grid-cols-1 gap-4">
                 @foreach([
-                    ['Inovação Tecnológica', 'Aplicamos as mais recentes tecnologias para resolver problemas reais do setor mineiro.', 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'],
-                    ['Ética e Transparência', 'Operamos com total transparência em todos os projetos e relações com clientes.', 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'],
-                    ['Sustentabilidade', 'Todas as nossas soluções integram práticas ambientais responsáveis e sustentáveis.', 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'],
+                    [__('home.values_1_title'), __('home.values_1_desc'), 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'],
+                    [__('home.values_2_title'), __('home.values_2_desc'), 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'],
+                    [__('home.values_3_title'), __('home.values_3_desc'), 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'],
                 ] as [$title, $desc, $icon])
                 <div class="flex gap-4 bg-white/5 rounded-2xl p-5 hover:bg-white/10 transition-colors">
                     <div class="w-10 h-10 bg-[#c9922a]/20 rounded-xl flex items-center justify-center shrink-0">
@@ -315,19 +315,16 @@
     {{-- CTA FINAL --}}
     <section class="py-20 bg-[#c9922a]">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Pronto para transformar as suas operações?</h2>
-            <p class="text-white/80 text-lg mb-10">Fale connosco e descubra como a AMIS pode ajudar a sua empresa ou carreira.</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">{{ __('home.cta_section_title') }}</h2>
+            <p class="text-white/80 text-lg mb-10">{{ __('home.cta_section_desc') }}</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="{{ route('services') }}#consultoria"
                    class="inline-flex items-center justify-center gap-2 bg-white text-[#c9922a] hover:bg-slate-100 font-bold px-8 py-3.5 rounded-lg transition-colors text-sm shadow-lg">
-                    Solicitar Consultoria
+                    {{ __('home.cta_contact') }}
                 </a>
-                <a href="{{ route('contact') }}"
+                <a href="{{ route('services') }}"
                    class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-[#c9922a] font-bold px-8 py-3.5 rounded-lg transition-colors text-sm">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    Entrar em Contacto
+                    {{ __('home.cta_know_services') }}
                 </a>
             </div>
         </div>

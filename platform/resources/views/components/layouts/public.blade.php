@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt" class="scroll-smooth">
+<html lang="{{ app()->getLocale() }}" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,20 +33,30 @@
 
                 {{-- Desktop links --}}
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="{{ route('home') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Início</a>
-                    <a href="{{ route('services') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Serviços</a>
-                    <a href="{{ route('courses') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Formação</a>
-                    <a href="{{ route('about') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Sobre</a>
-                    <a href="{{ route('contact') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Contacto</a>
+                    <a href="{{ route('home') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('home') ? 'text-white' : '' }}">{{ __('nav.home') }}</a>
+                    <a href="{{ route('services') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('services') ? 'text-white' : '' }}">{{ __('nav.services') }}</a>
+                    <a href="{{ route('courses') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('courses') ? 'text-white' : '' }}">{{ __('nav.training') }}</a>
+                    <a href="{{ route('about') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('about') ? 'text-white' : '' }}">{{ __('nav.about') }}</a>
+                    <a href="{{ route('contact') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('contact') ? 'text-white' : '' }}">{{ __('nav.contact') }}</a>
                 </div>
 
-                {{-- CTA + Mobile --}}
+                {{-- CTA + Language switcher + Mobile --}}
                 <div class="flex items-center gap-3">
+                    {{-- Language switcher --}}
+                    <div class="hidden md:flex items-center gap-1 bg-white/10 rounded-lg p-1" x-data>
+                        @foreach(['pt' => 'PT', 'en' => 'EN', 'fr' => 'FR'] as $code => $label)
+                        <a href="{{ route('locale.switch', $code) }}"
+                           class="text-xs font-bold px-2.5 py-1 rounded-md transition-colors
+                                  {{ app()->getLocale() === $code ? 'bg-[#c9922a] text-white' : 'text-slate-300 hover:text-white hover:bg-white/10' }}">
+                            {{ $label }}
+                        </a>
+                        @endforeach
+                    </div>
                     <a href="{{ Auth::check() ? route('cliente.dashboard') : route('login') }}" class="hidden md:inline-flex items-center gap-2 bg-[#c9922a] hover:bg-[#a67a22] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                         </svg>
-                        Área Cliente
+                        {{ __('nav.client_area') }}
                     </a>
                     <button @click="mobileOpen = !mobileOpen" class="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors">
                         <svg x-show="!mobileOpen" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,12 +73,22 @@
         {{-- Mobile menu --}}
         <div x-show="mobileOpen" x-transition class="md:hidden border-t border-white/10 bg-[#0f2640]">
             <div class="px-4 py-4 flex flex-col gap-3">
-                <a href="{{ route('home') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Início</a>
-                <a href="{{ route('services') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Serviços</a>
-                <a href="{{ route('courses') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Formação</a>
-                <a href="{{ route('about') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Sobre</a>
-                <a href="{{ route('contact') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Contacto</a>
-                <a href="{{ Auth::check() ? route('cliente.dashboard') : route('login') }}" class="bg-[#c9922a] text-white text-sm font-semibold px-4 py-2.5 rounded-lg text-center mt-2">Área Cliente</a>
+                <a href="{{ route('home') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.home') }}</a>
+                <a href="{{ route('services') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.services') }}</a>
+                <a href="{{ route('courses') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.training') }}</a>
+                <a href="{{ route('about') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.about') }}</a>
+                <a href="{{ route('contact') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.contact') }}</a>
+                <a href="{{ Auth::check() ? route('cliente.dashboard') : route('login') }}" class="bg-[#c9922a] text-white text-sm font-semibold px-4 py-2.5 rounded-lg text-center mt-2">{{ __('nav.client_area') }}</a>
+                {{-- Mobile language switcher --}}
+                <div class="flex gap-2 pt-2 border-t border-white/10">
+                    @foreach(['pt' => 'PT', 'en' => 'EN', 'fr' => 'FR'] as $code => $label)
+                    <a href="{{ route('locale.switch', $code) }}"
+                       class="text-xs font-bold px-3 py-1.5 rounded-lg transition-colors
+                              {{ app()->getLocale() === $code ? 'bg-[#c9922a] text-white' : 'bg-white/10 text-slate-300 hover:bg-white/20' }}">
+                        {{ $label }}
+                    </a>
+                    @endforeach
+                </div>
             </div>
         </div>
     </nav>
@@ -98,7 +118,7 @@
                         </div>
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
-                        Fornecemos soluções tecnológicas e consultoria de excelência para o setor mineiro angolano, promovendo inovação, eficiência e sustentabilidade.
+                        {{ __('nav.footer_desc') }}
                     </p>
                     <div class="flex gap-3 mt-6">
                         <a href="#" class="w-9 h-9 bg-white/10 hover:bg-[#c9922a] rounded-lg flex items-center justify-center transition-colors">
@@ -112,18 +132,18 @@
 
                 {{-- Links --}}
                 <div>
-                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Serviços</h4>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">{{ __('nav.footer_services') }}</h4>
                     <ul class="space-y-2">
-                        <li><a href="{{ route('services') }}#consultoria" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">Consultoria Técnica</a></li>
-                        <li><a href="{{ route('courses') }}" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">Formação Profissional</a></li>
-                        <li><a href="{{ route('services') }}#equipamentos" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">Equipamentos</a></li>
-                        <li><a href="{{ route('about') }}" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">Sobre a AMIS</a></li>
+                        <li><a href="{{ route('services') }}#consultoria" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">{{ __('nav.tech_consulting') }}</a></li>
+                        <li><a href="{{ route('courses') }}" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">{{ __('nav.professional_training') }}</a></li>
+                        <li><a href="{{ route('services') }}#equipamentos" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">{{ __('nav.equipment') }}</a></li>
+                        <li><a href="{{ route('about') }}" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">{{ __('nav.about_amis') }}</a></li>
                     </ul>
                 </div>
 
                 {{-- Contact --}}
                 <div>
-                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Contacto</h4>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">{{ __('nav.footer_contact') }}</h4>
                     <ul class="space-y-3">
                         <li class="flex items-start gap-2 text-slate-400 text-sm">
                             <svg class="w-4 h-4 mt-0.5 shrink-0 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,11 +159,18 @@
                             info@amis.ao
                         </li>
                     </ul>
+                    <div class="mt-4 bg-white/5 rounded-xl p-4 text-xs text-slate-400 space-y-1.5">
+                        <p class="text-slate-300 font-semibold text-xs uppercase tracking-wide mb-2">{{ __('nav.office_hours') }}</p>
+                        <div class="flex justify-between"><span>{{ __('nav.mon_fri') }}</span><span class="text-white">08:00–17:00</span></div>
+                        <div class="flex justify-between"><span>{{ __('nav.saturday') }}</span><span class="text-white">09:00–13:00</span></div>
+                        <div class="flex justify-between"><span>{{ __('nav.sunday') }}</span><span class="text-slate-500">{{ __('nav.closed') }}</span></div>
+                        <p class="text-[#c9922a] pt-1 font-medium">{{ __('nav.urgencies') }}</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="border-t border-white/10 py-6">
-            <p class="text-center text-slate-500 text-sm">© {{ date('Y') }} Angola Mining Innovation & Solutions. Todos os direitos reservados.</p>
+            <p class="text-center text-slate-500 text-sm">© {{ date('Y') }} Angola Mining Innovation & Solutions. {{ __('nav.all_rights') }}</p>
         </div>
     </footer>
 

@@ -1,13 +1,13 @@
 <x-layouts.public>
-    <x-slot name="title">Serviços</x-slot>
-    <x-slot name="description">Consultoria técnica, formação e equipamentos para o setor mineiro angolano.</x-slot>
+    <x-slot name="title">{{ __('services.page_title') }}</x-slot>
+    <x-slot name="description">{{ __('services.page_desc') }}</x-slot>
 
     {{-- PAGE HEADER --}}
     <div class="bg-[#1a3a5c] py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">Portfólio</span>
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mt-2">Os Nossos Serviços</h1>
-            <p class="text-slate-300 mt-4 max-w-2xl">Soluções completas para empresas mineiras, geológicas e de engenharia que operam em Angola e África Austral.</p>
+            <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">{{ __('services.header_label') }}</span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mt-2">{{ __('services.header_title') }}</h1>
+            <p class="text-slate-300 mt-4 max-w-2xl">{{ __('services.header_desc') }}</p>
         </div>
     </div>
 
@@ -20,10 +20,10 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                     </svg>
                 </div>
-                <span class="text-[#c9922a] font-semibold uppercase tracking-wider text-sm">Consultoria Técnica</span>
+                <span class="text-[#c9922a] font-semibold uppercase tracking-wider text-sm">{{ __('services.cons_label') }}</span>
             </div>
-            <h2 class="text-3xl font-extrabold text-[#1a3a5c] mb-4">Escolha o Pacote Certo para a Sua Empresa</h2>
-            <p class="text-slate-500 max-w-2xl mb-16">Todos os pacotes incluem diagnóstico inicial e relatório técnico. Adaptamos cada solução às especificidades do projeto.</p>
+            <h2 class="text-3xl font-extrabold text-[#1a3a5c] mb-4">{{ __('services.cons_title') }}</h2>
+            <p class="text-slate-500 max-w-2xl mb-16">{{ __('services.cons_desc') }}</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @forelse($consultorias as $c)
@@ -56,7 +56,7 @@
                 </div>
                 @empty
                 <div class="col-span-3 text-center py-16 text-slate-400">
-                    <p>Nenhum pacote de consultoria disponível de momento. Contacte-nos para uma proposta personalizada.</p>
+                    <p>{{ __('services.no_packages') }}</p>
                 </div>
                 @endforelse
             </div>
@@ -73,10 +73,10 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                     </svg>
                 </div>
-                <span class="text-[#0d8a7d] font-semibold uppercase tracking-wider text-sm">Equipamentos & Tecnologia</span>
+                <span class="text-[#0d8a7d] font-semibold uppercase tracking-wider text-sm">{{ __('services.equip_label') }}</span>
             </div>
-            <h2 class="text-3xl font-extrabold text-[#1a3a5c] mb-4">Acesso ao Melhor Equipamento do Mercado</h2>
-            <p class="text-slate-500 max-w-2xl mb-16">Conectamos empresas angolanas com os principais fabricantes internacionais de equipamentos mineiros e geotécnicos.</p>
+            <h2 class="text-3xl font-extrabold text-[#1a3a5c] mb-4">{{ __('services.equip_title') }}</h2>
+            <p class="text-slate-500 max-w-2xl mb-16">{{ __('services.equip_desc') }}</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 @forelse($equipamentos as $e)
@@ -91,7 +91,7 @@
                 </div>
                 @empty
                 <div class="col-span-4 text-center text-slate-400 py-12">
-                    <p>Categorias de equipamentos não configuradas.</p>
+                    <p>{{ __('services.no_equip') }}</p>
                 </div>
                 @endforelse
             </div>
@@ -99,7 +99,7 @@
             <div class="mt-10 text-center">
                 <a href="{{ route('contact') }}?servico=equipamentos"
                    class="inline-flex items-center gap-2 bg-[#0d8a7d] hover:bg-[#0a6e63] text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-sm">
-                    Solicitar Catálogo Completo
+                    {{ __('services.equip_cta') }}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
@@ -111,10 +111,10 @@
     {{-- CTA --}}
     <section class="py-16 bg-[#1a3a5c]">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">Não encontrou o que procura?</h2>
-            <p class="text-slate-300 mb-8">Contacte-nos para uma solução personalizada.</p>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">{{ __('services.cta_title') }}</h2>
+            <p class="text-slate-300 mb-8">{{ __('services.cta_desc') }}</p>
             <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 bg-[#c9922a] hover:bg-[#a67a22] text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-sm">
-                Falar com um Especialista
+                {{ __('services.cta_btn') }}
             </a>
         </div>
     </section>

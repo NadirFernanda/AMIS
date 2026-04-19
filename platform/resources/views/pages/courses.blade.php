@@ -1,13 +1,13 @@
 <x-layouts.public>
-    <x-slot name="title">Formação</x-slot>
-    <x-slot name="description">Cursos certificados em engenharia de minas, geociências e tecnologia para profissionais angolanos.</x-slot>
+    <x-slot name="title">{{ __('courses.page_title') }}</x-slot>
+    <x-slot name="description">{{ __('courses.page_desc') }}</x-slot>
 
     {{-- PAGE HEADER --}}
     <div class="bg-[#1a3a5c] py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">Catálogo</span>
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mt-2">Formação Profissional</h1>
-            <p class="text-slate-300 mt-4 max-w-2xl">Cursos online e presenciais, ministrados por especialistas com experiência internacional, com certificado verificável.</p>
+            <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">{{ __('courses.header_label') }}</span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mt-2">{{ __('courses.header_title') }}</h1>
+            <p class="text-slate-300 mt-4 max-w-2xl">{{ __('courses.header_desc') }}</p>
             {{-- Stats bar --}}
             <div class="flex flex-wrap gap-8 mt-10">
                 @foreach([$cursos->count() . ' Cursos', '200+ Graduados', 'Certificado Digital', 'Online & Presencial'] as $stat)
@@ -69,14 +69,14 @@
                                class="text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition-colors"
                                style="background-color: {{ $curso->cor }}"
                                onmouseover="this.style.filter='brightness(0.85)'" onmouseout="this.style.filter='none'">
-                                Inscrever-me
+                                {{ __('courses.enroll_btn') }}
                             </a>
                         </div>
                     </div>
                 </div>
                 @empty
                 <div class="lg:col-span-2 py-16 text-center text-slate-400">
-                    <p class="font-medium">Nenhum curso disponível de momento. Volte em breve.</p>
+                    <p class="font-medium">{{ __('courses.no_courses') }}</p>
                 </div>
                 @endforelse
             </div>
@@ -86,8 +86,8 @@
     {{-- CERTIFICAÇÃO --}}
     <section class="py-20 bg-[#1a3a5c]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-extrabold text-white mb-4">Certificado Reconhecido</h2>
-            <p class="text-slate-300 max-w-xl mx-auto mb-12">Todos os nossos cursos emitem certificado digital verificável com código único, aceite por entidades angolanas e internacionais.</p>
+            <h2 class="text-3xl font-extrabold text-white mb-4">{{ __('courses.certificates') }}</h2>
+            <p class="text-slate-300 max-w-xl mx-auto mb-12">{{ __('courses.cta_desc') }}</p>
             <div class="inline-flex items-center gap-4 bg-white/10 rounded-2xl px-8 py-5 border border-white/20">
                 <svg class="w-12 h-12 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
