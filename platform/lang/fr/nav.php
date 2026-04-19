@@ -3,6 +3,7 @@ return [
     'home'         => 'Accueil',
     'services'     => 'Services',
     'training'     => 'Formation',
+    'projects'     => 'Projets',
     'about'        => 'À propos',
     'contact'      => 'Contact',
     'client_area'  => 'Espace Client',

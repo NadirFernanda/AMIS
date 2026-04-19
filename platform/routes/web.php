@@ -12,11 +12,14 @@ use App\Http\Controllers\Admin\MensagensAdminController;
 use App\Http\Controllers\Admin\EquipaAdminController;
 use App\Http\Controllers\Admin\EquipamentosAdminController;
 use App\Http\Controllers\Admin\EstatisticasAdminController;
+use App\Http\Controllers\Admin\ProjetosAdminController;
+use App\Http\Controllers\Admin\DepoimentosAdminController;
 
 Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/servicos', [PublicController::class, 'services'])->name('services');
 Route::get('/formacao', [PublicController::class, 'courses'])->name('courses');
 Route::get('/sobre', [PublicController::class, 'about'])->name('about');
+Route::get('/projetos', [PublicController::class, 'projects'])->name('projects');
 Route::get('/contacto', [PublicController::class, 'contact'])->name('contact');
 Route::post('/contacto', [PublicController::class, 'sendContact'])->name('contact.send');
 Route::get('/fundadores/{slug}', [PublicController::class, 'fundador'])->name('fundador');
@@ -83,4 +86,18 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // Estatísticas
     Route::get('/estatisticas', [EstatisticasAdminController::class, 'index'])->name('estatisticas.index');
     Route::put('/estatisticas', [EstatisticasAdminController::class, 'update'])->name('estatisticas.update');
+
+    // Projetos
+    Route::resource('projetos', ProjetosAdminController::class)
+         ->except(['show'])
+         ->parameters(['projetos' => 'projeto']);
+    Route::patch('/projetos/{projeto}/toggle', [ProjetosAdminController::class, 'toggleAtivo'])
+         ->name('projetos.toggle');
+
+    // Depoimentos
+    Route::resource('depoimentos', DepoimentosAdminController::class)
+         ->except(['show'])
+         ->parameters(['depoimentos' => 'depoimento']);
+    Route::patch('/depoimentos/{depoimento}/toggle', [DepoimentosAdminController::class, 'toggleAtivo'])
+         ->name('depoimentos.toggle');
 });

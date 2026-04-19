@@ -3,6 +3,7 @@ return [
     'home'         => 'Home',
     'services'     => 'Services',
     'training'     => 'Training',
+    'projects'     => 'Projects',
     'about'        => 'About',
     'contact'      => 'Contact',
     'client_area'  => 'Client Area',

@@ -304,6 +304,114 @@
         </div>
     </section>
 
+    {{-- PROJETOS EM DESTAQUE --}}
+    @if($projetos->count())
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+                <div>
+                    <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">Portfólio</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a3a5c] mt-1">Projetos em Destaque</h2>
+                    <p class="text-slate-500 mt-3 max-w-xl">Resultados concretos que demonstram a nossa capacidade e compromisso com a excelência.</p>
+                </div>
+                <a href="{{ route('projects') }}" class="shrink-0 text-[#1a3a5c] border border-[#1a3a5c] hover:bg-[#1a3a5c] hover:text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all inline-flex items-center gap-2">
+                    Ver todos
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                @foreach($projetos as $p)
+                @php
+                    $tipoColors = ['consultoria' => '#1a3a5c', 'formacao' => '#c9922a', 'equipamentos' => '#0d8a7d'];
+                    $tipoLabels = ['consultoria' => 'Consultoria', 'formacao' => 'Formação', 'equipamentos' => 'Equipamentos'];
+                    $cor = $tipoColors[$p->tipo] ?? '#1a3a5c';
+                @endphp
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-xl transition-all group">
+                    {{-- Photo --}}
+                    <div class="relative h-48 overflow-hidden">
+                        @if($p->foto)
+                        <img src="/img/{{ $p->foto }}" alt="{{ $p->titulo }}"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        @else
+                        <div class="w-full h-full" style="background-color: {{ $cor }}20;"></div>
+                        @endif
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4">
+                            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full text-white"
+                                  style="background-color: {{ $cor }};">{{ $tipoLabels[$p->tipo] ?? $p->tipo }}</span>
+                        </div>
+                        @if($p->local)
+                        <div class="absolute bottom-4 left-4 flex items-center gap-1.5 text-white text-xs font-medium">
+                            <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            {{ $p->local }}
+                        </div>
+                        @endif
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="font-extrabold text-[#1a3a5c] text-lg leading-snug mb-3 group-hover:text-[#c9922a] transition-colors">{{ $p->titulo }}</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-5">{{ Str::limit($p->descricao, 120) }}</p>
+                        @if($p->resultado)
+                        <div class="flex items-start gap-2.5 bg-slate-50 rounded-xl p-3.5 border border-slate-100">
+                            <div class="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style="background-color: {{ $cor }}20;">
+                                <svg class="w-3.5 h-3.5" style="color: {{ $cor }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                </svg>
+                            </div>
+                            <p class="text-xs font-semibold text-slate-600 leading-snug">{{ $p->resultado }}</p>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @endif
+
+    {{-- DEPOIMENTOS --}}
+    @if($depoimentos->count())
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">Testemunhos</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a3a5c] mt-2">O Que Dizem os Nossos Clientes</h2>
+                <p class="text-slate-500 mt-3 max-w-xl mx-auto">Parcerias reais, resultados mensuráveis. A confiança que construímos, palavra a palavra.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                @foreach($depoimentos as $d)
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-lg transition-shadow relative">
+                    <div class="absolute top-6 right-6 text-6xl font-serif text-[#1a3a5c]/10 leading-none select-none">"</div>
+                    <div class="flex gap-1 mb-5">
+                        @for($i = 0; $i < ($d->rating ?? 5); $i++)
+                        <svg class="w-4 h-4 text-[#c9922a]" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        @endfor
+                    </div>
+                    <p class="text-slate-600 leading-relaxed text-sm italic mb-8">"{{ $d->texto }}"</p>
+                    <div class="flex items-center gap-3 pt-5 border-t border-slate-200">
+                        <div class="w-10 h-10 rounded-full bg-[#1a3a5c] flex items-center justify-center text-white text-sm font-extrabold shrink-0">
+                            {{ strtoupper(substr($d->nome, 0, 1)) }}
+                        </div>
+                        <div>
+                            <div class="font-bold text-[#1a3a5c] text-sm">{{ $d->nome }}</div>
+                            <div class="text-slate-400 text-xs">{{ $d->cargo }} · {{ $d->empresa }}</div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @endif
+
     {{-- SOBRE --}}
     <section class="py-24 bg-[#1a3a5c]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

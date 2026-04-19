@@ -8,6 +8,8 @@ use App\Models\Membro;
 use App\Models\Equipamento;
 use App\Models\Estatistica;
 use App\Models\Mensagem;
+use App\Models\Projeto;
+use App\Models\Depoimento;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -21,7 +23,9 @@ class PublicController extends Controller
             $cursosDestaque = Curso::ativos()->limit(3)->get();
         }
         $stats = Estatistica::todos();
-        return view('pages.home', compact('cursosDestaque', 'stats'));
+        $projetos    = Projeto::destaque()->limit(3)->get();
+        $depoimentos = Depoimento::ativos()->limit(3)->get();
+        return view('pages.home', compact('cursosDestaque', 'stats', 'projetos', 'depoimentos'));
     }
 
     public function services(): View
@@ -42,6 +46,13 @@ class PublicController extends Controller
         $equipa = Membro::ativos()->get();
         $stats  = Estatistica::todos();
         return view('pages.about', compact('equipa', 'stats'));
+    }
+
+    public function projects(): View
+    {
+        $projetos    = Projeto::ativos()->get();
+        $depoimentos = Depoimento::ativos()->get();
+        return view('pages.projects', compact('projetos', 'depoimentos'));
     }
 
     public function fundador(string $slug): View

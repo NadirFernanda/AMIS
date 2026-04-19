@@ -36,6 +36,7 @@
                     <a href="{{ route('home') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('home') ? 'text-white' : '' }}">{{ __('nav.home') }}</a>
                     <a href="{{ route('services') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('services') ? 'text-white' : '' }}">{{ __('nav.services') }}</a>
                     <a href="{{ route('courses') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('courses') ? 'text-white' : '' }}">{{ __('nav.training') }}</a>
+                    <a href="{{ route('projects') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('projects') ? 'text-white' : '' }}">{{ __('nav.projects') }}</a>
                     <a href="{{ route('about') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('about') ? 'text-white' : '' }}">{{ __('nav.about') }}</a>
                     <a href="{{ route('contact') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('contact') ? 'text-white' : '' }}">{{ __('nav.contact') }}</a>
                 </div>
@@ -76,6 +77,7 @@
                 <a href="{{ route('home') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.home') }}</a>
                 <a href="{{ route('services') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.services') }}</a>
                 <a href="{{ route('courses') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.training') }}</a>
+                <a href="{{ route('projects') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.projects') }}</a>
                 <a href="{{ route('about') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.about') }}</a>
                 <a href="{{ route('contact') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.contact') }}</a>
                 <a href="{{ Auth::check() ? route('cliente.dashboard') : route('login') }}" class="bg-[#c9922a] text-white text-sm font-semibold px-4 py-2.5 rounded-lg text-center mt-2">{{ __('nav.client_area') }}</a>
