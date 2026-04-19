@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* AMIS Brand Colors */
+    --color-navy:      #1a3a5c;
+    --color-navy-dark: #0f2640;
+    --color-gold:      #c9922a;
+    --color-gold-dark: #a67a22;
+    --color-teal:      #0d8a7d;
+    --color-teal-dark: #0a6e63;
+}
+
+/* Custom utilities */
+@layer utilities {
+    .text-navy      { color: var(--color-navy); }
+    .text-gold      { color: var(--color-gold); }
+    .text-teal      { color: var(--color-teal); }
+    .bg-navy        { background-color: var(--color-navy); }
+    .bg-navy-dark   { background-color: var(--color-navy-dark); }
+    .bg-gold        { background-color: var(--color-gold); }
+    .bg-teal        { background-color: var(--color-teal); }
+    .border-navy    { border-color: var(--color-navy); }
+    .border-gold    { border-color: var(--color-gold); }
+    .hover\:bg-navy-dark:hover { background-color: var(--color-navy-dark); }
+    .hover\:bg-gold-dark:hover { background-color: var(--color-gold-dark); }
+    .hover\:text-gold:hover    { color: var(--color-gold); }
+    .ring-teal      { --tw-ring-color: var(--color-teal); }
+}
