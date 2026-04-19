@@ -3,8 +3,12 @@
     <x-slot name="description">{{ __('about.header_desc') }}</x-slot>
 
     {{-- HEADER --}}
-    <div class="bg-[#1a3a5c] py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative bg-[#1a3a5c] py-28 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="/img/18.jpeg" alt="" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#1a3a5c] via-[#1a3a5c]/80 to-transparent"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">{{ __('about.header_label') }}</span>
             <h1 class="text-4xl sm:text-5xl font-extrabold text-white mt-2">{{ __('about.header_title') }}</h1>
             <p class="text-slate-300 mt-4 max-w-2xl">{{ __('about.header_desc') }}</p>
@@ -48,6 +52,13 @@
                     </p>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
+                    <div class="col-span-2 rounded-2xl overflow-hidden h-48 relative">
+                        <img src="/img/19.jpeg" alt="Angola Mining" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1a3a5c]/70 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="text-white text-xs font-bold uppercase tracking-wider bg-[#c9922a] px-3 py-1 rounded-full">AMIS · Angola</span>
+                        </div>
+                    </div>
                     @forelse($stats as $stat)
                     <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
                         <div class="text-3xl font-extrabold text-[#1a3a5c] mb-2">{{ $stat->valor }}</div>
@@ -109,8 +120,11 @@
     </section>
 
     {{-- PARCEIROS / CTA --}}
-    <section class="py-20 bg-[#c9922a]">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="relative py-20 bg-[#c9922a] overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="/img/11.jpeg" alt="" class="w-full h-full object-cover opacity-10">
+        </div>
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-extrabold text-white mb-4">{{ __('about.cta_title') }}</h2>
             <p class="text-white/80 text-lg mb-10">{{ __('about.cta_desc') }}</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">

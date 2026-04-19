@@ -3,20 +3,13 @@
 
     {{-- HERO --}}
     <section class="relative min-h-screen flex items-center overflow-hidden bg-[#0f2640]">
-        {{-- Background pattern --}}
-        <div class="absolute inset-0 opacity-10">
-            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <defs>
-                    <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
-                        <path d="M 8 0 L 0 0 0 8" fill="none" stroke="white" stroke-width="0.5"/>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)"/>
-            </svg>
+        {{-- Real photo background --}}
+        <div class="absolute inset-0">
+            <img src="/img/1.jpeg" alt="" class="w-full h-full object-cover opacity-25">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0f2640] via-[#0f2640]/80 to-[#0f2640]/40"></div>
         </div>
-        {{-- Gradient blobs --}}
+        {{-- Gradient accent --}}
         <div class="absolute top-1/4 right-0 w-96 h-96 bg-[#c9922a] opacity-10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-1/4 w-72 h-72 bg-[#0d8a7d] opacity-10 rounded-full blur-3xl"></div>
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -50,8 +43,19 @@
                 </div>
             </div>
 
-            {{-- Stats card --}}
-            <div class="grid grid-cols-2 gap-4">
+            {{-- Hero right: photo collage + stats --}}
+            <div class="hidden lg:grid grid-cols-2 gap-4">
+                {{-- Photo mosaic --}}
+                <div class="col-span-2 grid grid-cols-2 gap-3 mb-1">
+                    <div class="rounded-2xl overflow-hidden h-44 relative">
+                        <img src="/img/2.jpeg" alt="Mineração Angola" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0f2640]/60 to-transparent"></div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden h-44 relative">
+                        <img src="/img/3.jpeg" alt="Consultoria Mineira" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0f2640]/60 to-transparent"></div>
+                    </div>
+                </div>
                 @forelse($stats as $stat)
                 <div class="bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-6 text-center hover:bg-white/15 transition-colors">
                     <div class="w-10 h-10 bg-[#c9922a]/20 rounded-xl flex items-center justify-center mx-auto mb-3">
@@ -65,6 +69,11 @@
                 @empty
                 <div class="col-span-2 text-center text-slate-400 text-sm py-4">{{ __('home.no_stats') }}</div>
                 @endforelse
+            </div>
+            {{-- Mobile: single photo --}}
+            <div class="lg:hidden rounded-2xl overflow-hidden h-56">
+                <img src="/img/2.jpeg" alt="Mineração Angola" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0f2640]/60 to-transparent"></div>
             </div>
         </div>
 
@@ -88,12 +97,19 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {{-- Consultoria --}}
-                <div class="group bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-xl hover:border-[#1a3a5c]/20 transition-all">
-                    <div class="w-14 h-14 bg-[#1a3a5c]/10 group-hover:bg-[#1a3a5c] rounded-2xl flex items-center justify-center mb-6 transition-colors">
-                        <svg class="w-7 h-7 text-[#1a3a5c] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
+                <div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-[#1a3a5c]/20 transition-all">
+                    <div class="relative h-44 overflow-hidden">
+                        <img src="/img/4.jpeg" alt="Consultoria Técnica" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1a3a5c]/80 via-[#1a3a5c]/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="w-10 h-10 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
+                    <div class="p-8">
                     <h3 class="text-xl font-bold text-[#1a3a5c] mb-3">{{ __('home.cons_title') }}</h3>
                     <p class="text-slate-500 text-sm leading-relaxed mb-6">{{ __('home.cons_desc') }}</p>
                     <div class="space-y-2 mb-6">
@@ -119,17 +135,24 @@
                             </svg>
                         </a>
                     </div>
+                    </div>
                 </div>
 
                 {{-- Formação --}}
-                <div class="group bg-[#1a3a5c] border border-[#1a3a5c] rounded-2xl p-8 hover:shadow-xl transition-all relative overflow-hidden">
-                    <div class="absolute top-4 right-4 bg-[#c9922a] text-white text-xs font-bold px-2.5 py-1 rounded-full">{{ __('home.popular_badge') }}</div>
-                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-10 -mb-10"></div>
-                    <div class="w-14 h-14 bg-[#c9922a]/20 rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-7 h-7 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                        </svg>
+                <div class="group bg-[#1a3a5c] border border-[#1a3a5c] rounded-2xl hover:shadow-xl transition-all relative overflow-hidden">
+                    <div class="absolute top-4 right-4 z-10 bg-[#c9922a] text-white text-xs font-bold px-2.5 py-1 rounded-full">{{ __('home.popular_badge') }}</div>
+                    <div class="relative h-44 overflow-hidden">
+                        <img src="/img/5.jpeg" alt="Formação Profissional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1a3a5c] via-[#1a3a5c]/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="w-10 h-10 bg-[#c9922a]/30 backdrop-blur rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
+                    <div class="p-8">
                     <h3 class="text-xl font-bold text-white mb-3">{{ __('home.train_title') }}</h3>
                     <p class="text-slate-300 text-sm leading-relaxed mb-6">{{ __('home.train_desc') }}</p>
                     <div class="space-y-2 mb-6">
@@ -155,16 +178,24 @@
                             </svg>
                         </a>
                     </div>
+                    </div>
                 </div>
 
                 {{-- Equipamentos --}}
-                <div class="group bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-xl hover:border-[#1a3a5c]/20 transition-all">
-                    <div class="w-14 h-14 bg-[#0d8a7d]/10 group-hover:bg-[#0d8a7d] rounded-2xl flex items-center justify-center mb-6 transition-colors">
-                        <svg class="w-7 h-7 text-[#0d8a7d] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
+                <div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-[#0d8a7d]/20 transition-all">
+                    <div class="relative h-44 overflow-hidden">
+                        <img src="/img/6.jpeg" alt="Equipamentos Mineiros" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0d8a7d]/80 via-[#0d8a7d]/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="w-10 h-10 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
+                    <div class="p-8">
                     <h3 class="text-xl font-bold text-[#1a3a5c] mb-3">{{ __('home.equip_title') }}</h3>
                     <p class="text-slate-500 text-sm leading-relaxed mb-6">{{ __('home.equip_desc') }}</p>
                     <div class="space-y-2 mb-6">
@@ -190,8 +221,21 @@
                             </svg>
                         </a>
                     </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    {{-- PHOTO STRIP --}}
+    <section class="py-0 overflow-hidden">
+        <div class="flex gap-0 h-32 sm:h-44">
+            @foreach([7,8,9,10,11] as $n)
+            <div class="flex-1 overflow-hidden relative">
+                <img src="/img/{{ $n }}.jpeg" alt="" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-[#0f2640]/30 hover:bg-[#0f2640]/0 transition-colors duration-500"></div>
+            </div>
+            @endforeach
         </div>
     </section>
 
@@ -212,20 +256,23 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                @php $colors = ['#1a3a5c', '#0d8a7d', '#c9922a']; @endphp
+                @php
+                    $colors = ['#1a3a5c', '#0d8a7d', '#c9922a'];
+                    $courseImgs = [12, 13, 14];
+                @endphp
                 @forelse($cursosDestaque as $i => $curso)
-                @php $cor = $colors[$i % 3]; @endphp
+                @php $cor = $colors[$i % 3]; $img = $courseImgs[$i % 3]; @endphp
                 <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow group">
-                    <div class="h-40 flex items-center justify-center" style="background-color: {{ $cor }}15;">
-                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background-color: {{ $cor }}25;">
-                            <svg class="w-8 h-8" style="color: {{ $cor }};" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                            </svg>
+                    <div class="relative h-40 overflow-hidden">
+                        <img src="/img/{{ $img }}.jpeg" alt="{{ $curso->titulo }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0" style="background: linear-gradient(to top, {{ $cor }}cc, transparent);"></div>
+                        <div class="absolute bottom-3 left-3">
+                            <span class="text-xs font-bold text-white bg-black/30 backdrop-blur px-2 py-0.5 rounded-full">{{ $curso->nivel ?? 'Profissional' }}</span>
                         </div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full" style="background-color: {{ $cor }}15; color: {{ $cor }};">{{ $curso->nivel ?? 'Profissional' }}</span>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full" style="background-color: {{ $cor }}15; color: {{ $cor }};">{{ $curso->modalidade ?? 'Online' }}</span>
                             @if($curso->duracao)
                             <span class="text-slate-400 text-xs flex items-center gap-1">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -287,6 +334,24 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
                 </a>
+            </div>
+
+            {{-- About photo grid --}}
+            <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-2xl overflow-hidden h-52 col-span-2 relative">
+                    <img src="/img/15.jpeg" alt="Equipa AMIS" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0f2640]/50 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <div class="text-xs text-[#c9922a] font-bold uppercase tracking-wider">AMIS</div>
+                        <div class="font-semibold text-sm">Angola Mining Innovation & Solutions</div>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden h-36">
+                    <img src="/img/16.jpeg" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="rounded-2xl overflow-hidden h-36">
+                    <img src="/img/17.jpeg" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                </div>
             </div>
 
             {{-- Values --}}

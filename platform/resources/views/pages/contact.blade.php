@@ -3,8 +3,12 @@
     <x-slot name="description">{{ __('contact.page_desc') }}</x-slot>
 
     {{-- HEADER --}}
-    <div class="bg-[#1a3a5c] py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative bg-[#1a3a5c] py-28 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="/img/10.jpeg" alt="" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#1a3a5c] via-[#1a3a5c]/85 to-[#1a3a5c]/50"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">{{ __('contact.header_label') }}</span>
             <h1 class="text-4xl sm:text-5xl font-extrabold text-white mt-2">{{ __('contact.header_title') }}</h1>
             <p class="text-slate-300 mt-4 max-w-2xl">{{ __('contact.header_desc') }}</p>
@@ -44,6 +48,15 @@
                     </div>
                 </div>
                 @endforeach
+
+                {{-- Photo --}}
+                <div class="rounded-2xl overflow-hidden h-40 relative">
+                    <img src="/img/13.jpeg" alt="AMIS Angola" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1a3a5c]/80 to-transparent"></div>
+                    <div class="absolute bottom-3 left-4">
+                        <div class="text-white text-xs font-bold uppercase tracking-wider">Luanda · Angola</div>
+                    </div>
+                </div>
 
                 {{-- Horário --}}
                 <div class="bg-[#1a3a5c] rounded-2xl p-6 text-white">

@@ -3,8 +3,12 @@
     <x-slot name="description">{{ __('courses.page_desc') }}</x-slot>
 
     {{-- PAGE HEADER --}}
-    <div class="bg-[#1a3a5c] py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative bg-[#1a3a5c] py-28 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="/img/5.jpeg" alt="" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#1a3a5c] via-[#1a3a5c]/85 to-[#1a3a5c]/60"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">{{ __('courses.header_label') }}</span>
             <h1 class="text-4xl sm:text-5xl font-extrabold text-white mt-2">{{ __('courses.header_title') }}</h1>
             <p class="text-slate-300 mt-4 max-w-2xl">{{ __('courses.header_desc') }}</p>
@@ -84,8 +88,12 @@
     </section>
 
     {{-- CERTIFICAÇÃO --}}
-    <section class="py-20 bg-[#1a3a5c]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="relative py-20 bg-[#1a3a5c] overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="/img/8.jpeg" alt="" class="w-full h-full object-cover opacity-15">
+            <div class="absolute inset-0 bg-[#1a3a5c]/80"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-extrabold text-white mb-4">{{ __('courses.certificates') }}</h2>
             <p class="text-slate-300 max-w-xl mx-auto mb-12">{{ __('courses.cta_desc') }}</p>
             <div class="inline-flex items-center gap-4 bg-white/10 rounded-2xl px-8 py-5 border border-white/20">
