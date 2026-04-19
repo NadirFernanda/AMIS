@@ -62,9 +62,9 @@
             @endif
         </div>
 
-        {{-- Ações rápidas --}}
+        {{-- Acções rápidas --}}
         <div class="bg-white rounded-2xl border border-slate-200 p-6">
-            <h2 class="text-sm font-bold text-[#0f2640] mb-5">Ações Rápidas</h2>
+            <h2 class="text-sm font-bold text-[#0f2640] mb-5">Acções Rápidas</h2>
             <div class="space-y-3">
                 <a href="{{ route('admin.clientes.create') }}"
                    class="flex items-center gap-3 p-3.5 rounded-xl bg-[#1a3a5c] hover:bg-[#0f2640] text-white transition-colors">

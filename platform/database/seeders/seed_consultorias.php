@@ -57,7 +57,7 @@ $pacotes = [
         'destaque'  => 0,
         'features'  => json_encode([
             'Tudo do Intermédio',
-            'Otimização de processos completa',
+            'Optimização de processos completa',
             'Instalação e comissionamento',
             'Visitas mensais por 12 meses',
             'Suporte técnico dedicado anual',

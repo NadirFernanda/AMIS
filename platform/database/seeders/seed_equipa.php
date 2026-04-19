@@ -7,7 +7,7 @@ Membro::create([
     'foto'           => 'fundador-puto-luis.jpeg',
     'cargo'          => 'Co-Fundador',
     'especializacao' => 'Engenharia de Minas',
-    'bio'            => 'Mestre em Engenharia de Minas pela Universidade de Pesquisas e Tecnologia de Moscovo (MISIS). Experiência em operações de mineração em grandes grupos internacionais incluindo PHOSAGRO. Especialista em planeamento mineiro e otimização de processos de lavra.',
+    'bio'            => 'Mestre em Engenharia de Minas pela Universidade de Pesquisas e Tecnologia de Moscovo (MISIS). Experiência em operações de mineração em grandes grupos internacionais incluindo PHOSAGRO. Especialista em planeamento mineiro e optimização de processos de lavra.',
     'tags'           => ['Engenharia de Minas', 'Planeamento Mineiro', 'PHOSAGRO', 'MISIS Moscovo'],
     'cor'            => '#c9922a',
     'ordem'          => 1,

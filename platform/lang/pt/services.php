@@ -10,7 +10,7 @@ return [
     'cons_desc'         => 'A nossa equipa de engenheiros e geólogos com experiência internacional oferece serviços completos de consultoria para o sector mineiro.',
     'equip_label'       => 'Equipamentos',
     'equip_title'       => 'Acesso ao Melhor Equipamento do Mercado',
-    'equip_desc'        => 'Conectamos empresas angolanas com os principais fabricantes internacionais de equipamentos mineiros e geotécnicos.',
+    'equip_desc'        => 'Ligamos empresas angolanas com os principais fabricantes internacionais de equipamentos mineiros e geotécnicos.',
     'equip_cta'         => 'Solicitar Catálogo Completo',
     'no_equip'          => 'Categorias de equipamentos não configuradas.',
     'cta_title'         => 'Não encontrou o que procura?',

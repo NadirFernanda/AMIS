@@ -31,7 +31,7 @@
                     <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">Assunto</th>
                     <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide hidden lg:table-cell">Mensagem</th>
                     <th class="text-left px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">Data</th>
-                    <th class="text-right px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">Ações</th>
+                    <th class="text-right px-5 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">Acções</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-100">
@@ -77,7 +77,7 @@
                         {{ $m->created_at->format('H:i') }}
                     </td>
 
-                    {{-- Ações --}}
+                    {{-- Acções --}}
                     <td class="px-5 py-4 text-right">
                         <div class="flex items-center justify-end gap-2">
                             <a href="{{ route('admin.mensagens.show', $m) }}"

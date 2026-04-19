@@ -54,7 +54,7 @@
             <div class="bg-slate-50 rounded-xl p-5 text-slate-700 text-sm leading-relaxed whitespace-pre-wrap">{{ $mensagem->message }}</div>
         </div>
 
-        {{-- Ações --}}
+        {{-- Acções --}}
         <div class="flex items-center gap-3">
             <a href="mailto:{{ $mensagem->email }}?subject=Re: {{ ucfirst($mensagem->subject) }} — AMIS"
                class="inline-flex items-center gap-2 bg-[#0f2640] hover:bg-[#1a3a5c] text-white font-semibold px-6 py-3 rounded-xl text-sm transition-colors">

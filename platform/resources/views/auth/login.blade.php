@@ -50,7 +50,7 @@
                     <span class="text-[#c9922a]">Área Cliente</span>
                 </h1>
                 <p class="text-slate-300 text-lg leading-relaxed mb-10 max-w-md">
-                    Aceda aos seus projectos, materiais de formação e comunique diretamente com a nossa equipa de especialistas.
+                    Aceda aos seus projectos, materiais de formação e comunique directamente com a nossa equipa de especialistas.
                 </p>
                 <div class="space-y-4">
                     @foreach([

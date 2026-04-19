@@ -21,7 +21,7 @@ return [
 
     // Consulting card
     'cons_title'       => 'Consultoria Técnica',
-    'cons_desc'        => 'Diagnóstico, estudos de viabilidade e otimização de operações mineiras. Equipa com experiência internacional.',
+    'cons_desc'        => 'Diagnóstico, estudos de viabilidade e optimização de operações mineiras. Equipa com experiência internacional.',
     'cons_items'       => ['Diagnóstico de operações', 'Estudos de viabilidade', 'Planeamento mineiro', 'Auditorias técnicas'],
 
     // Training card

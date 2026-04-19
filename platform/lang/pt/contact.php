@@ -4,7 +4,7 @@ return [
     'page_desc'         => 'Entre em contacto com a AMIS para consultoria, formação ou qualquer questão sobre os nossos serviços.',
     'header_label'      => 'Fale Connosco',
     'header_title'      => 'Contacto',
-    'header_desc'       => 'Estamos prontos para ajudar. Preencha o formulário ou contacte-nos diretamente.',
+    'header_desc'       => 'Estamos prontos para ajudar. Preencha o formulário ou contacte-nos directamente.',
     'info_title'        => 'Informações de Contacto',
     'info_desc'         => 'Respondemos em menos de 24 horas nos dias úteis.',
     'label_location'    => 'Localização',

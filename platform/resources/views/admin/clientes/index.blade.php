@@ -59,7 +59,7 @@
                         <th class="text-left px-4 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider hidden md:table-cell">Empresa</th>
                         <th class="text-left px-4 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider hidden lg:table-cell">Registado em</th>
                         <th class="text-center px-4 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Estado</th>
-                        <th class="text-right px-6 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Ações</th>
+                        <th class="text-right px-6 py-3.5 text-xs font-semibold text-slate-500 uppercase tracking-wider">Acções</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100">
@@ -108,7 +108,7 @@
                                     </svg>
                                 </a>
                                 <form method="POST" action="{{ route('admin.clientes.destroy', $cliente) }}"
-                                      onsubmit="return confirm('Eliminar {{ addslashes($cliente->name) }}? Esta ação não pode ser revertida.')">
+                                      onsubmit="return confirm('Eliminar {{ addslashes($cliente->name) }}? Esta Acção não pode ser revertida.')">
                                     @csrf @method('DELETE')
                                     <button type="submit" class="text-slate-400 hover:text-red-500 transition-colors" title="Eliminar">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
