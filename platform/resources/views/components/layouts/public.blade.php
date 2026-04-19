@@ -42,7 +42,7 @@
 
                 {{-- CTA + Mobile --}}
                 <div class="flex items-center gap-3">
-                    <a href="#" class="hidden md:inline-flex items-center gap-2 bg-[#c9922a] hover:bg-[#a67a22] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
+                    <a href="{{ Auth::check() ? route('cliente.dashboard') : route('login') }}" class="hidden md:inline-flex items-center gap-2 bg-[#c9922a] hover:bg-[#a67a22] text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                         </svg>
@@ -68,7 +68,7 @@
                 <a href="{{ route('courses') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Formação</a>
                 <a href="{{ route('about') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Sobre</a>
                 <a href="{{ route('contact') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Contacto</a>
-                <a href="#" class="bg-[#c9922a] text-white text-sm font-semibold px-4 py-2.5 rounded-lg text-center mt-2">Área Cliente</a>
+                <a href="{{ Auth::check() ? route('cliente.dashboard') : route('login') }}" class="bg-[#c9922a] text-white text-sm font-semibold px-4 py-2.5 rounded-lg text-center mt-2">Área Cliente</a>
             </div>
         </div>
     </nav>
