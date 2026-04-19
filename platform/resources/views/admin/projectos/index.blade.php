@@ -1,17 +1,17 @@
 <x-layouts.admin>
-    <x-slot name="title">Projetos</x-slot>
+    <x-slot name="title">Projectos</x-slot>
 
     <div class="flex items-center justify-between mb-8">
         <div>
-            <h1 class="text-2xl font-extrabold text-[#0f2640]">Projetos</h1>
-            <p class="text-slate-500 text-sm mt-1">Portfólio de projetos exibido no site.</p>
+            <h1 class="text-2xl font-extrabold text-[#0f2640]">Projectos</h1>
+            <p class="text-slate-500 text-sm mt-1">Portfólio de projectos exibido no site.</p>
         </div>
-        <a href="{{ route('admin.projetos.create') }}"
+        <a href="{{ route('admin.projectos.create') }}"
            class="inline-flex items-center gap-2 bg-[#0f2640] hover:bg-[#1a3a5c] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
             </svg>
-            Novo Projeto
+            Novo Projecto
         </a>
     </div>
 
@@ -25,7 +25,7 @@
     @endif
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        @forelse($projetos as $p)
+        @forelse($projectos as $p)
         @php
             $tipoColors = ['consultoria' => '#1a3a5c', 'formacao' => '#c9922a', 'equipamentos' => '#0d8a7d'];
             $tipoLabels = ['consultoria' => 'Consultoria', 'formacao' => 'Formação', 'equipamentos' => 'Equipamentos'];
@@ -54,7 +54,7 @@
             <div class="p-5">
                 <div class="flex items-start justify-between gap-2 mb-2">
                     <h3 class="font-bold text-[#0f2640] text-sm leading-snug">{{ $p->titulo }}</h3>
-                    <form method="POST" action="{{ route('admin.projetos.toggle', $p) }}">
+                    <form method="POST" action="{{ route('admin.projectos.toggle', $p) }}">
                         @csrf @method('PATCH')
                         <button type="submit"
                             class="shrink-0 inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full transition-colors
@@ -72,12 +72,12 @@
                 <p class="text-xs text-[#0d8a7d] font-semibold mb-4">↑ {{ $p->resultado }}</p>
                 @endif
                 <div class="flex items-center gap-2 pt-3 border-t border-slate-100">
-                    <a href="{{ route('admin.projetos.edit', $p) }}"
+                    <a href="{{ route('admin.projectos.edit', $p) }}"
                        class="flex-1 text-center text-xs font-semibold text-[#0f2640] hover:text-[#c9922a] px-3 py-1.5 rounded-lg hover:bg-slate-100 transition-colors">
                         Editar
                     </a>
-                    <form method="POST" action="{{ route('admin.projetos.destroy', $p) }}"
-                          onsubmit="return confirm('Remover projeto?')">
+                    <form method="POST" action="{{ route('admin.projectos.destroy', $p) }}"
+                          onsubmit="return confirm('Remover projecto?')">
                         @csrf @method('DELETE')
                         <button type="submit"
                             class="text-xs font-medium text-red-400 hover:text-red-600 px-3 py-1.5 rounded-lg hover:bg-red-50 transition-colors">
@@ -89,12 +89,12 @@
         </div>
         @empty
         <div class="col-span-3 bg-white rounded-2xl border border-slate-200 py-16 text-center text-slate-400">
-            <p class="text-sm">Sem projetos. <a href="{{ route('admin.projetos.create') }}" class="text-[#c9922a] hover:underline">Criar o primeiro</a>.</p>
+            <p class="text-sm">Sem projectos. <a href="{{ route('admin.projectos.create') }}" class="text-[#c9922a] hover:underline">Criar o primeiro</a>.</p>
         </div>
         @endforelse
     </div>
 
-    @if($projetos->hasPages())
-    <div class="mt-6">{{ $projetos->links() }}</div>
+    @if($projectos->hasPages())
+    <div class="mt-6">{{ $projectos->links() }}</div>
     @endif
 </x-layouts.admin>

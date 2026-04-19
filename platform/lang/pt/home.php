@@ -53,7 +53,7 @@ return [
     'values_1_title'   => 'Inovação Tecnológica',
     'values_1_desc'    => 'Aplicamos as mais recentes tecnologias para resolver problemas reais do sector mineiro.',
     'values_2_title'   => 'Ética e Transparência',
-    'values_2_desc'    => 'Operamos com total transparência em todos os projetos e relações com clientes.',
+    'values_2_desc'    => 'Operamos com total transparência em todos os projectos e relações com clientes.',
     'values_3_title'   => 'Sustentabilidade',
     'values_3_desc'    => 'Todas as nossas soluções integram práticas ambientais responsáveis e sustentáveis.',
 

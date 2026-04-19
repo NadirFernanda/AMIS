@@ -21,7 +21,7 @@ return [
     'placeholder_name'  => 'Engº João Silva',
     'placeholder_email' => 'joao@empresa.ao',
     'placeholder_company' => 'Empresa Mineração Lda.',
-    'placeholder_message' => 'Descreva o seu projeto ou questão...',
+    'placeholder_message' => 'Descreva o seu projecto ou questão...',
     'subject_general'   => 'Informação Geral',
     'subject_consulting' => 'Consultoria',
     'subject_courses'   => 'Formação/Cursos',

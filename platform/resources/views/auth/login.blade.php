@@ -50,11 +50,11 @@
                     <span class="text-[#c9922a]">Área Cliente</span>
                 </h1>
                 <p class="text-slate-300 text-lg leading-relaxed mb-10 max-w-md">
-                    Aceda aos seus projetos, materiais de formação e comunique diretamente com a nossa equipa de especialistas.
+                    Aceda aos seus projectos, materiais de formação e comunique diretamente com a nossa equipa de especialistas.
                 </p>
                 <div class="space-y-4">
                     @foreach([
-                        ['Acompanhe o progresso dos seus projetos em tempo real', 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'],
+                        ['Acompanhe o progresso dos seus projectos em tempo real', 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'],
                         ['Aceda aos materiais e certificados dos seus cursos', 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253'],
                         ['Suporte técnico dedicado 24h via chat', 'M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z'],
                     ] as [$text, $icon])

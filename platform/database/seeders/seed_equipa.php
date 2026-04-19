@@ -20,7 +20,7 @@ Membro::create([
     'foto'           => 'fundadora-fernanda-goncalves.png',
     'cargo'          => 'Co-Fundadora',
     'especializacao' => 'Informática & Geologia',
-    'bio'            => 'Especialista em integração de tecnologias digitais com geociências. Responsável pela plataforma digital da AMIS, sistemas de gestão de projetos e desenvolvimento de soluções de software para análise e modelagem geológica.',
+    'bio'            => 'Especialista em integração de tecnologias digitais com geociências. Responsável pela plataforma digital da AMIS, sistemas de gestão de projectos e desenvolvimento de soluções de software para análise e modelagem geológica.',
     'tags'           => ['Tecnologia', 'Geologia', 'Transformação Digital', 'Gestão de Operações'],
     'cor'            => '#0d8a7d',
     'ordem'          => 2,

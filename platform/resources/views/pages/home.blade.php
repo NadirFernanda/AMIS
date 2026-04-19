@@ -305,13 +305,13 @@
     </section>
 
     {{-- PROJETOS EM DESTAQUE --}}
-    @if($projetos->count())
+    @if($projectos->count())
     <section class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
                 <div>
                     <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">Portfólio</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a3a5c] mt-1">Projetos em Destaque</h2>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a3a5c] mt-1">Projectos em Destaque</h2>
                     <p class="text-slate-500 mt-3 max-w-xl">Resultados concretos que demonstram a nossa capacidade e compromisso com a excelência.</p>
                 </div>
                 <a href="{{ route('projects') }}" class="shrink-0 text-[#1a3a5c] border border-[#1a3a5c] hover:bg-[#1a3a5c] hover:text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all inline-flex items-center gap-2">
@@ -323,7 +323,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                @foreach($projetos as $p)
+                @foreach($projectos as $p)
                 @php
                     $tipoColors = ['consultoria' => '#1a3a5c', 'formacao' => '#c9922a', 'equipamentos' => '#0d8a7d'];
                     $tipoLabels = ['consultoria' => 'Consultoria', 'formacao' => 'Formação', 'equipamentos' => 'Equipamentos'];

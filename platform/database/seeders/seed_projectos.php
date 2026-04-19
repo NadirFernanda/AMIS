@@ -1,7 +1,7 @@
 <?php
-use App\Models\Projeto;
+use App\Models\Projecto;
 
-$projetos = [
+$projectos = [
     [
         'titulo'    => 'Planeamento Mineiro — Bloco Granítico',
         'local'     => 'Lunda Norte, Angola',
@@ -70,8 +70,8 @@ $projetos = [
     ],
 ];
 
-foreach ($projetos as $p) {
-    Projeto::create($p);
+foreach ($projectos as $p) {
+    Projecto::create($p);
 }
 
-echo "Projetos criados com sucesso!\n";
+echo "Projectos criados com sucesso!\n";

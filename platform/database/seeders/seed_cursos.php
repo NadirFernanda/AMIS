@@ -23,7 +23,7 @@ $cursos = [
     ],
     [
         'titulo'     => 'Engenharia de Beneficiamento Mineral',
-        'descricao'  => 'Técnicas de separação física e química de minerais. Projeto e operação de circuitos de flotação, moagem e classificação.',
+        'descricao'  => 'Técnicas de separação física e química de minerais. Projecto e operação de circuitos de flotação, moagem e classificação.',
         'nivel'      => 'Avançado',
         'duracao'    => '3 meses',
         'modalidade' => 'Presencial (Luanda)',

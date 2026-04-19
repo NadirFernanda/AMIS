@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Projeto extends Model
+class Projecto extends Model
 {
-    protected $table = 'projetos';
+    protected $table = 'projectos';
 
     protected $fillable = [
         'titulo', 'local', 'tipo', 'descricao', 'resultado',
