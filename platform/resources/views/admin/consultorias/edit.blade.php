@@ -27,17 +27,17 @@
 
         {{-- Título + Tagline --}}
         <div class="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
-            <h2 class="font-semibold text-[#0f2640] text-sm uppercase tracking-wide">Identificação</h2>
+            <h2 class="font-semibold text-[#0f2640] text-sm uppercase tracking-wide">Identificação (PT)</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-1.5">Título do Pacote <span class="text-red-400">*</span></label>
-                    <input type="text" name="titulo" value="{{ old('titulo', $consultoria->titulo) }}" required
+                    <input type="text" name="titulo" value="{{ old('titulo', $consultoria->getRawOriginal('titulo')) }}" required
                            class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640]">
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-1.5">Tagline <span class="text-red-400">*</span></label>
-                    <input type="text" name="tagline" value="{{ old('tagline', $consultoria->tagline) }}" required
+                    <input type="text" name="tagline" value="{{ old('tagline', $consultoria->getRawOriginal('tagline')) }}" required
                            class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640]">
                 </div>
             </div>
@@ -46,6 +46,28 @@
                 <label class="block text-xs font-semibold text-slate-600 mb-1.5">Descrição Interna (opcional)</label>
                 <textarea name="descricao" rows="2"
                           class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640] resize-none">{{ old('descricao', $consultoria->descricao) }}</textarea>
+            </div>
+        </div>
+
+        {{-- Tradução EN --}}
+        <div class="bg-blue-50 rounded-2xl border border-blue-200 p-6 space-y-5">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-700 uppercase tracking-wide">EN</span>
+                <h2 class="font-semibold text-blue-800 text-sm uppercase tracking-wide">Tradução em Inglês (opcional)</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1.5">Title (EN)</label>
+                    <input type="text" name="titulo_en" value="{{ old('titulo_en', $consultoria->getRawOriginal('titulo_en')) }}"
+                           placeholder="ex: Basic, Intermediate, Advanced"
+                           class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1.5">Tagline (EN)</label>
+                    <input type="text" name="tagline_en" value="{{ old('tagline_en', $consultoria->getRawOriginal('tagline_en')) }}"
+                           placeholder="ex: Ideal for companies in the initial phase"
+                           class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400">
+                </div>
             </div>
         </div>
 
@@ -68,10 +90,20 @@
 
         {{-- Funcionalidades --}}
         <div class="bg-white rounded-2xl border border-slate-200 p-6 space-y-4">
-            <h2 class="font-semibold text-[#0f2640] text-sm uppercase tracking-wide">Funcionalidades Incluídas</h2>
+            <h2 class="font-semibold text-[#0f2640] text-sm uppercase tracking-wide">Funcionalidades Incluídas (PT)</h2>
             <p class="text-slate-400 text-xs">Uma funcionalidade por linha.</p>
-            <textarea name="features_raw" rows="8"
-                      class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640] font-mono resize-y">{{ old('features_raw', implode("\n", $consultoria->features ?? [])) }}</textarea>
+            <textarea name="features_raw" rows="7"
+                      class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640] font-mono resize-y">{{ old('features_raw', implode("\n", json_decode($consultoria->getRawOriginal('features'), true) ?? [])) }}</textarea>
+        </div>
+
+        {{-- Funcionalidades EN --}}
+        <div class="bg-blue-50 rounded-2xl border border-blue-200 p-6 space-y-4">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-700 uppercase tracking-wide">EN</span>
+                <h2 class="font-semibold text-blue-800 text-sm uppercase tracking-wide">Features (EN — opcional)</h2>
+            </div>
+            <textarea name="features_raw_en" rows="7"
+                      class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 font-mono resize-y">{{ old('features_raw_en', implode("\n", $consultoria->getRawOriginal('features_en') ? (json_decode($consultoria->getRawOriginal('features_en'), true) ?? []) : [])) }}</textarea>
         </div>
 
         {{-- Aparência + Opções --}}

@@ -21,14 +21,14 @@
 
         <div class="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
             <div>
-                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Título <span class="text-red-400">*</span></label>
-                <input type="text" name="titulo" value="{{ old('titulo', $equipamento->titulo) }}" required
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Título (PT) <span class="text-red-400">*</span></label>
+                <input type="text" name="titulo" value="{{ old('titulo', $equipamento->getRawOriginal('titulo')) }}" required
                        class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640]">
             </div>
             <div>
-                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Descrição <span class="text-red-400">*</span></label>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Descrição (PT) <span class="text-red-400">*</span></label>
                 <textarea name="descricao" rows="3" required
-                          class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640] resize-none">{{ old('descricao', $equipamento->descricao) }}</textarea>
+                          class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640] resize-none">{{ old('descricao', $equipamento->getRawOriginal('descricao')) }}</textarea>
             </div>
             <div>
                 <label class="block text-xs font-semibold text-slate-600 mb-1.5">Ícone SVG (path)</label>
@@ -50,6 +50,25 @@
                         <span class="text-sm text-slate-700 font-medium">Ativo (visível no site)</span>
                     </label>
                 </div>
+            </div>
+        </div>
+
+        {{-- Tradução EN --}}
+        <div class="bg-blue-50 rounded-2xl border border-blue-200 p-6 space-y-5">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-700 uppercase tracking-wide">EN</span>
+                <h2 class="font-semibold text-blue-800 text-sm uppercase tracking-wide">Tradução em Inglês (opcional)</h2>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Title (EN)</label>
+                <input type="text" name="titulo_en" value="{{ old('titulo_en', $equipamento->getRawOriginal('titulo_en')) }}"
+                       placeholder="ex: Drilling &amp; Boring"
+                       class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Description (EN)</label>
+                <textarea name="descricao_en" rows="3"
+                          class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 resize-none">{{ old('descricao_en', $equipamento->getRawOriginal('descricao_en')) }}</textarea>
             </div>
         </div>
 

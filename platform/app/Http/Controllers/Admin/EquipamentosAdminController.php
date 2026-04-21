@@ -54,11 +54,13 @@ class EquipamentosAdminController extends Controller
     private function validated(Request $request): array
     {
         return $request->validate([
-            'titulo'   => 'required|string|max:150',
-            'descricao'=> 'required|string',
-            'icon_svg' => 'nullable|string|max:500',
-            'ordem'    => 'nullable|integer|min:0',
-            'ativo'    => 'nullable|boolean',
+            'titulo'      => 'required|string|max:150',
+            'titulo_en'   => 'nullable|string|max:150',
+            'descricao'   => 'required|string',
+            'descricao_en'=> 'nullable|string',
+            'icon_svg'    => 'nullable|string|max:500',
+            'ordem'       => 'nullable|integer|min:0',
+            'ativo'       => 'nullable|boolean',
         ]);
     }
 }
