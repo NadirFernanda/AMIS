@@ -22,7 +22,7 @@
         @csrf
 
         <div class="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
-            <h2 class="font-semibold text-[#0f2640] text-sm uppercase tracking-wide">Identificação</h2>
+            <h2 class="font-semibold text-[#0f2640] text-sm uppercase tracking-wide">Identificação (PT)</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-1.5">Nome Completo <span class="text-red-400">*</span></label>
@@ -53,6 +53,63 @@
                        placeholder="ex: Engenharia de Minas, MISIS Moscovo, PHOSAGRO  (separadas por vírgula)"
                        class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640]">
                 <p class="text-slate-400 text-xs mt-1">Separadas por vírgula</p>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Slug (URL) <span class="text-slate-400 font-normal">— gerado automaticamente se vazio</span></label>
+                <input type="text" name="slug" value="{{ old('slug') }}"
+                       placeholder="ex: joao-silva"
+                       class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640]">
+                <p class="text-slate-400 text-xs mt-1">Usado em /fundadores/{slug} · deixar vazio para gerar a partir do nome</p>
+            </div>
+        </div>
+
+        {{-- Tradução EN --}}
+        <div class="bg-blue-50 rounded-2xl border border-blue-200 p-6 space-y-5">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-700 uppercase tracking-wide">EN</span>
+                <h2 class="font-semibold text-blue-800 text-sm uppercase tracking-wide">Translation in English (optional)</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1.5">Position / Role (EN)</label>
+                    <input type="text" name="cargo_en" value="{{ old('cargo_en') }}"
+                           class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1.5">Specialization (EN)</label>
+                    <input type="text" name="especializacao_en" value="{{ old('especializacao_en') }}"
+                           class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400">
+                </div>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Bio (EN)</label>
+                <textarea name="bio_en" rows="3"
+                          class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 resize-none">{{ old('bio_en') }}</textarea>
+            </div>
+        </div>
+
+        {{-- Tradução FR --}}
+        <div class="bg-indigo-50 rounded-2xl border border-indigo-200 p-6 space-y-5">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700 uppercase tracking-wide">FR</span>
+                <h2 class="font-semibold text-indigo-800 text-sm uppercase tracking-wide">Traduction en Français (optionnel)</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1.5">Poste / Rôle (FR)</label>
+                    <input type="text" name="cargo_fr" value="{{ old('cargo_fr') }}"
+                           class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1.5">Spécialisation (FR)</label>
+                    <input type="text" name="especializacao_fr" value="{{ old('especializacao_fr') }}"
+                           class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400">
+                </div>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Bio (FR)</label>
+                <textarea name="bio_fr" rows="3"
+                          class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 resize-none">{{ old('bio_fr') }}</textarea>
             </div>
         </div>
 

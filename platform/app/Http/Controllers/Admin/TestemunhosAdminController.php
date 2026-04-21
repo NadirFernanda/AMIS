@@ -55,12 +55,16 @@ class TestemunhosAdminController extends Controller
     private function validated(Request $request): array
     {
         return $request->validate([
-            'nome'    => 'required|string|max:100',
-            'cargo'   => 'required|string|max:100',
-            'empresa' => 'required|string|max:100',
-            'texto'   => 'required|string',
-            'rating'  => 'nullable|integer|min:1|max:5',
-            'ativo'   => 'nullable|boolean',
+            'nome'     => 'required|string|max:100',
+            'cargo'    => 'required|string|max:100',
+            'cargo_en' => 'nullable|string|max:100',
+            'cargo_fr' => 'nullable|string|max:100',
+            'empresa'  => 'required|string|max:100',
+            'texto'    => 'required|string',
+            'texto_en' => 'nullable|string',
+            'texto_fr' => 'nullable|string',
+            'rating'   => 'nullable|integer|min:1|max:5',
+            'ativo'    => 'nullable|boolean',
         ]);
     }
 }

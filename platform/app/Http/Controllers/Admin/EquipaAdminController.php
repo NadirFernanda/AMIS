@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Membro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class EquipaAdminController extends Controller
 {
@@ -23,6 +24,14 @@ class EquipaAdminController extends Controller
     {
         $data = $this->validated($request);
         $data['tags'] = $this->parseTags($request->tags_raw ?? '');
+        // Auto-generate unique slug from nome if not provided
+        $slug = Str::slug($request->input('slug') ?: $data['nome']);
+        $base = $slug;
+        $i = 1;
+        while (Membro::where('slug', $slug)->exists()) {
+            $slug = $base . '-' . $i++;
+        }
+        $data['slug'] = $slug;
         Membro::create($data);
         return redirect()->route('admin.equipa.index')
             ->with('success', 'Membro adicionado com sucesso.');
@@ -37,6 +46,16 @@ class EquipaAdminController extends Controller
     {
         $data = $this->validated($request);
         $data['tags'] = $this->parseTags($request->tags_raw ?? '');
+        // Update slug if explicitly provided and changed
+        if ($request->filled('slug') && $request->input('slug') !== $membro->slug) {
+            $slug = Str::slug($request->input('slug'));
+            $base = $slug;
+            $i = 1;
+            while (Membro::where('slug', $slug)->where('id', '!=', $membro->id)->exists()) {
+                $slug = $base . '-' . $i++;
+            }
+            $data['slug'] = $slug;
+        }
         $membro->update($data);
         return redirect()->route('admin.equipa.index')
             ->with('success', 'Membro atualizado com sucesso.');
@@ -58,13 +77,19 @@ class EquipaAdminController extends Controller
     private function validated(Request $request): array
     {
         return $request->validate([
-            'nome'           => 'required|string|max:150',
-            'cargo'          => 'required|string|max:100',
-            'especializacao' => 'nullable|string|max:100',
-            'bio'            => 'required|string',
-            'cor'            => 'required|string|max:30',
-            'ordem'          => 'nullable|integer|min:0',
-            'ativo'          => 'nullable|boolean',
+            'nome'              => 'required|string|max:150',
+            'cargo'             => 'required|string|max:100',
+            'cargo_en'          => 'nullable|string|max:100',
+            'cargo_fr'          => 'nullable|string|max:100',
+            'especializacao'    => 'nullable|string|max:100',
+            'especializacao_en' => 'nullable|string|max:100',
+            'especializacao_fr' => 'nullable|string|max:100',
+            'bio'               => 'required|string',
+            'bio_en'            => 'nullable|string',
+            'bio_fr'            => 'nullable|string',
+            'cor'               => 'required|string|max:30',
+            'ordem'             => 'nullable|integer|min:0',
+            'ativo'             => 'nullable|boolean',
         ]);
     }
 

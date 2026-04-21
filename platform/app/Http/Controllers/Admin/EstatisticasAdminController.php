@@ -17,16 +17,20 @@ class EstatisticasAdminController extends Controller
     public function update(Request $request)
     {
         $items = $request->validate([
-            'stats'             => 'required|array',
-            'stats.*.id'        => 'required|integer|exists:estatisticas,id',
-            'stats.*.valor'     => 'required|string|max:50',
-            'stats.*.descricao' => 'nullable|string|max:150',
+            'stats'                  => 'required|array',
+            'stats.*.id'             => 'required|integer|exists:estatisticas,id',
+            'stats.*.valor'          => 'required|string|max:50',
+            'stats.*.descricao'      => 'nullable|string|max:150',
+            'stats.*.descricao_en'   => 'nullable|string|max:150',
+            'stats.*.descricao_fr'   => 'nullable|string|max:150',
         ]);
 
         foreach ($request->stats as $item) {
             Estatistica::where('id', $item['id'])->update([
-                'valor'     => $item['valor'],
-                'descricao' => $item['descricao'] ?? null,
+                'valor'        => $item['valor'],
+                'descricao'    => $item['descricao'] ?? null,
+                'descricao_en' => $item['descricao_en'] ?? null,
+                'descricao_fr' => $item['descricao_fr'] ?? null,
             ]);
         }
 

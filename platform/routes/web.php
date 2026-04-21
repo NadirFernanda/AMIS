@@ -68,6 +68,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     // Mensagens de contacto
     Route::get('/mensagens', [MensagensAdminController::class, 'index'])->name('mensagens.index');
     Route::get('/mensagens/{mensagem}', [MensagensAdminController::class, 'show'])->name('mensagens.show');
+    Route::patch('/mensagens/{mensagem}/lida', [MensagensAdminController::class, 'marcarLida'])->name('mensagens.toggle');
     Route::delete('/mensagens/{mensagem}', [MensagensAdminController::class, 'destroy'])->name('mensagens.destroy');
 
     // Equipa

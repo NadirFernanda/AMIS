@@ -22,28 +22,44 @@
 
         <div class="bg-white rounded-2xl border border-slate-200 divide-y divide-slate-100">
             @foreach($stats as $i => $stat)
-            <div class="p-5 flex items-center gap-5">
+            <div class="p-5 space-y-3">
                 <input type="hidden" name="stats[{{ $i }}][id]" value="{{ $stat->id }}">
 
-                {{-- Preview --}}
-                <div class="w-20 shrink-0 text-center">
-                    <div class="text-2xl font-extrabold text-[#0f2640]" id="prev_{{ $stat->id }}">{{ $stat->valor }}</div>
-                    <div class="text-slate-400 text-xs mt-0.5 truncate">{{ $stat->chave }}</div>
+                <div class="flex items-center gap-5">
+                    {{-- Preview --}}
+                    <div class="w-20 shrink-0 text-center">
+                        <div class="text-2xl font-extrabold text-[#0f2640]" id="prev_{{ $stat->id }}">{{ $stat->valor }}</div>
+                        <div class="text-slate-400 text-xs mt-0.5 truncate">{{ $stat->chave }}</div>
+                    </div>
+
+                    {{-- Valor --}}
+                    <div class="w-32 shrink-0">
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Valor</label>
+                        <input type="text" name="stats[{{ $i }}][valor]" value="{{ old("stats.$i.valor", $stat->valor) }}" required
+                               oninput="document.getElementById('prev_{{ $stat->id }}').textContent = this.value"
+                               class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640]">
+                    </div>
+
+                    {{-- Descrição PT --}}
+                    <div class="flex-1">
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Descrição (PT)</label>
+                        <input type="text" name="stats[{{ $i }}][descricao]" value="{{ old("stats.$i.descricao", $stat->getRawOriginal('descricao')) }}"
+                               class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640]">
+                    </div>
                 </div>
 
-                {{-- Valor --}}
-                <div class="w-32 shrink-0">
-                    <label class="block text-xs font-semibold text-slate-600 mb-1.5">Valor</label>
-                    <input type="text" name="stats[{{ $i }}][valor]" value="{{ old("stats.$i.valor", $stat->valor) }}" required
-                           oninput="document.getElementById('prev_{{ $stat->id }}').textContent = this.value"
-                           class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640]">
-                </div>
-
-                {{-- Descrição --}}
-                <div class="flex-1">
-                    <label class="block text-xs font-semibold text-slate-600 mb-1.5">Descrição</label>
-                    <input type="text" name="stats[{{ $i }}][descricao]" value="{{ old("stats.$i.descricao", $stat->descricao) }}"
-                           class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0f2640]/20 focus:border-[#0f2640]">
+                {{-- EN / FR --}}
+                <div class="grid grid-cols-2 gap-3 pl-25">
+                    <div>
+                        <label class="block text-xs font-semibold text-blue-600 mb-1.5">Descrição (EN)</label>
+                        <input type="text" name="stats[{{ $i }}][descricao_en]" value="{{ old("stats.$i.descricao_en", $stat->getRawOriginal('descricao_en')) }}"
+                               class="w-full border border-blue-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 bg-blue-50">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-indigo-600 mb-1.5">Descrição (FR)</label>
+                        <input type="text" name="stats[{{ $i }}][descricao_fr]" value="{{ old("stats.$i.descricao_fr", $stat->getRawOriginal('descricao_fr')) }}"
+                               class="w-full border border-indigo-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 bg-indigo-50">
+                    </div>
                 </div>
             </div>
             @endforeach

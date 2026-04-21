@@ -25,7 +25,7 @@
         @csrf
 
         <div class="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
-            <h2 class="text-sm font-bold text-[#0f2640] uppercase tracking-wider">Informação do Cliente</h2>
+            <h2 class="text-sm font-bold text-[#0f2640] uppercase tracking-wider">Informação do Cliente (PT)</h2>
 
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-1.5">Nome *</label>
@@ -69,6 +69,42 @@
                            class="w-4 h-4 rounded accent-[#0f2640]">
                     <label for="ativo" class="text-sm font-semibold text-slate-700">Ativo</label>
                 </div>
+            </div>
+        </div>
+
+        {{-- Tradução EN --}}
+        <div class="bg-blue-50 rounded-2xl border border-blue-200 p-6 space-y-5">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-700 uppercase tracking-wide">EN</span>
+                <h2 class="font-semibold text-blue-800 text-sm uppercase tracking-wide">Translation in English (optional)</h2>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-600 mb-1.5">Position / Role (EN)</label>
+                <input type="text" name="cargo_en" value="{{ old('cargo_en') }}" maxlength="100"
+                       class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 outline-none transition">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-600 mb-1.5">Testimonial (EN)</label>
+                <textarea name="texto_en" rows="4"
+                          class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 outline-none transition resize-none">{{ old('texto_en') }}</textarea>
+            </div>
+        </div>
+
+        {{-- Tradução FR --}}
+        <div class="bg-indigo-50 rounded-2xl border border-indigo-200 p-6 space-y-5">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700 uppercase tracking-wide">FR</span>
+                <h2 class="font-semibold text-indigo-800 text-sm uppercase tracking-wide">Traduction en Français (optionnel)</h2>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-600 mb-1.5">Poste / Rôle (FR)</label>
+                <input type="text" name="cargo_fr" value="{{ old('cargo_fr') }}" maxlength="100"
+                       class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 outline-none transition">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-600 mb-1.5">Témoignage (FR)</label>
+                <textarea name="texto_fr" rows="4"
+                          class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 outline-none transition resize-none">{{ old('texto_fr') }}</textarea>
             </div>
         </div>
 
