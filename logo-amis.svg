@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 140" width="560" height="140">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e4a70;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f2640;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8b84b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a8711a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Escudo -->
+  <path d="M 70 8 L 18 28 L 18 72 C 18 100 44 122 70 132 C 96 122 122 100 122 72 L 122 28 Z"
+        fill="url(#shieldGrad)" stroke="#c9992a" stroke-width="2.5"/>
+
+  <!-- Brilho superior do escudo -->
+  <path d="M 70 12 L 22 30 L 22 52 C 22 52 36 28 70 24 C 104 28 118 52 118 52 L 118 30 Z"
+        fill="white" fill-opacity="0.07"/>
+
+  <!-- Ícone: picareta cruzada com cristal/mineral -->
+  <!-- Picareta esquerda -->
+  <line x1="44" y1="82" x2="96" y2="52" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 44 82 L 36 90 L 42 88 L 44 94 L 52 84 Z" fill="url(#goldGrad)"/>
+  <!-- Picareta direita -->
+  <line x1="96" y1="82" x2="44" y2="52" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 96 82 L 104 90 L 98 88 L 96 94 L 88 84 Z" fill="url(#goldGrad)"/>
+  <!-- Cristal central -->
+  <polygon points="70,44 62,62 70,58 78,62" fill="#e8b84b" opacity="0.9"/>
+  <polygon points="70,58 62,62 70,78 78,62" fill="#c9992a" opacity="0.9"/>
+  <line x1="70" y1="44" x2="70" y2="78" stroke="#e8b84b" stroke-width="1" opacity="0.5"/>
+
+  <!-- Linha separadora dourada no escudo -->
+  <path d="M 26 100 Q 70 118 114 100" fill="none" stroke="#c9992a" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Texto AMIS -->
+  <text x="148" y="72"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="52"
+        font-weight="bold"
+        letter-spacing="6"
+        fill="#1a3a5c">AMIS</text>
+
+  <!-- Linha decorativa dourada sob AMIS -->
+  <rect x="148" y="82" width="390" height="2.5" fill="url(#goldGrad)" rx="1"/>
+
+  <!-- Tagline -->
+  <text x="150" y="108"
+        font-family="'Trebuchet MS', Arial, sans-serif"
+        font-size="11.5"
+        letter-spacing="2.5"
+        fill="#5a7a9a">ANGOLA MINING INNOVATION &amp; SOLUTIONS</text>
+</svg>
