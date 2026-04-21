@@ -30,7 +30,14 @@ Route::get('/locale/{lang}', function (string $lang) {
     if (in_array($lang, $supported)) {
         session(['locale' => $lang]);
     }
-    return redirect()->back()->withInput();
+    // Prevent open redirect: only go back if Referer is same host
+    $previous = url()->previous();
+    $appHost  = parse_url(config('app.url'), PHP_URL_HOST) ?? request()->getHost();
+    $prevHost = parse_url($previous, PHP_URL_HOST);
+    if ($prevHost && $prevHost !== $appHost && $prevHost !== request()->getHost()) {
+        return redirect()->route('home');
+    }
+    return redirect($previous ?: route('home'));
 })->name('locale.switch');
 
 // Auth

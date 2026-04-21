@@ -22,6 +22,11 @@ class ClienteController extends Controller
     {
         $user = Auth::user();
 
+        // Enforce one testimonial per user (same check as UI)
+        if (Testemunho::where('nome', $user->name)->exists()) {
+            return back()->with('testemunho_enviado', true);
+        }
+
         $validated = $request->validate([
             'cargo'  => 'required|string|max:100',
             'texto'  => 'required|string|min:20|max:1000',
