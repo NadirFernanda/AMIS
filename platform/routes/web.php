@@ -21,7 +21,7 @@ Route::get('/formacao', [PublicController::class, 'courses'])->name('courses');
 Route::get('/sobre', [PublicController::class, 'about'])->name('about');
 Route::get('/projectos', [PublicController::class, 'projects'])->name('projects');
 Route::get('/contacto', [PublicController::class, 'contact'])->name('contact');
-Route::post('/contacto', [PublicController::class, 'sendContact'])->name('contact.send');
+Route::post('/contacto', [PublicController::class, 'sendContact'])->name('contact.send')->middleware('throttle:3,1');
 Route::get('/fundadores/{slug}', [PublicController::class, 'fundador'])->name('fundador');
 
 // Troca de idioma
@@ -35,7 +35,7 @@ Route::get('/locale/{lang}', function (string $lang) {
 
 // Auth
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');
-Route::post('/login', [AuthController::class, 'login'])->name('login.attempt')->middleware('guest');
+Route::post('/login', [AuthController::class, 'login'])->name('login.attempt')->middleware(['guest', 'throttle:5,1']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 // Área Cliente (protegida)
