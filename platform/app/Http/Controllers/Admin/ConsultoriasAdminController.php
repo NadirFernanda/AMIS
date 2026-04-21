@@ -24,6 +24,7 @@ class ConsultoriasAdminController extends Controller
         $data = $this->validated($request);
         $data['features']    = $this->parseFeatures($request->features_raw ?? '');
         $data['features_en'] = $this->parseFeatures($request->features_raw_en ?? '');
+        $data['features_fr'] = $this->parseFeatures($request->features_raw_fr ?? '');
 
         Consultoria::create($data);
 
@@ -41,6 +42,7 @@ class ConsultoriasAdminController extends Controller
         $data = $this->validated($request);
         $data['features']    = $this->parseFeatures($request->features_raw ?? '');
         $data['features_en'] = $this->parseFeatures($request->features_raw_en ?? '');
+        $data['features_fr'] = $this->parseFeatures($request->features_raw_fr ?? '');
 
         $consultoria->update($data);
 
@@ -68,8 +70,10 @@ class ConsultoriasAdminController extends Controller
         return $request->validate([
             'titulo'     => 'required|string|max:100',
             'titulo_en'  => 'nullable|string|max:100',
+            'titulo_fr'  => 'nullable|string|max:100',
             'tagline'    => 'required|string|max:255',
             'tagline_en' => 'nullable|string|max:255',
+            'tagline_fr' => 'nullable|string|max:255',
             'descricao'  => 'nullable|string',
             'preco_usd'  => 'required|string|max:30',
             'preco_aoa'  => 'required|string|max:50',

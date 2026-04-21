@@ -56,8 +56,10 @@ class EquipamentosAdminController extends Controller
         return $request->validate([
             'titulo'      => 'required|string|max:150',
             'titulo_en'   => 'nullable|string|max:150',
+            'titulo_fr'   => 'nullable|string|max:150',
             'descricao'   => 'required|string',
             'descricao_en'=> 'nullable|string',
+            'descricao_fr'=> 'nullable|string',
             'icon_svg'    => 'nullable|string|max:500',
             'ordem'       => 'nullable|integer|min:0',
             'ativo'       => 'nullable|boolean',

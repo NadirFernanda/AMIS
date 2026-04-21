@@ -74,6 +74,28 @@
             </div>
         </div>
 
+        {{-- Tradução FR --}}
+        <div class="bg-indigo-50 rounded-2xl border border-indigo-200 p-6 space-y-5">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700 uppercase tracking-wide">FR</span>
+                <h2 class="font-semibold text-indigo-800 text-sm uppercase tracking-wide">Traduction en Français (optionnel)</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1.5">Titre (FR)</label>
+                    <input type="text" name="titulo_fr" value="{{ old('titulo_fr') }}"
+                           placeholder="ex: Basique, Intermédiaire, Avancé"
+                           class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1.5">Tagline (FR)</label>
+                    <input type="text" name="tagline_fr" value="{{ old('tagline_fr') }}"
+                           placeholder="ex: Idéal pour les entreprises en phase initiale"
+                           class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400">
+                </div>
+            </div>
+        </div>
+
         {{-- Preços --}}
         <div class="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
             <h2 class="font-semibold text-[#0f2640] text-sm uppercase tracking-wide">Preços</h2>
@@ -111,6 +133,17 @@
             <textarea name="features_raw_en" rows="7"
                       placeholder="Initial technical diagnosis&#10;Compliance report&#10;Simplified risk analysis"
                       class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 font-mono resize-y">{{ old('features_raw_en') }}</textarea>
+        </div>
+
+        {{-- Funcionalidades FR --}}
+        <div class="bg-indigo-50 rounded-2xl border border-indigo-200 p-6 space-y-4">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700 uppercase tracking-wide">FR</span>
+                <h2 class="font-semibold text-indigo-800 text-sm uppercase tracking-wide">Fonctionnalités (FR — optionnel)</h2>
+            </div>
+            <textarea name="features_raw_fr" rows="7"
+                      placeholder="Diagnostic technique initial&#10;Rapport de conformité&#10;Analyse des risques simplifiée"
+                      class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 font-mono resize-y">{{ old('features_raw_fr') }}</textarea>
         </div>
 
         {{-- Aparência + Opções --}}

@@ -72,6 +72,25 @@
             </div>
         </div>
 
+        {{-- Tradução FR --}}
+        <div class="bg-indigo-50 rounded-2xl border border-indigo-200 p-6 space-y-5">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700 uppercase tracking-wide">FR</span>
+                <h2 class="font-semibold text-indigo-800 text-sm uppercase tracking-wide">Traduction en Français (optionnel)</h2>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Titre (FR)</label>
+                <input type="text" name="titulo_fr" value="{{ old('titulo_fr', $equipamento->getRawOriginal('titulo_fr')) }}"
+                       placeholder="ex: Forage et Perforation"
+                       class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1.5">Description (FR)</label>
+                <textarea name="descricao_fr" rows="3"
+                          class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 resize-none">{{ old('descricao_fr', $equipamento->getRawOriginal('descricao_fr')) }}</textarea>
+            </div>
+        </div>
+
         <div class="flex items-center gap-4 pt-2">
             <button type="submit" class="bg-[#0f2640] hover:bg-[#1a3a5c] text-white font-semibold px-7 py-3 rounded-xl text-sm transition-colors">
                 Guardar Alterações

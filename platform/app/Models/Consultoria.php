@@ -10,35 +10,42 @@ class Consultoria extends Model
     protected $table = 'consultorias';
 
     protected $fillable = [
-        'titulo', 'titulo_en',
-        'tagline', 'tagline_en',
+        'titulo', 'titulo_en', 'titulo_fr',
+        'tagline', 'tagline_en', 'tagline_fr',
         'descricao', 'preco_usd', 'preco_aoa',
-        'cor', 'destaque', 'features', 'features_en', 'ativo', 'ordem',
+        'cor', 'destaque', 'features', 'features_en', 'features_fr', 'ativo', 'ordem',
     ];
 
     protected $casts = [
         'features_en' => 'array',
+        'features_fr' => 'array',
         'ativo'       => 'boolean',
         'destaque'    => 'boolean',
     ];
 
     // ── Locale-aware accessors ────────────────────────────────────────────────
 
+    private function localeValue(string $field): ?string
+    {
+        $locale = app()->getLocale();
+        if ($locale !== 'pt') {
+            $translated = $this->getRawOriginal("{$field}_{$locale}");
+            if (!empty($translated)) return $translated;
+        }
+        return null;
+    }
+
     protected function titulo(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => app()->getLocale() === 'en' && !empty($this->getRawOriginal('titulo_en'))
-                ? $this->getRawOriginal('titulo_en')
-                : $value
+            get: fn($value) => $this->localeValue('titulo') ?? $value
         );
     }
 
     protected function tagline(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => app()->getLocale() === 'en' && !empty($this->getRawOriginal('tagline_en'))
-                ? $this->getRawOriginal('tagline_en')
-                : $value
+            get: fn($value) => $this->localeValue('tagline') ?? $value
         );
     }
 
@@ -46,8 +53,9 @@ class Consultoria extends Model
     {
         return Attribute::make(
             get: function ($value) {
-                if (app()->getLocale() === 'en') {
-                    $raw = $this->getRawOriginal('features_en');
+                $locale = app()->getLocale();
+                if ($locale !== 'pt') {
+                    $raw = $this->getRawOriginal("features_{$locale}");
                     if (!empty($raw)) {
                         $decoded = is_string($raw) ? json_decode($raw, true) : $raw;
                         if (!empty($decoded)) return $decoded;
