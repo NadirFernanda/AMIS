@@ -27,4 +27,10 @@ return [
     'month'           => 'mois',
     'weeks'           => 'semaines',
     'week'            => 'semaine',
+    'stat_courses'    => 'Cours',
+    'stat_graduates'  => '200+ Diplômés',
+    'stat_certificate'=> 'Certificat Numérique',
+    'stat_format'     => 'En Ligne & Présentiel',
+    'cert_name'       => 'Certificat AMIS',
+    'cert_desc'       => 'Vérifiable par QR Code · Angola & International',
 ];

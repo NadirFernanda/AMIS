@@ -54,16 +54,22 @@ class ProjectosAdminController extends Controller
     private function validated(Request $request): array
     {
         return $request->validate([
-            'titulo'    => 'required|string|max:150',
-            'local'     => 'nullable|string|max:100',
-            'tipo'      => 'required|in:consultoria,formacao,equipamentos',
-            'descricao' => 'required|string',
-            'resultado' => 'nullable|string|max:250',
-            'foto'      => 'nullable|string|max:150',
-            'cor'       => 'required|string|max:30',
-            'ordem'     => 'nullable|integer|min:0',
-            'destaque'  => 'nullable|boolean',
-            'ativo'     => 'nullable|boolean',
+            'titulo'       => 'required|string|max:150',
+            'titulo_en'    => 'nullable|string|max:150',
+            'titulo_fr'    => 'nullable|string|max:150',
+            'local'        => 'nullable|string|max:100',
+            'tipo'         => 'required|in:consultoria,formacao,equipamentos',
+            'descricao'    => 'required|string',
+            'descricao_en' => 'nullable|string',
+            'descricao_fr' => 'nullable|string',
+            'resultado'    => 'nullable|string|max:250',
+            'resultado_en' => 'nullable|string|max:250',
+            'resultado_fr' => 'nullable|string|max:250',
+            'foto'         => 'nullable|string|max:150',
+            'cor'          => 'required|string|max:30',
+            'ordem'        => 'nullable|integer|min:0',
+            'destaque'     => 'nullable|boolean',
+            'ativo'        => 'nullable|boolean',
         ]);
     }
 }

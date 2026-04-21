@@ -107,6 +107,102 @@
                         placeholder="Gestão de lavra&#10;Controlo de produção&#10;Gestão de pessoas&#10;Indicadores KPI&#10;Segurança operacional">{{ old('topicos_raw') }}</textarea>
                 </div>
 
+                {{-- ── BLOCO EN ────────────────────────────────────────────── --}}
+                <div class="bg-blue-50 rounded-2xl border border-blue-200 p-6 space-y-5">
+                    <div class="flex items-center gap-2">
+                        <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-700 uppercase tracking-wide">EN</span>
+                        <h2 class="font-semibold text-blue-800 text-sm uppercase tracking-wide">Translation in English (optional)</h2>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Title (EN)</label>
+                            <input type="text" name="titulo_en" value="{{ old('titulo_en') }}"
+                                class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400"
+                                placeholder="Ex: Mining Operations Management">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Level (EN)</label>
+                            <input type="text" name="nivel_en" value="{{ old('nivel_en') }}"
+                                class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400"
+                                placeholder="Advanced">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Duration (EN)</label>
+                            <input type="text" name="duracao_en" value="{{ old('duracao_en') }}"
+                                class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400"
+                                placeholder="3 months">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Format (EN)</label>
+                            <input type="text" name="modalidade_en" value="{{ old('modalidade_en') }}"
+                                class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400"
+                                placeholder="Online / In-Person">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Description (EN)</label>
+                        <textarea name="descricao_en" rows="3"
+                            class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 resize-none"
+                            placeholder="Detailed course description in English...">{{ old('descricao_en') }}</textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Topics (EN) <span class="normal-case text-slate-400 font-normal">(one per line)</span></label>
+                        <textarea name="topicos_raw_en" rows="5"
+                            class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 resize-none font-mono"
+                            placeholder="Mine planning&#10;Production control&#10;People management">{{ old('topicos_raw_en') }}</textarea>
+                    </div>
+                </div>
+
+                {{-- ── BLOCO FR ────────────────────────────────────────────── --}}
+                <div class="bg-indigo-50 rounded-2xl border border-indigo-200 p-6 space-y-5">
+                    <div class="flex items-center gap-2">
+                        <span class="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700 uppercase tracking-wide">FR</span>
+                        <h2 class="font-semibold text-indigo-800 text-sm uppercase tracking-wide">Traduction en Français (optionnel)</h2>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Titre (FR)</label>
+                            <input type="text" name="titulo_fr" value="{{ old('titulo_fr') }}"
+                                class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400"
+                                placeholder="Ex: Gestion des Opérations Minières">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Niveau (FR)</label>
+                            <input type="text" name="nivel_fr" value="{{ old('nivel_fr') }}"
+                                class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400"
+                                placeholder="Avancé">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Durée (FR)</label>
+                            <input type="text" name="duracao_fr" value="{{ old('duracao_fr') }}"
+                                class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400"
+                                placeholder="3 mois">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Format (FR)</label>
+                            <input type="text" name="modalidade_fr" value="{{ old('modalidade_fr') }}"
+                                class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400"
+                                placeholder="En Ligne / Présentiel">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Description (FR)</label>
+                        <textarea name="descricao_fr" rows="3"
+                            class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 resize-none"
+                            placeholder="Description détaillée du cours en français...">{{ old('descricao_fr') }}</textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Sujets (FR) <span class="normal-case text-slate-400 font-normal">(un par ligne)</span></label>
+                        <textarea name="topicos_raw_fr" rows="5"
+                            class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 resize-none font-mono"
+                            placeholder="Planification minière&#10;Contrôle de production&#10;Gestion des personnes">{{ old('topicos_raw_fr') }}</textarea>
+                    </div>
+                </div>
+
                 <div class="flex items-center gap-3">
                     <input type="hidden" name="ativo" value="0">
                     <input type="checkbox" id="ativo" name="ativo" value="1" checked

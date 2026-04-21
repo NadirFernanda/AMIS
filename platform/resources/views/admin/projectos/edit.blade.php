@@ -30,11 +30,11 @@
 
         {{-- Info principal --}}
         <div class="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
-            <h2 class="text-sm font-bold text-[#0f2640] uppercase tracking-wider">Informação Principal</h2>
+            <h2 class="text-sm font-bold text-[#0f2640] uppercase tracking-wider">Informação Principal (PT)</h2>
 
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-1.5">Título *</label>
-                <input type="text" name="titulo" value="{{ old('titulo', $projecto->titulo) }}" required maxlength="150"
+                <input type="text" name="titulo" value="{{ old('titulo', $projecto->getRawOriginal('titulo')) }}" required maxlength="150"
                        class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#1a3a5c]/20 focus:border-[#1a3a5c] outline-none transition">
             </div>
 
@@ -58,13 +58,59 @@
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-1.5">Descrição *</label>
                 <textarea name="descricao" rows="4" required
-                          class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#1a3a5c]/20 focus:border-[#1a3a5c] outline-none transition resize-none">{{ old('descricao', $projecto->descricao) }}</textarea>
+                          class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#1a3a5c]/20 focus:border-[#1a3a5c] outline-none transition resize-none">{{ old('descricao', $projecto->getRawOriginal('descricao')) }}</textarea>
             </div>
 
             <div>
                 <label class="block text-sm font-semibold text-slate-700 mb-1.5">Resultado / Métrica</label>
-                <input type="text" name="resultado" value="{{ old('resultado', $projecto->resultado) }}" maxlength="250"
+                <input type="text" name="resultado" value="{{ old('resultado', $projecto->getRawOriginal('resultado')) }}" maxlength="250"
                        class="w-full border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#1a3a5c]/20 focus:border-[#1a3a5c] outline-none transition">
+            </div>
+        </div>
+
+        {{-- Tradução EN --}}
+        <div class="bg-blue-50 rounded-2xl border border-blue-200 p-6 space-y-5">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-700 uppercase tracking-wide">EN</span>
+                <h2 class="font-semibold text-blue-800 text-sm uppercase tracking-wide">Translation in English (optional)</h2>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-600 mb-1.5">Title (EN)</label>
+                <input type="text" name="titulo_en" value="{{ old('titulo_en', $projecto->getRawOriginal('titulo_en')) }}" maxlength="150"
+                       class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 outline-none transition">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-600 mb-1.5">Description (EN)</label>
+                <textarea name="descricao_en" rows="3"
+                          class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 outline-none transition resize-none">{{ old('descricao_en', $projecto->getRawOriginal('descricao_en')) }}</textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-600 mb-1.5">Result / Metric (EN)</label>
+                <input type="text" name="resultado_en" value="{{ old('resultado_en', $projecto->getRawOriginal('resultado_en')) }}" maxlength="250"
+                       class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 outline-none transition">
+            </div>
+        </div>
+
+        {{-- Tradução FR --}}
+        <div class="bg-indigo-50 rounded-2xl border border-indigo-200 p-6 space-y-5">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700 uppercase tracking-wide">FR</span>
+                <h2 class="font-semibold text-indigo-800 text-sm uppercase tracking-wide">Traduction en Français (optionnel)</h2>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-600 mb-1.5">Titre (FR)</label>
+                <input type="text" name="titulo_fr" value="{{ old('titulo_fr', $projecto->getRawOriginal('titulo_fr')) }}" maxlength="150"
+                       class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 outline-none transition">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-600 mb-1.5">Description (FR)</label>
+                <textarea name="descricao_fr" rows="3"
+                          class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 outline-none transition resize-none">{{ old('descricao_fr', $projecto->getRawOriginal('descricao_fr')) }}</textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-600 mb-1.5">Résultat / Métrique (FR)</label>
+                <input type="text" name="resultado_fr" value="{{ old('resultado_fr', $projecto->getRawOriginal('resultado_fr')) }}" maxlength="250"
+                       class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 outline-none transition">
             </div>
         </div>
 

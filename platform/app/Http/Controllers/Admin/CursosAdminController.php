@@ -22,7 +22,9 @@ class CursosAdminController extends Controller
     public function store(Request $request)
     {
         $data = $this->validated($request);
-        $data['topicos'] = $this->parseTopicos($request->topicos_raw ?? '');
+        $data['topicos']    = $this->parseTopicos($request->topicos_raw ?? '');
+        $data['topicos_en'] = $this->parseTopicos($request->topicos_raw_en ?? '');
+        $data['topicos_fr'] = $this->parseTopicos($request->topicos_raw_fr ?? '');
 
         Curso::create($data);
 
@@ -38,7 +40,9 @@ class CursosAdminController extends Controller
     public function update(Request $request, Curso $curso)
     {
         $data = $this->validated($request);
-        $data['topicos'] = $this->parseTopicos($request->topicos_raw ?? '');
+        $data['topicos']    = $this->parseTopicos($request->topicos_raw ?? '');
+        $data['topicos_en'] = $this->parseTopicos($request->topicos_raw_en ?? '');
+        $data['topicos_fr'] = $this->parseTopicos($request->topicos_raw_fr ?? '');
 
         $curso->update($data);
 
@@ -64,17 +68,27 @@ class CursosAdminController extends Controller
     private function validated(Request $request): array
     {
         return $request->validate([
-            'titulo'     => 'required|string|max:255',
-            'descricao'  => 'required|string',
-            'nivel'      => 'required|in:Básico,Intermédio,Avançado',
-            'duracao'    => 'required|string|max:50',
-            'modalidade' => 'required|string|max:100',
-            'preco_usd'  => 'required|string|max:30',
-            'preco_aoa'  => 'required|string|max:50',
-            'cor'        => 'required|string|max:30',
-            'ativo'      => 'nullable|boolean',
-            'destaque'   => 'nullable|boolean',
-            'ordem'      => 'nullable|integer|min:0',
+            'titulo'        => 'required|string|max:255',
+            'titulo_en'     => 'nullable|string|max:255',
+            'titulo_fr'     => 'nullable|string|max:255',
+            'descricao'     => 'required|string',
+            'descricao_en'  => 'nullable|string',
+            'descricao_fr'  => 'nullable|string',
+            'nivel'         => 'required|in:Básico,Intermédio,Avançado',
+            'nivel_en'      => 'nullable|string|max:50',
+            'nivel_fr'      => 'nullable|string|max:50',
+            'duracao'       => 'required|string|max:50',
+            'duracao_en'    => 'nullable|string|max:50',
+            'duracao_fr'    => 'nullable|string|max:50',
+            'modalidade'    => 'required|string|max:100',
+            'modalidade_en' => 'nullable|string|max:100',
+            'modalidade_fr' => 'nullable|string|max:100',
+            'preco_usd'     => 'required|string|max:30',
+            'preco_aoa'     => 'required|string|max:50',
+            'cor'           => 'required|string|max:30',
+            'ativo'         => 'nullable|boolean',
+            'destaque'      => 'nullable|boolean',
+            'ordem'         => 'nullable|integer|min:0',
         ]);
     }
 

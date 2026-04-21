@@ -20,7 +20,7 @@
                 {{-- Título --}}
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">Título *</label>
-                    <input type="text" name="titulo" required value="{{ old('titulo', $curso->titulo) }}"
+                    <input type="text" name="titulo" required value="{{ old('titulo', $curso->getRawOriginal('titulo')) }}"
                         class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1a3a5c]/30 focus:border-[#1a3a5c] @error('titulo') border-red-300 bg-red-50 @enderror">
                     @error('titulo')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
                 </div>
@@ -29,7 +29,7 @@
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">Descrição *</label>
                     <textarea name="descricao" required rows="4"
-                        class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1a3a5c]/30 focus:border-[#1a3a5c] resize-none @error('descricao') border-red-300 bg-red-50 @enderror">{{ old('descricao', $curso->descricao) }}</textarea>
+                        class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1a3a5c]/30 focus:border-[#1a3a5c] resize-none @error('descricao') border-red-300 bg-red-50 @enderror">{{ old('descricao', $curso->getRawOriginal('descricao')) }}</textarea>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -38,13 +38,13 @@
                         <select name="nivel" required
                             class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1a3a5c]/30 focus:border-[#1a3a5c] bg-white">
                             @foreach(['Básico', 'Intermédio', 'Avançado'] as $n)
-                            <option value="{{ $n }}" {{ old('nivel', $curso->nivel) === $n ? 'selected' : '' }}>{{ $n }}</option>
+                            <option value="{{ $n }}" {{ old('nivel', $curso->getRawOriginal('nivel')) === $n ? 'selected' : '' }}>{{ $n }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">Duração *</label>
-                        <input type="text" name="duracao" required value="{{ old('duracao', $curso->duracao) }}"
+                        <input type="text" name="duracao" required value="{{ old('duracao', $curso->getRawOriginal('duracao')) }}"
                             class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1a3a5c]/30 focus:border-[#1a3a5c]">
                     </div>
                     <div>
@@ -52,7 +52,7 @@
                         <select name="modalidade" required
                             class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1a3a5c]/30 focus:border-[#1a3a5c] bg-white">
                             @foreach(['Online', 'Presencial (Luanda)', 'Online / Presencial'] as $m)
-                            <option value="{{ $m }}" {{ old('modalidade', $curso->modalidade) === $m ? 'selected' : '' }}>{{ $m }}</option>
+                            <option value="{{ $m }}" {{ old('modalidade', $curso->getRawOriginal('modalidade')) === $m ? 'selected' : '' }}>{{ $m }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -91,7 +91,91 @@
                         Tópicos <span class="normal-case text-slate-400 font-normal">(um por linha)</span>
                     </label>
                     <textarea name="topicos_raw" rows="6"
-                        class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1a3a5c]/30 focus:border-[#1a3a5c] resize-none font-mono">{{ old('topicos_raw', implode("\n", $curso->topicos ?? [])) }}</textarea>
+                        class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1a3a5c]/30 focus:border-[#1a3a5c] resize-none font-mono">{{ old('topicos_raw', implode("\n", json_decode($curso->getRawOriginal('topicos') ?? '[]', true) ?? [])) }}</textarea>
+                </div>
+
+                {{-- ── BLOCO EN ────────────────────────────────────────────── --}}
+                <div class="bg-blue-50 rounded-2xl border border-blue-200 p-6 space-y-5">
+                    <div class="flex items-center gap-2">
+                        <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-700 uppercase tracking-wide">EN</span>
+                        <h2 class="font-semibold text-blue-800 text-sm uppercase tracking-wide">Translation in English (optional)</h2>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Title (EN)</label>
+                            <input type="text" name="titulo_en" value="{{ old('titulo_en', $curso->getRawOriginal('titulo_en')) }}"
+                                class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Level (EN)</label>
+                            <input type="text" name="nivel_en" value="{{ old('nivel_en', $curso->getRawOriginal('nivel_en')) }}"
+                                class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Duration (EN)</label>
+                            <input type="text" name="duracao_en" value="{{ old('duracao_en', $curso->getRawOriginal('duracao_en')) }}"
+                                class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Format (EN)</label>
+                            <input type="text" name="modalidade_en" value="{{ old('modalidade_en', $curso->getRawOriginal('modalidade_en')) }}"
+                                class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Description (EN)</label>
+                        <textarea name="descricao_en" rows="3"
+                            class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 resize-none">{{ old('descricao_en', $curso->getRawOriginal('descricao_en')) }}</textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Topics (EN) <span class="normal-case text-slate-400 font-normal">(one per line)</span></label>
+                        <textarea name="topicos_raw_en" rows="5"
+                            class="w-full border border-blue-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 resize-none font-mono">{{ old('topicos_raw_en', implode("\n", json_decode($curso->getRawOriginal('topicos_en') ?? '[]', true) ?? [])) }}</textarea>
+                    </div>
+                </div>
+
+                {{-- ── BLOCO FR ────────────────────────────────────────────── --}}
+                <div class="bg-indigo-50 rounded-2xl border border-indigo-200 p-6 space-y-5">
+                    <div class="flex items-center gap-2">
+                        <span class="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-bold text-indigo-700 uppercase tracking-wide">FR</span>
+                        <h2 class="font-semibold text-indigo-800 text-sm uppercase tracking-wide">Traduction en Français (optionnel)</h2>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Titre (FR)</label>
+                            <input type="text" name="titulo_fr" value="{{ old('titulo_fr', $curso->getRawOriginal('titulo_fr')) }}"
+                                class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Niveau (FR)</label>
+                            <input type="text" name="nivel_fr" value="{{ old('nivel_fr', $curso->getRawOriginal('nivel_fr')) }}"
+                                class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Durée (FR)</label>
+                            <input type="text" name="duracao_fr" value="{{ old('duracao_fr', $curso->getRawOriginal('duracao_fr')) }}"
+                                class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Format (FR)</label>
+                            <input type="text" name="modalidade_fr" value="{{ old('modalidade_fr', $curso->getRawOriginal('modalidade_fr')) }}"
+                                class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Description (FR)</label>
+                        <textarea name="descricao_fr" rows="3"
+                            class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 resize-none">{{ old('descricao_fr', $curso->getRawOriginal('descricao_fr')) }}</textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1.5">Sujets (FR) <span class="normal-case text-slate-400 font-normal">(un par ligne)</span></label>
+                        <textarea name="topicos_raw_fr" rows="5"
+                            class="w-full border border-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400/30 focus:border-indigo-400 resize-none font-mono">{{ old('topicos_raw_fr', implode("\n", json_decode($curso->getRawOriginal('topicos_fr') ?? '[]', true) ?? [])) }}</textarea>
+                    </div>
                 </div>
 
                 <div class="flex items-center gap-3">

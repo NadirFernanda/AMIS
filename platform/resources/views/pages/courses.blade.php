@@ -14,7 +14,7 @@
             <p class="text-slate-300 mt-4 max-w-2xl">{{ __('courses.header_desc') }}</p>
             {{-- Stats bar --}}
             <div class="flex flex-wrap gap-8 mt-10">
-                @foreach([$cursos->count() . ' Cursos', '200+ Graduados', 'Certificado Digital', 'Online & Presencial'] as $stat)
+                @foreach([$cursos->count() . ' ' . __('courses.stat_courses'), __('courses.stat_graduates'), __('courses.stat_certificate'), __('courses.stat_format')] as $stat)
                 <div class="flex items-center gap-2 text-sm text-slate-300">
                     <svg class="w-4 h-4 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
@@ -101,8 +101,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
                 </svg>
                 <div class="text-left">
-                    <div class="text-white font-bold">Certificado AMIS</div>
-                    <div class="text-slate-400 text-sm">Verificável por QR Code · Angola & Internacional</div>
+                    <div class="text-white font-bold">{{ __('courses.cert_name') }}</div>
+                    <div class="text-slate-400 text-sm">{{ __('courses.cert_desc') }}</div>
                 </div>
             </div>
         </div>

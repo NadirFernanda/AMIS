@@ -27,4 +27,10 @@ return [
     'month'           => 'mês',
     'weeks'           => 'semanas',
     'week'            => 'semana',
+    'stat_courses'    => 'Cursos',
+    'stat_graduates'  => '200+ Graduados',
+    'stat_certificate'=> 'Certificado Digital',
+    'stat_format'     => 'Online & Presencial',
+    'cert_name'       => 'Certificado AMIS',
+    'cert_desc'       => 'Verificável por QR Code · Angola & Internacional',
 ];
