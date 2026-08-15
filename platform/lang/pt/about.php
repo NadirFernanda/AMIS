@@ -18,7 +18,7 @@ return [
     'cta_title'         => 'Junte-se à AMIS',
     'cta_desc'          => 'Seja como cliente, parceiro ou profissional — existe um lugar para si na comunidade AMIS.',
     'cta_talk'          => 'Falar Connosco',
-    'cta_courses'       => 'Ver Cursos',
+    'cta_suppliers'     => 'Ver Fornecedores',
     'values_label'      => 'Os Nossos Valores',
     'values_title'      => 'O Que Nos Move',
     'val_innov_title'   => 'Inovação Tecnológica',

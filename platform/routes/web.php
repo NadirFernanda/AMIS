@@ -6,18 +6,20 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ClientesAdminController;
-use App\Http\Controllers\Admin\CursosAdminController;
 use App\Http\Controllers\Admin\ConsultoriasAdminController;
 use App\Http\Controllers\Admin\MensagensAdminController;
 use App\Http\Controllers\Admin\EquipaAdminController;
 use App\Http\Controllers\Admin\EquipamentosAdminController;
+use App\Http\Controllers\Admin\FornecedoresAdminController;
 use App\Http\Controllers\Admin\EstatisticasAdminController;
 use App\Http\Controllers\Admin\ProjectosAdminController;
 use App\Http\Controllers\Admin\TestemunhosAdminController;
 
 Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/servicos', [PublicController::class, 'services'])->name('services');
-Route::get('/formacao', [PublicController::class, 'courses'])->name('courses');
+Route::get('/fornecedores', [PublicController::class, 'fornecedores'])->name('fornecedores');
+Route::post('/fornecedores/{fornecedor}/pedido', [PublicController::class, 'pedirIntroducaoFornecedor'])
+     ->name('fornecedores.pedido')->middleware('throttle:5,1');
 Route::get('/sobre', [PublicController::class, 'about'])->name('about');
 Route::get('/projectos', [PublicController::class, 'projects'])->name('projects');
 Route::get('/contacto', [PublicController::class, 'contact'])->name('contact');
@@ -60,12 +62,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::patch('/clientes/{cliente}/toggle', [ClientesAdminController::class, 'toggleStatus'])
          ->name('clientes.toggle');
 
-    Route::resource('cursos', CursosAdminController::class)
-         ->except(['show'])
-         ->parameters(['cursos' => 'curso']);
-    Route::patch('/cursos/{curso}/toggle', [CursosAdminController::class, 'toggleAtivo'])
-         ->name('cursos.toggle');
-
     Route::resource('consultorias', ConsultoriasAdminController::class)
          ->except(['show'])
          ->parameters(['consultorias' => 'consultoria']);
@@ -91,6 +87,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
          ->parameters(['equipamentos' => 'equipamento']);
     Route::patch('/equipamentos/{equipamento}/toggle', [EquipamentosAdminController::class, 'toggleAtivo'])
          ->name('equipamentos.toggle');
+
+    // Fornecedores
+    Route::resource('fornecedores', FornecedoresAdminController::class)
+         ->except(['show'])
+         ->parameters(['fornecedores' => 'fornecedor']);
+    Route::patch('/fornecedores/{fornecedor}/toggle', [FornecedoresAdminController::class, 'toggleAtivo'])
+         ->name('fornecedores.toggle');
 
     // Estatísticas
     Route::get('/estatisticas', [EstatisticasAdminController::class, 'index'])->name('estatisticas.index');

@@ -26,19 +26,19 @@
                     {{ __('home.hero_desc') }}
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="{{ route('courses') }}"
-                       class="inline-flex items-center justify-center gap-2 bg-[#c9922a] hover:bg-[#a67a22] text-white font-semibold px-7 py-3.5 rounded-lg transition-colors text-sm shadow-lg">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                        </svg>
-                        {{ __('home.cta_courses') }}
-                    </a>
                     <a href="{{ route('services') }}#consultoria"
-                       class="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-7 py-3.5 rounded-lg transition-colors text-sm">
+                       class="inline-flex items-center justify-center gap-2 bg-[#c9922a] hover:bg-[#a67a22] text-white font-semibold px-7 py-3.5 rounded-lg transition-colors text-sm shadow-lg">
                         {{ __('home.cta_consulting') }}
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
+                    </a>
+                    <a href="{{ route('fornecedores') }}"
+                       class="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-7 py-3.5 rounded-lg transition-colors text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4a4 4 0 014-4h10a4 4 0 014 4v4M12 13a4 4 0 100-8 4 4 0 000 8z"/>
+                        </svg>
+                        {{ __('home.cta_suppliers') }}
                     </a>
                 </div>
             </div>
@@ -138,25 +138,25 @@
                     </div>
                 </div>
 
-                {{-- Formação --}}
+                {{-- Fornecedores --}}
                 <div class="group bg-[#1a3a5c] border border-[#1a3a5c] rounded-2xl hover:shadow-xl transition-all relative overflow-hidden">
                     <div class="absolute top-4 right-4 z-10 bg-[#c9922a] text-white text-xs font-bold px-2.5 py-1 rounded-full">{{ __('home.popular_badge') }}</div>
                     <div class="relative h-44 overflow-hidden">
-                        <img src="/img/5.jpeg" alt="Formação Profissional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70">
+                        <img src="/img/5.jpeg" alt="Fornecedores de Equipamentos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#1a3a5c] via-[#1a3a5c]/60 to-transparent"></div>
                         <div class="absolute bottom-4 left-4">
                             <div class="w-10 h-10 bg-[#c9922a]/30 backdrop-blur rounded-xl flex items-center justify-center">
                                 <svg class="w-5 h-5 text-[#c9922a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4a4 4 0 014-4h10a4 4 0 014 4v4M12 13a4 4 0 100-8 4 4 0 000 8z"/>
                                 </svg>
                             </div>
                         </div>
                     </div>
                     <div class="p-8">
-                    <h3 class="text-xl font-bold text-white mb-3">{{ __('home.train_title') }}</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">{{ __('home.train_desc') }}</p>
+                    <h3 class="text-xl font-bold text-white mb-3">{{ __('home.supp_title') }}</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">{{ __('home.supp_desc') }}</p>
                     <div class="space-y-2 mb-6">
-                        @foreach(__('home.train_items') as $item)
+                        @foreach(__('home.supp_items') as $item)
                         <div class="flex items-center gap-2 text-sm text-slate-300">
                             <svg class="w-4 h-4 text-[#c9922a] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
@@ -165,14 +165,10 @@
                         </div>
                         @endforeach
                     </div>
-                    <div class="border-t border-white/10 pt-5 flex items-end justify-between">
-                        <div>
-                            <span class="text-xs text-slate-400">{{ __('home.from_price') }}</span>
-                            <div class="text-white font-bold text-lg">$1,000 USD</div>
-                        </div>
-                        <a href="{{ route('courses') }}"
+                    <div class="border-t border-white/10 pt-5 flex items-end justify-end">
+                        <a href="{{ route('fornecedores') }}"
                            class="text-[#c9922a] hover:text-white text-sm font-semibold flex items-center gap-1 transition-colors">
-                            {{ __('home.see_courses') }}
+                            {{ __('home.see_suppliers') }}
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                             </svg>
@@ -239,16 +235,16 @@
         </div>
     </section>
 
-    {{-- CURSOS EM DESTAQUE --}}
+    {{-- FORNECEDORES EM DESTAQUE --}}
     <section class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
                 <div>
-                    <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">{{ __('home.courses_label') }}</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a3a5c] mt-2">{{ __('home.courses_title') }}</h2>
+                    <span class="text-[#c9922a] text-sm font-semibold uppercase tracking-wider">{{ __('home.suppliers_label') }}</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1a3a5c] mt-2">{{ __('home.suppliers_title') }}</h2>
                 </div>
-                <a href="{{ route('courses') }}" class="text-[#1a3a5c] hover:text-[#c9922a] font-semibold text-sm flex items-center gap-1 transition-colors shrink-0">
-                    {{ __('home.see_all_courses') }}
+                <a href="{{ route('fornecedores') }}" class="text-[#1a3a5c] hover:text-[#c9922a] font-semibold text-sm flex items-center gap-1 transition-colors shrink-0">
+                    {{ __('home.see_all_suppliers') }}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
@@ -256,48 +252,27 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                @php
-                    $colors = ['#1a3a5c', '#0d8a7d', '#c9922a'];
-                    $courseImgs = [12, 13, 14];
-                @endphp
-                @forelse($cursosDestaque as $i => $curso)
-                @php $cor = $colors[$i % 3]; $img = $courseImgs[$i % 3]; @endphp
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow group">
-                    <div class="relative h-40 overflow-hidden">
-                        <img src="/img/{{ $img }}.jpeg" alt="{{ $curso->titulo }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0" style="background: linear-gradient(to top, {{ $cor }}cc, transparent);"></div>
-                        <div class="absolute bottom-3 left-3">
-                            <span class="text-xs font-bold text-white bg-black/30 backdrop-blur px-2 py-0.5 rounded-full">{{ $curso->nivel ?? 'Profissional' }}</span>
+                @forelse($fornecedoresDestaque as $f)
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow group p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-lg font-extrabold text-white"
+                             style="background: linear-gradient(135deg, {{ $f->cor }}, {{ $f->cor }}cc);">
+                            {{ strtoupper(substr($f->nome_empresa, 0, 1)) }}
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="font-bold text-[#1a3a5c] leading-snug group-hover:text-[#c9922a] transition-colors truncate">{{ $f->nome_empresa }}</h3>
+                            <p class="text-slate-400 text-xs">{{ $f->cidade ? $f->cidade . ', ' : '' }}{{ $f->pais }}</p>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full" style="background-color: {{ $cor }}15; color: {{ $cor }};">{{ $curso->modalidade ?? 'Online' }}</span>
-                            @if($curso->duracao)
-                            <span class="text-slate-400 text-xs flex items-center gap-1">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                                {{ $curso->duracao }}
-                            </span>
-                            @endif
-                        </div>
-                        <h3 class="font-bold text-[#1a3a5c] mb-4 leading-snug group-hover:text-[#c9922a] transition-colors">{{ $curso->titulo }}</h3>
-                        <div class="flex items-center justify-between">
-                            <div>
-                                @if($curso->preco_usd)<div class="font-bold text-[#1a3a5c] text-lg">${{ number_format((float) $curso->preco_usd, 0) }}</div>@endif
-                                @if($curso->preco_aoa)<div class="text-slate-400 text-xs">AKZ {{ number_format((float) $curso->preco_aoa, 0) }}</div>@endif
-                            </div>
-                            <a href="{{ route('courses') }}" class="bg-[#1a3a5c] hover:bg-[#c9922a] text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">
-                                {{ __('home.see_course') }}
-                            </a>
-                        </div>
-                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4 line-clamp-2">{{ $f->descricao }}</p>
+                    <a href="{{ route('fornecedores') }}" class="bg-[#1a3a5c] hover:bg-[#c9922a] text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors inline-block">
+                        {{ __('home.see_supplier') }}
+                    </a>
                 </div>
                 @empty
                 <div class="col-span-3 text-center text-slate-400 py-16">
-                    <p>{{ __('home.no_courses') }}</p>
-                    <a href="{{ route('courses') }}" class="text-[#c9922a] hover:underline mt-2 inline-block text-sm">Ver todos os cursos</a>
+                    <p>{{ __('home.no_suppliers') }}</p>
+                    <a href="{{ route('fornecedores') }}" class="text-[#c9922a] hover:underline mt-2 inline-block text-sm">{{ __('home.see_all_suppliers') }}</a>
                 </div>
                 @endforelse
             </div>

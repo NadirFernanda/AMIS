@@ -35,7 +35,7 @@
                 <div class="hidden md:flex items-center gap-8">
                     <a href="{{ route('home') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Início</a>
                     <a href="{{ route('services') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Serviços</a>
-                    <a href="{{ route('courses') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Formação</a>
+                    <a href="{{ route('fornecedores') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Fornecedores</a>
                     <a href="{{ route('about') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Sobre</a>
                     <a href="{{ route('contact') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors">Contacto</a>
                 </div>
@@ -65,7 +65,7 @@
             <div class="px-4 py-4 flex flex-col gap-3">
                 <a href="{{ route('home') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Início</a>
                 <a href="{{ route('services') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Serviços</a>
-                <a href="{{ route('courses') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Formação</a>
+                <a href="{{ route('fornecedores') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Fornecedores</a>
                 <a href="{{ route('about') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Sobre</a>
                 <a href="{{ route('contact') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">Contacto</a>
                 <a href="#" class="bg-[#c9922a] text-white text-sm font-semibold px-4 py-2.5 rounded-lg text-center mt-2">Área Cliente</a>
@@ -115,7 +115,7 @@
                     <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Serviços</h4>
                     <ul class="space-y-2">
                         <li><a href="{{ route('services') }}#consultoria" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">Consultoria Técnica</a></li>
-                        <li><a href="{{ route('courses') }}" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">Formação Profissional</a></li>
+                        <li><a href="{{ route('fornecedores') }}" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">Fornecedores de Equipamentos</a></li>
                         <li><a href="{{ route('services') }}#equipamentos" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">Equipamentos</a></li>
                         <li><a href="{{ route('about') }}" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">Sobre a AMIS</a></li>
                     </ul>

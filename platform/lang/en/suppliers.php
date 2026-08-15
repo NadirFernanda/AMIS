@@ -1,0 +1,21 @@
+<?php
+return [
+    'page_title'    => 'Suppliers',
+    'page_desc'     => 'We connect mining companies to verified mining equipment suppliers.',
+    'header_label'  => 'Partner Network',
+    'header_title'  => 'Mining Equipment Suppliers',
+    'header_desc'   => 'Explore international suppliers by category and ask AMIS to bridge you to the right partner for your project.',
+    'filter_all'    => 'All categories',
+    'request_btn'   => 'Request Introduction',
+    'form_sent'     => 'Request sent! We will get in touch shortly.',
+    'form_name'     => 'Your name',
+    'form_email'    => 'Your email',
+    'form_company'  => 'Company (optional)',
+    'form_message'  => 'Describe what you are looking for...',
+    'form_submit'   => 'Send Request',
+    'form_cancel'   => 'Cancel',
+    'no_suppliers'  => 'No suppliers configured in this category.',
+    'cta_title'     => "Didn't find the right supplier?",
+    'cta_desc'      => 'Talk to us and we will help find the ideal partner for your project.',
+    'cta_btn'       => 'Talk to Us',
+];

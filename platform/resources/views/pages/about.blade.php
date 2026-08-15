@@ -148,8 +148,8 @@
                 <a href="{{ route('contact') }}" class="bg-white text-[#c9922a] hover:bg-slate-100 font-bold px-8 py-3.5 rounded-lg transition-colors text-sm">
                     {{ __('about.cta_talk') }}
                 </a>
-                <a href="{{ route('courses') }}" class="border-2 border-white text-white hover:bg-white hover:text-[#c9922a] font-bold px-8 py-3.5 rounded-lg transition-colors text-sm">
-                    {{ __('about.cta_courses') }}
+                <a href="{{ route('fornecedores') }}" class="border-2 border-white text-white hover:bg-white hover:text-[#c9922a] font-bold px-8 py-3.5 rounded-lg transition-colors text-sm">
+                    {{ __('about.cta_suppliers') }}
                 </a>
             </div>
         </div>

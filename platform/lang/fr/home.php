@@ -4,8 +4,8 @@ return [
     'hero_title_1'     => 'Nous Transformons le',
     'hero_title_2'     => 'Secteur Minier',
     'hero_title_3'     => 'Angolais',
-    'hero_desc'        => 'Conseil technique spécialisé, formation certifiée et solutions technologiques pour les entreprises et professionnels miniers en Angola et en Afrique australe.',
-    'cta_courses'      => 'Voir les Cours',
+    'hero_desc'        => 'Conseil technique spécialisé et mise en relation avec des fournisseurs d\'équipements miniers pour les entreprises minières en Angola et en Afrique australe.',
+    'cta_suppliers'    => 'Voir les Fournisseurs',
     'cta_consulting'   => 'Demander un Conseil',
     'scroll_explore'   => 'Explorer',
     'no_stats'         => 'Aucune statistique disponible.',
@@ -13,33 +13,33 @@ return [
     // Services section
     'services_label'   => 'Ce que nous faisons',
     'services_title'   => 'Solutions Complètes pour les Mines',
-    'services_desc'    => 'De l\'analyse technique à la formation spécialisée, nous couvrons tous les besoins du secteur minier angolais.',
+    'services_desc'    => 'De l\'analyse technique à la mise en relation avec des fournisseurs, nous couvrons tous les besoins du secteur minier angolais.',
     'popular_badge'    => 'Populaire',
     'from_price'       => 'À partir de',
     'learn_more'       => 'En savoir plus',
-    'see_courses'      => 'Voir les cours',
+    'see_suppliers'    => 'Voir les fournisseurs',
 
     // Consulting card
     'cons_title'       => 'Conseil Technique',
     'cons_desc'        => 'Diagnostics, études de faisabilité et optimisation des opérations minières. Équipe avec expérience internationale.',
     'cons_items'       => ['Diagnostic des opérations', 'Études de faisabilité', 'Planification minière', 'Audits techniques'],
 
-    // Training card
-    'train_title'      => 'Formation Professionnelle',
-    'train_desc'       => 'Cours en ligne et en présentiel en génie minier, géosciences et technologies numériques appliquées aux mines.',
-    'train_items'      => ['6 cours certifiés', 'Certificat vérifiable', 'En ligne et en présentiel', 'Formateurs spécialisés'],
+    // Suppliers card
+    'supp_title'       => 'Fournisseurs d\'Équipements',
+    'supp_desc'        => 'Un réseau de fournisseurs internationaux vérifiés, avec une mise en relation directe assurée par AMIS pour votre projet.',
+    'supp_items'       => ['Fournisseurs vérifiés', 'Introduction directe et gratuite', 'Filtrage par catégorie', 'Couverture internationale'],
 
     // Equipment card
     'equip_title'      => 'Équipements & Technologie',
     'equip_desc'       => 'Connexion avec des fabricants internationaux, conseil en acquisition, installation et support technique spécialisé.',
     'equip_items'      => ['Catalogue international', 'Conseil en acquisition', 'Installation supervisée', 'Support technique annuel'],
 
-    // Featured courses
-    'courses_label'    => 'Formation',
-    'courses_title'    => 'Cours en Vedette',
-    'see_all_courses'  => 'Voir tous les cours',
-    'no_courses'       => 'Aucun cours vedette configuré.',
-    'see_course'       => 'Voir le cours',
+    // Featured suppliers
+    'suppliers_label'    => 'Fournisseurs',
+    'suppliers_title'    => 'Fournisseurs en Vedette',
+    'see_all_suppliers'  => 'Voir tous les fournisseurs',
+    'no_suppliers'       => 'Aucun fournisseur vedette configuré.',
+    'see_supplier'       => 'Voir le fournisseur',
     'duration_label'   => 'Durée',
 
     // About section

@@ -4,8 +4,8 @@ return [
     'hero_title_1'     => 'Transformamos o',
     'hero_title_2'     => 'Sector Mineiro',
     'hero_title_3'     => 'Angolano',
-    'hero_desc'        => 'Consultoria técnica especializada, formação certificada e soluções tecnológicas para empresas e profissionais de mineração em Angola e na África Austral.',
-    'cta_courses'      => 'Ver Cursos',
+    'hero_desc'        => 'Consultoria técnica especializada e ligação a fornecedores de equipamentos mineiros para empresas de mineração em Angola e na África Austral.',
+    'cta_suppliers'    => 'Ver Fornecedores',
     'cta_consulting'   => 'Solicitar Consultoria',
     'scroll_explore'   => 'Explorar',
     'no_stats'         => 'Sem estatísticas.',
@@ -13,33 +13,33 @@ return [
     // Services section
     'services_label'   => 'O que fazemos',
     'services_title'   => 'Soluções Completas para a Mineração',
-    'services_desc'    => 'Da análise técnica à formação especializada, cobrimos todas as necessidades do sector mineiro angolano.',
+    'services_desc'    => 'Da análise técnica à ligação com fornecedores, cobrimos todas as necessidades do sector mineiro angolano.',
     'popular_badge'    => 'Popular',
     'from_price'       => 'A partir de',
     'learn_more'       => 'Saber mais',
-    'see_courses'      => 'Ver cursos',
+    'see_suppliers'    => 'Ver fornecedores',
 
     // Consulting card
     'cons_title'       => 'Consultoria Técnica',
     'cons_desc'        => 'Diagnóstico, estudos de viabilidade e optimização de operações mineiras. Equipa com experiência internacional.',
     'cons_items'       => ['Diagnóstico de operações', 'Estudos de viabilidade', 'Planeamento mineiro', 'Auditorias técnicas'],
 
-    // Training card
-    'train_title'      => 'Formação Profissional',
-    'train_desc'       => 'Cursos online e presenciais em engenharia de minas, geociências e tecnologias digitais aplicadas à mineração.',
-    'train_items'      => ['6 cursos certificados', 'Certificado verificável', 'Online e presencial', 'Instrutores especializados'],
+    // Suppliers card
+    'supp_title'       => 'Fornecedores de Equipamentos',
+    'supp_desc'        => 'Rede de fornecedores internacionais verificados, com introdução directa feita pela AMIS para o seu projecto.',
+    'supp_items'       => ['Fornecedores verificados', 'Introdução directa e gratuita', 'Filtro por categoria', 'Cobertura internacional'],
 
     // Equipment card
     'equip_title'      => 'Equipamentos e Tecnologia',
     'equip_desc'       => 'Ligação a fabricantes internacionais, consultoria de aquisição, instalação e suporte técnico especializado.',
     'equip_items'      => ['Catálogo internacional', 'Consultoria de aquisição', 'Instalação supervisionada', 'Suporte técnico anual'],
 
-    // Featured courses
-    'courses_label'    => 'Formação',
-    'courses_title'    => 'Cursos em Destaque',
-    'see_all_courses'  => 'Ver todos os cursos',
-    'no_courses'       => 'Nenhum curso em destaque configurado.',
-    'see_course'       => 'Ver curso',
+    // Featured suppliers
+    'suppliers_label'    => 'Fornecedores',
+    'suppliers_title'    => 'Fornecedores em Destaque',
+    'see_all_suppliers'  => 'Ver todos os fornecedores',
+    'no_suppliers'       => 'Nenhum fornecedor em destaque configurado.',
+    'see_supplier'       => 'Ver fornecedor',
     'duration_label'   => 'Duração',
 
     // About section

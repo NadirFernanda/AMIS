@@ -2,7 +2,7 @@
 return [
     'home'         => 'Accueil',
     'services'     => 'Services',
-    'training'     => 'Formation',
+    'suppliers'    => 'Fournisseurs',
     'projects'     => 'Projets',
     'about'        => 'À propos',
     'contact'      => 'Contact',
@@ -13,7 +13,7 @@ return [
     'footer_services' => 'Services',
     'footer_contact'  => 'Contact',
     'tech_consulting' => 'Conseil Technique',
-    'professional_training' => 'Formation Professionnelle',
+    'suppliers_network' => 'Fournisseurs d\'Équipements',
     'equipment'    => 'Équipements',
     'about_amis'   => 'À propos d\'AMIS',
     'urgencies'    => 'Urgences 24h via WhatsApp',

@@ -2,7 +2,7 @@
 return [
     'home'         => 'Home',
     'services'     => 'Services',
-    'training'     => 'Training',
+    'suppliers'    => 'Suppliers',
     'projects'     => 'Projects',
     'about'        => 'About',
     'contact'      => 'Contact',
@@ -13,7 +13,7 @@ return [
     'footer_services' => 'Services',
     'footer_contact'  => 'Contact',
     'tech_consulting' => 'Technical Consulting',
-    'professional_training' => 'Professional Training',
+    'suppliers_network' => 'Equipment Suppliers',
     'equipment'    => 'Equipment',
     'about_amis'   => 'About AMIS',
     'urgencies'    => '24h emergencies via WhatsApp',

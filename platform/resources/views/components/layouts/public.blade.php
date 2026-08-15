@@ -36,7 +36,7 @@
                 <div class="hidden md:flex items-center gap-8">
                     <a href="{{ route('home') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('home') ? 'text-white' : '' }}">{{ __('nav.home') }}</a>
                     <a href="{{ route('services') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('services') ? 'text-white' : '' }}">{{ __('nav.services') }}</a>
-                    <a href="{{ route('courses') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('courses') ? 'text-white' : '' }}">{{ __('nav.training') }}</a>
+                    <a href="{{ route('fornecedores') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('fornecedores') ? 'text-white' : '' }}">{{ __('nav.suppliers') }}</a>
                     <a href="{{ route('projects') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('projects') ? 'text-white' : '' }}">{{ __('nav.projects') }}</a>
                     <a href="{{ route('about') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('about') ? 'text-white' : '' }}">{{ __('nav.about') }}</a>
                     <a href="{{ route('contact') }}" class="text-slate-300 hover:text-white text-sm font-medium transition-colors {{ request()->routeIs('contact') ? 'text-white' : '' }}">{{ __('nav.contact') }}</a>
@@ -77,7 +77,7 @@
             <div class="px-4 py-4 flex flex-col gap-3">
                 <a href="{{ route('home') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.home') }}</a>
                 <a href="{{ route('services') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.services') }}</a>
-                <a href="{{ route('courses') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.training') }}</a>
+                <a href="{{ route('fornecedores') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.suppliers') }}</a>
                 <a href="{{ route('projects') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.projects') }}</a>
                 <a href="{{ route('about') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.about') }}</a>
                 <a href="{{ route('contact') }}" class="text-slate-300 hover:text-white py-2 text-sm font-medium">{{ __('nav.contact') }}</a>
@@ -138,7 +138,7 @@
                     <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">{{ __('nav.footer_services') }}</h4>
                     <ul class="space-y-2">
                         <li><a href="{{ route('services') }}#consultoria" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">{{ __('nav.tech_consulting') }}</a></li>
-                        <li><a href="{{ route('courses') }}" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">{{ __('nav.professional_training') }}</a></li>
+                        <li><a href="{{ route('fornecedores') }}" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">{{ __('nav.suppliers_network') }}</a></li>
                         <li><a href="{{ route('services') }}#equipamentos" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">{{ __('nav.equipment') }}</a></li>
                         <li><a href="{{ route('about') }}" class="text-slate-400 hover:text-[#c9922a] text-sm transition-colors">{{ __('nav.about_amis') }}</a></li>
                     </ul>

@@ -51,6 +51,9 @@
                         @if($m->empresa)
                         <div class="text-slate-400 text-xs">{{ $m->empresa }}</div>
                         @endif
+                        @if($m->fornecedor)
+                        <div class="text-[#c9922a] text-xs mt-0.5">→ {{ $m->fornecedor->nome_empresa }}</div>
+                        @endif
                     </td>
 
                     {{-- Assunto --}}
@@ -58,7 +61,6 @@
                         <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold
                             @switch($m->subject)
                                 @case('consultoria') bg-[#1a3a5c]/10 text-[#1a3a5c] @break
-                                @case('formacao') bg-amber-100 text-amber-700 @break
                                 @case('equipamentos') bg-teal-100 text-teal-700 @break
                                 @case('parceria') bg-purple-100 text-purple-700 @break
                                 @default bg-slate-100 text-slate-600

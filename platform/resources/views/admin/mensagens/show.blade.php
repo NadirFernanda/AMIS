@@ -34,6 +34,13 @@
                     <p class="font-medium text-slate-700">{{ $mensagem->empresa }}</p>
                 </div>
                 @endif
+                @if($mensagem->fornecedor)
+                <div>
+                    <p class="text-slate-400 text-xs mb-1">Fornecedor pedido</p>
+                    <a href="{{ route('admin.fornecedores.edit', $mensagem->fornecedor) }}"
+                       class="font-medium text-[#c9922a] hover:underline">{{ $mensagem->fornecedor->nome_empresa }}</a>
+                </div>
+                @endif
             </div>
         </div>
 
@@ -44,7 +51,6 @@
                 <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold
                     @switch($mensagem->subject)
                         @case('consultoria') bg-[#1a3a5c]/10 text-[#1a3a5c] @break
-                        @case('formacao') bg-amber-100 text-amber-700 @break
                         @case('equipamentos') bg-teal-100 text-teal-700 @break
                         @case('parceria') bg-purple-100 text-purple-700 @break
                         @default bg-slate-100 text-slate-600

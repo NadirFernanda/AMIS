@@ -4,8 +4,8 @@ return [
     'hero_title_1'     => 'We Transform the',
     'hero_title_2'     => 'Mining Sector',
     'hero_title_3'     => 'in Angola',
-    'hero_desc'        => 'Specialised technical consulting, certified training and technological solutions for mining companies and professionals in Angola and Southern Africa.',
-    'cta_courses'      => 'View Courses',
+    'hero_desc'        => 'Specialised technical consulting and connections to mining equipment suppliers for mining companies in Angola and Southern Africa.',
+    'cta_suppliers'    => 'View Suppliers',
     'cta_consulting'   => 'Request Consulting',
     'scroll_explore'   => 'Explore',
     'no_stats'         => 'No statistics available.',
@@ -13,33 +13,33 @@ return [
     // Services section
     'services_label'   => 'What we do',
     'services_title'   => 'Complete Solutions for Mining',
-    'services_desc'    => 'From technical analysis to specialised training, we cover all needs of the Angolan mining sector.',
+    'services_desc'    => 'From technical analysis to supplier connections, we cover all needs of the Angolan mining sector.',
     'popular_badge'    => 'Popular',
     'from_price'       => 'Starting from',
     'learn_more'       => 'Learn more',
-    'see_courses'      => 'View courses',
+    'see_suppliers'    => 'View suppliers',
 
     // Consulting card
     'cons_title'       => 'Technical Consulting',
     'cons_desc'        => 'Diagnostics, feasibility studies and optimisation of mining operations. Team with international experience.',
     'cons_items'       => ['Operations diagnostics', 'Feasibility studies', 'Mining planning', 'Technical audits'],
 
-    // Training card
-    'train_title'      => 'Professional Training',
-    'train_desc'       => 'Online and in-person courses in mining engineering, geosciences and digital technologies applied to mining.',
-    'train_items'      => ['6 certified courses', 'Verifiable certificate', 'Online and in-person', 'Specialist instructors'],
+    // Suppliers card
+    'supp_title'       => 'Equipment Suppliers',
+    'supp_desc'        => 'A network of verified international suppliers, with direct introductions made by AMIS for your project.',
+    'supp_items'       => ['Verified suppliers', 'Direct, free introduction', 'Filter by category', 'International coverage'],
 
     // Equipment card
     'equip_title'      => 'Equipment & Technology',
     'equip_desc'       => 'Connection with international manufacturers, acquisition consulting, installation and specialised technical support.',
     'equip_items'      => ['International catalogue', 'Acquisition consulting', 'Supervised installation', 'Annual technical support'],
 
-    // Featured courses
-    'courses_label'    => 'Training',
-    'courses_title'    => 'Featured Courses',
-    'see_all_courses'  => 'View all courses',
-    'no_courses'       => 'No featured courses configured.',
-    'see_course'       => 'View course',
+    // Featured suppliers
+    'suppliers_label'    => 'Suppliers',
+    'suppliers_title'    => 'Featured Suppliers',
+    'see_all_suppliers'  => 'View all suppliers',
+    'no_suppliers'       => 'No featured suppliers configured.',
+    'see_supplier'       => 'View supplier',
     'duration_label'   => 'Duration',
 
     // About section

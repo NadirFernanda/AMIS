@@ -1,0 +1,21 @@
+<?php
+return [
+    'page_title'    => 'Fournisseurs',
+    'page_desc'     => 'Nous connectons les entreprises minières à des fournisseurs d\'équipements miniers vérifiés.',
+    'header_label'  => 'Réseau de Partenaires',
+    'header_title'  => 'Fournisseurs d\'Équipements Miniers',
+    'header_desc'   => 'Explorez des fournisseurs internationaux par catégorie et demandez à AMIS de vous mettre en relation avec le bon partenaire pour votre projet.',
+    'filter_all'    => 'Toutes les catégories',
+    'request_btn'   => 'Demander une Introduction',
+    'form_sent'     => 'Demande envoyée! Nous vous contacterons bientôt.',
+    'form_name'     => 'Votre nom',
+    'form_email'    => 'Votre email',
+    'form_company'  => 'Entreprise (optionnel)',
+    'form_message'  => 'Décrivez ce que vous recherchez...',
+    'form_submit'   => 'Envoyer la Demande',
+    'form_cancel'   => 'Annuler',
+    'no_suppliers'  => 'Aucun fournisseur configuré dans cette catégorie.',
+    'cta_title'     => 'Vous n\'avez pas trouvé le bon fournisseur?',
+    'cta_desc'      => 'Parlez-nous et nous vous aiderons à trouver le partenaire idéal pour votre projet.',
+    'cta_btn'       => 'Nous Contacter',
+];

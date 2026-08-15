@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Curso;
 use App\Models\Consultoria;
 use App\Models\Membro;
 use App\Models\Equipamento;
 use App\Models\Estatistica;
+use App\Models\Fornecedor;
 use App\Models\Mensagem;
 use App\Models\Projecto;
 use App\Models\Testemunho;
@@ -18,14 +18,14 @@ class PublicController extends Controller
 {
     public function home(): View
     {
-        $cursosDestaque = Curso::destaque()->limit(3)->get();
-        if ($cursosDestaque->count() < 3) {
-            $cursosDestaque = Curso::ativos()->limit(3)->get();
+        $fornecedoresDestaque = Fornecedor::destaque()->limit(3)->get();
+        if ($fornecedoresDestaque->count() < 3) {
+            $fornecedoresDestaque = Fornecedor::ativos()->limit(3)->get();
         }
         $stats = Estatistica::todos();
         $projectos    = Projecto::destaque()->limit(3)->get();
         $testemunhos = Testemunho::ativos()->limit(3)->get();
-        return view('pages.home', compact('cursosDestaque', 'stats', 'projectos', 'testemunhos'));
+        return view('pages.home', compact('fornecedoresDestaque', 'stats', 'projectos', 'testemunhos'));
     }
 
     public function services(): View
@@ -35,10 +35,39 @@ class PublicController extends Controller
         return view('pages.services', compact('consultorias', 'equipamentos'));
     }
 
-    public function courses(): View
+    public function fornecedores(Request $request): View
     {
-        $cursos = Curso::ativos()->get();
-        return view('pages.courses', compact('cursos'));
+        $categorias  = Equipamento::ativos()->get();
+        $categoriaId = $request->integer('categoria') ?: null;
+
+        $fornecedores = Fornecedor::ativos()
+            ->with('equipamentos')
+            ->when($categoriaId, fn ($q) => $q->whereHas('equipamentos', fn ($q2) => $q2->where('equipamentos.id', $categoriaId)))
+            ->get();
+
+        return view('pages.fornecedores', compact('categorias', 'fornecedores', 'categoriaId'));
+    }
+
+    public function pedirIntroducaoFornecedor(Request $request, Fornecedor $fornecedor): RedirectResponse
+    {
+        $validated = $request->validate([
+            'name'    => ['required', 'string', 'max:100'],
+            'email'   => ['required', 'email', 'max:100'],
+            'company' => ['nullable', 'string', 'max:100'],
+            'message' => ['required', 'string', 'min:10', 'max:2000'],
+        ]);
+
+        Mensagem::create([
+            'name'          => $validated['name'],
+            'email'         => $validated['email'],
+            'empresa'       => $validated['company'] ?? null,
+            'subject'       => 'equipamentos',
+            'message'       => "Pedido de introdução ao fornecedor \"{$fornecedor->nome_empresa}\":\n\n" . $validated['message'],
+            'fornecedor_id' => $fornecedor->id,
+        ]);
+
+        return redirect()->route('fornecedores')
+            ->with('success', 'Pedido enviado! A nossa equipa vai fazer a ponte com o fornecedor em breve.');
     }
 
     public function about(): View
@@ -77,7 +106,7 @@ class PublicController extends Controller
             'name'    => ['required', 'string', 'max:100'],
             'email'   => ['required', 'email', 'max:100'],
             'company' => ['nullable', 'string', 'max:100'],
-            'subject' => ['required', 'in:consultoria,formacao,equipamentos,parceria,outro'],
+            'subject' => ['required', 'in:consultoria,equipamentos,parceria,outro'],
             'message' => ['required', 'string', 'min:10', 'max:2000'],
         ]);
 

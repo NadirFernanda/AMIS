@@ -130,7 +130,6 @@
                                 class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#1a3a5c]/30 focus:border-[#1a3a5c] transition-all bg-white">
                                 <option value="" disabled selected>{{ __('contact.field_subject') }}</option>
                                 <option value="consultoria" {{ old('subject') == 'consultoria' ? 'selected' : '' }}>{{ __('contact.subject_consulting') }}</option>
-                                <option value="formacao" {{ old('subject') == 'formacao' ? 'selected' : '' }}>{{ __('contact.subject_courses') }}</option>
                                 <option value="equipamentos" {{ old('subject') == 'equipamentos' ? 'selected' : '' }}>{{ __('contact.subject_equipment') }}</option>
                                 <option value="parceria" {{ old('subject') == 'parceria' ? 'selected' : '' }}>{{ __('contact.subject_partnership') }}</option>
                                 <option value="outro" {{ old('subject') == 'outro' ? 'selected' : '' }}>{{ __('contact.subject_general') }}</option>

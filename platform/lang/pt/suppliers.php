@@ -1,0 +1,21 @@
+<?php
+return [
+    'page_title'    => 'Fornecedores',
+    'page_desc'     => 'Ligamos empresas mineiras a fornecedores de equipamentos mineiros verificados.',
+    'header_label'  => 'Rede de Parceiros',
+    'header_title'  => 'Fornecedores de Equipamentos Mineiros',
+    'header_desc'   => 'Explore fornecedores internacionais por categoria e peça à AMIS para fazer a ponte com o parceiro certo para o seu projecto.',
+    'filter_all'    => 'Todas as categorias',
+    'request_btn'   => 'Pedir Introdução',
+    'form_sent'     => 'Pedido enviado! Entraremos em contacto em breve.',
+    'form_name'     => 'O seu nome',
+    'form_email'    => 'O seu email',
+    'form_company'  => 'Empresa (opcional)',
+    'form_message'  => 'Descreva o que procura...',
+    'form_submit'   => 'Enviar Pedido',
+    'form_cancel'   => 'Cancelar',
+    'no_suppliers'  => 'Nenhum fornecedor configurado nesta categoria.',
+    'cta_title'     => 'Não encontrou o fornecedor certo?',
+    'cta_desc'      => 'Fale connosco e ajudamos a encontrar o parceiro ideal para o seu projecto.',
+    'cta_btn'       => 'Falar Connosco',
+];

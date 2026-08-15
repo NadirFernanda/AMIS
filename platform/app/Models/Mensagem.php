@@ -8,9 +8,14 @@ class Mensagem extends Model
 {
     protected $table = 'mensagens';
 
-    protected $fillable = ['name', 'email', 'empresa', 'subject', 'message', 'lida'];
+    protected $fillable = ['name', 'email', 'empresa', 'subject', 'message', 'lida', 'fornecedor_id'];
 
     protected $casts = ['lida' => 'boolean'];
+
+    public function fornecedor()
+    {
+        return $this->belongsTo(Fornecedor::class);
+    }
 
     public function scopeNaoLidas($query)
     {
