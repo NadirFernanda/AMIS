@@ -11,11 +11,12 @@
 
 A **AMIS** é uma empresa de consultoria e inovação tecnológica para o setor mineiro angolano. Esta plataforma digital centraliza:
 
-- **Gestão de cursos online** (LMS) em engenharia de minas e geociências
 - **Portal de consultoria técnica** com gestão de projetos
-- **Catálogo de equipamentos** com pedidos de cotação
+- **Directório de fornecedores de equipamentos** mineiros, com pedidos de introdução mediados pela AMIS
 - **CRM** para gestão de clientes e oportunidades
 - **Painel administrativo** completo com dashboards financeiros
+
+> Não existe módulo de cursos/formação online (LMS) — o negócio não vende formação.
 
 ---
 
@@ -55,8 +56,8 @@ A **AMIS** é uma empresa de consultoria e inovação tecnológica para o setor 
 ┌─────────────────────────────────────────────────────────┐
 │                  AMIS PLATFORM                          │
 ├──────────────┬──────────────┬──────────────┬────────────┤
-│   Website    │     LMS      │ Consultoria  │  CRM       │
-│   Público    │   (Cursos)   │  (Projetos)  │ (Clientes) │
+│   Website    │ Fornecedores │ Consultoria  │  CRM       │
+│   Público    │ (Equipamento)│  (Projetos)  │ (Clientes) │
 ├──────────────┴──────────────┴──────────────┴────────────┤
 │            Equipamentos  │  Pagamentos  │  Notificações │
 ├───────────────────────────────────────────────────────  ┤
